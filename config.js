@@ -8,7 +8,7 @@ export default {
   targets: [
     {
       template: '404.njk',
-      dest: 'dist/404.njk',
+      dest: 'dist/404.html',
       include: ['pages']
     },
     {
