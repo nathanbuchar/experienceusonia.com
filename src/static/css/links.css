@@ -1,0 +1,36 @@
+.links-module.module {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 12px;
+  color: var(--link-color);
+  font-family: "Jost", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin: 6rem auto;
+}
+
+.links-module p {
+  margin: 0;
+}
+
+.links-module__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.links-module__buttons .button svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .links-module.module {
+    flex-direction: column;
+  }
+}

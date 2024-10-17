@@ -1,0 +1,13 @@
+.paragraph-module.module {
+  column-count: 2;
+  column-gap: 12px;
+  margin: 4em auto;
+  min-height: 10em;
+}
+
+@media screen and (max-width: 768px) {
+  .paragraph-module.module {
+    column-count: 1;
+    margin-bottom: 3em;
+  }
+}

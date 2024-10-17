@@ -1,0 +1,7 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  {% for module in modules %}
+    {{ renderModule(module.sys.contentType.sys.id, module.fields) }}
+  {% endfor %}
+{% endblock %}

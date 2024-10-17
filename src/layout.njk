@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    {% if title %}
+      <title>{{ title }} — Goetsch&ndash;Winckler House &middot; Frank Lloyd Wright</title>
+    {% else %}
+      <title>My app</title>
+    {% endif %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <script src="https://unpkg.com/lazyload@2.0.0-rc.2/lazyload.js"></script>
+    <script defer type="module" src="/js/main.js"></script>
+
+    {% block extraHead %}{% endblock %}
+  </head>
+  <body>
+    <div id="content">
+      <main id="main">
+        {% block content %}
+          {# Page content goes here. #}
+        {% endblock %}
+      </main>
+      {{ renderModule("footer") }}
+    </div>
+  </body>
+</html>

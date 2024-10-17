@@ -1,0 +1,20 @@
+<div class="links-module module">
+  {% if isComingSoon %}
+    <span class="links-module__coming-soon">
+      <p>Coming to</p>
+    </span>
+  {% endif %}
+  <div class="links-module__buttons">
+    <a class="button" href="https://airbnb.com/h/goetschwincklerhouse" target="__blank">
+      {% include "partials/airbnb.njk" %}
+    </a>
+    <a class="button" href="https://www.vrbo.com/4240515" target="__blank">
+      {% include "partials/vrbo.njk" %}
+    </a>
+  </div>
+  {% if isComingSoon %}
+    <span class="links-module__coming-soon">
+      <p>in 2025</p>
+    </span>
+  {% endif %}
+</div>

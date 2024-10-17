@@ -1,0 +1,23 @@
+.image-two-up-module.module {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 12px;
+  row-gap: 12px;
+  margin-bottom: 12px;
+}
+
+.image-two-up-module img {
+  max-width: calc(50% - 6px);
+}
+
+@media screen and (max-width: 768px) {
+  .image-two-up-module.module {
+    flex-direction: column;
+  }
+
+  .image-two-up-module img {
+    max-width: 100%;
+  }
+}

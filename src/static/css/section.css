@@ -1,0 +1,33 @@
+.section-module.module {
+  margin-top: 8rem;
+  margin-bottom: 2rem;
+}
+
+.section-module h2 {
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.section-module h2:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: var(--link-color);
+  margin-right: 8px;
+  margin-bottom: 1px;
+  display: inline-block;
+}
+
+.section-module.module .paragraph-module.module {
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 768px) {
+  .section-module.module {
+    margin-top: 3rem;
+  }
+
+  .section-module h2 {
+    width: 100%;
+  }
+}

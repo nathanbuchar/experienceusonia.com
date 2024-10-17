@@ -1,0 +1,11 @@
+:root {
+  --desktop-font-size: 1.2rem/1.65;
+  --mobile-font-size: 1.1rem/1.5;
+  --header-color: #532104;
+  --text-color: #7F4829;
+  --link-color: #E63F18;
+  --link-color-alt: #BE2E0D;
+  --primary-color: #FFF5EB;
+  --secondary-color: #FFDEBF;
+  --tertiary-color: #A98B78;
+}
