@@ -26,6 +26,8 @@
   align-items: end;
   justify-content: center;
   color: var(--secondary-color);
+  height: 100vh;
+  min-height: 814px;
 }
 
 .hero-module__screen {
@@ -129,6 +131,7 @@
 @media screen and (max-width: 768px) {
   .hero-module__hero {
     height: 75vh;
+    min-height: auto;
   }
 
   .hero-module__image {
