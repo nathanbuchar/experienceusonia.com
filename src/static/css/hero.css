@@ -27,7 +27,7 @@
   justify-content: center;
   color: var(--secondary-color);
   height: 100vh;
-  min-height: 840px;
+  min-height: 814px;
 }
 
 .hero-module__screen {
@@ -75,7 +75,6 @@
   animation-duration: 2s;
   animation-timing-function: ease;
   animation-iteration-count: 1;
-  max-width: 700px;
 }
 
 .hero-module__content {
