@@ -64,7 +64,7 @@ img.lazyload[src] {
   max-width: 840px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 12px;
+  padding: 0 16px;
 }
 
 .module .module {
