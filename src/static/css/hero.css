@@ -116,18 +116,6 @@
   color: var(--secondary-color);
 }
 
-.hero-module__links .links-module.module a.button {
-  border: 2px solid var(--secondary-color);
-  color: var(--secondary-color);
-  background-color: transparent;
-}
-
-.hero-module__links .links-module.module  .button:hover {
-  background: var(--link-color-alt);
-  border-color: var(--link-color-alt);
-  color: var(--secondary-color);
-}
-
 @media screen and (max-width: 768px) {
   .hero-module__hero {
     height: 75vh;
@@ -158,10 +146,6 @@
     line-height: 1.75rem;
   }
 
-  .hero-module__links .links-module.module a.button {
-    height: 36px;
-    padding: 8px 12px;
-  }
   .hero-module__links .links-module.module .links-module__coming-soon {
     display: none;
   }
