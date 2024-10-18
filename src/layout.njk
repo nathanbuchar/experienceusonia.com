@@ -23,6 +23,16 @@
     <script src="https://unpkg.com/lazyload@2.0.0-rc.2/lazyload.js"></script>
     <script defer type="module" src="/js/main.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFX073R72Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-TFX073R72Y');
+    </script>
+
     {% block extraHead %}{% endblock %}
   </head>
   <body>
