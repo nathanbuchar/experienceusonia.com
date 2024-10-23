@@ -1,8 +1,13 @@
 .paragraph-module.module {
   column-count: 2;
-  column-gap: 12px;
+  column-gap: 16px;
   margin: 4em auto;
   min-height: 10em;
+}
+
+.paragraph-module--centered.module {
+  column-count: 1;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
