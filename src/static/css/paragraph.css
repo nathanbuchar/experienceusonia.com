@@ -1,6 +1,6 @@
 .paragraph-module.module {
   column-count: 2;
-  column-gap: 16px;
+  column-gap: 20px;
   margin: 4em auto;
   min-height: 10em;
 }
