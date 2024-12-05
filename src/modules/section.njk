@@ -1,4 +1,6 @@
 <div class="section-module module">
-  <h2>{{ title | markdown | safe }}</h2>
-  {{ renderModule("paragraph", ctx()) }}
+  <h2>{{ title | markdownInline | safe }}</h2>
+  {% if content %}
+    {{ renderModule("paragraph", ctx()) }}
+  {% endif %}
 </div>

@@ -1,3 +1,7 @@
-<div class="paragraph-module {{ "paragraph-module--centered" if isCentered }} module">
-  <p>{{ content | markdown | safe }}</p>
+<div class="paragraph-module paragraph-module--align-{{ align }} paragraph-module--col-{{ numColumns }} module">
+  {% if isInline %}
+    <p>{{ content | markdownInline | safe }}</p>
+  {% else %}
+    <p>{{ content | markdown | safe }}</p>
+  {% endif %}
 </div>

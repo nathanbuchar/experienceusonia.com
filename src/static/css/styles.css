@@ -9,7 +9,7 @@
 @import "./image-two-up.css";
 @import "./footer.css";
 
-h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure {
+h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure, ul, ol {
   margin: 0;
 }
 
