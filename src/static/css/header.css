@@ -1,0 +1,15 @@
+.header-module.module {
+  font-size: 0.75rem;
+  row-gap: 1rem;
+  align-items: left;
+  margin-top: 6em;
+}
+
+.header-module__logo {
+  height: 32px;
+  color: var(--tertiary-color);
+}
+
+.header-module__logo svg {
+  height: 100%;
+}

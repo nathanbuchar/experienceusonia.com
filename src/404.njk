@@ -3,5 +3,8 @@
 {% set title = "404" %}
 
 {% block content %}
-  <p>Not found.</p>
+  {{ renderModule("section", {
+    title: "Error 404",
+    content: "This page does not exist or has been moved. [Go home](/)."
+  }) }}
 {% endblock %}

@@ -37,6 +37,9 @@
   </head>
   <body>
     <div id="content">
+      {% if url != "/" %}
+        {{ renderModule("header") }}
+      {% endif %}
       <main id="main">
         {% block content %}
           {# Page content goes here. #}
