@@ -124,16 +124,34 @@
   }
 
   .hero-module__image {
-    object-position: 83% bottom;
+    object-position: 85% bottom;
+    animation: pan;
+    animation-duration: 12s;
+    animation-timing-function: ease;
   }
 
   .hero-module__tagline-container {
-    mask-position: 83% bottom;
+    mask-position: 85% bottom;
+    animation: pan;
+    animation-duration: 12s;
+    animation-timing-function: ease;
+  }
+
+  @keyframes pan {
+    0% {
+      object-position: 15% bottom;
+      mask-position: 15% bottom;
+    }
+    100% {
+      object-position: 85% bottom;
+      mask-position: 85% bottom;
+    }
   }
 
   .hero-module__tagline {
     width: 100%;
     min-width: auto;
+    animation: none;
   }
 
   .hero-module__content {
@@ -153,6 +171,10 @@
 
   .hero-module__metadata {
     margin-bottom: 1rem;
+  }
+  
+  .hero-module__links .links-module.module .links-module__buttons {
+    flex-direction: row;
   }
   
   .hero-module__links .links-module.module .links-module__coming-soon {

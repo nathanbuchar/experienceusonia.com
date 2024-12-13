@@ -6,10 +6,24 @@
 }
 
 .header-module__logo {
-  height: 32px;
   color: var(--tertiary-color);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header-module__logo::after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  bottom: 6px;
+  background-color: var(--link-color);
 }
 
 .header-module__logo svg {
   height: 100%;
+  display: inline-block;
+  max-height: 18px;
+  color: inherit;
 }

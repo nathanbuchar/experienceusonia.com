@@ -13,10 +13,16 @@
 }
 
 .footer-module__logo {
-  height: 24px;
+  height: 14px;
   color: var(--tertiary-color);
 }
 
 .footer-module__logo svg {
   height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-module.module {
+    margin-top: 10rem;
+  }
 }

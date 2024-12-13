@@ -30,7 +30,8 @@
 }
 
 @media screen and (max-width: 768px) {
-  .links-module.module {
+  .links-module__buttons {
     flex-direction: column;
+    row-gap: 12px;
   }
 }
