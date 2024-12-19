@@ -1,8 +1,6 @@
 .header-module.module {
   font-size: 0.75rem;
-  row-gap: 1rem;
-  align-items: left;
-  margin-top: 6em;
+  margin-top: 5rem;
 }
 
 .header-module__logo {

@@ -48,10 +48,6 @@ h2 {
   line-height: 1.75rem;
 }
 
-img {
-  margin: 0;
-}
-
 img.lazyload {
   opacity: 0;
   transition: opacity 0.35s ease;
