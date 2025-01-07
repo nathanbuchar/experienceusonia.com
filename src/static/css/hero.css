@@ -160,13 +160,13 @@
   }
 
   .hero-module__title {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     max-width: 240px;
   }
 
   .hero-module__title h1 {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 2.5rem;
+    line-height: 2rem;
   }
 
   .hero-module__metadata {
