@@ -1,0 +1,8 @@
+{% extends "layout.njk" %}
+
+{% set pageKey = "debug" %}
+{% set title = "Debug" %}
+
+{% block content %}
+  {{ ctx() | debug }}
+{% endblock %}

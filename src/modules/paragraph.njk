@@ -1,7 +1,3 @@
 <div class="paragraph-module paragraph-module--align-{{ align }} paragraph-module--col-{{ numColumns }} module">
-  {% if isInline %}
-    <p>{{ content | markdownInline | safe }}</p>
-  {% else %}
-    <p>{{ content | markdown | safe }}</p>
-  {% endif %}
+  <p>{{ content | markdown(isInline) | safe }}</p>
 </div>

@@ -1,19 +1,14 @@
-import 'dotenv/config';
-
 import fs from 'fs';
 import path from 'path';
-
-import config from '../config.js';
-import client from '../lib/contentful.js';
-import nunjucks from '../lib/nunjucks.js';
 
 /**
  * Removes the dist directory.
  *
+ * @async
  * @returns {Promise<void>}
  */
-function clean() {
-  return new Promise((resolve, reject) => {
+async function clean() {
+  await new Promise((resolve, reject) => {
     fs.rm('dist', { recursive: true }, (err) => {
       if (err && err.code !== 'ENOENT') {
         reject(err);
@@ -25,16 +20,20 @@ function clean() {
 }
 
 /**
- * Copies the src/static directory to dist.
+ * Copies files from src to dest recursively.
  *
+ * @async
+ * @param {Target.src} src
+ * @param {Target.dest} dest
  * @returns {Promise<void>}
  */
-function copyStatic() {
-  return new Promise((resolve, reject) => {
-    fs.cp('src/static', 'dist', { recursive: true }, (err) => {
+async function copyFiles(src, dest) {
+  await new Promise((resolve, reject) => {
+    fs.cp(src, dest, { recursive: true }, (err) => {
       if (err && err.code !== 'ENOENT') {
         reject(err);
       } else {
+        console.log(`Copied "${src}" to "${dest}"`);
         resolve();
       }
     });
@@ -44,144 +43,153 @@ function copyStatic() {
 /**
  * Writes a file.
  *
+ * @async
  * @param {string} pathToFile
  * @param {string} data
  * @returns {Promise<void>}
  */
-function writeFile(pathToFile, data) {
-  return new Promise((resolve, reject) => {
+async function writeFile(pathToFile, data) {
+  await new Promise((resolve, reject) => {
     const dirname = path.dirname(pathToFile);
 
     fs.mkdir(dirname, { recursive: true }, (err) => {
-      if (err) return reject(err);
-
-      fs.writeFile(pathToFile, data, (err) => {
-        if (err) return reject(err);
-
-        resolve();
-      });
+      if (err) {
+        reject(err);
+      } else {
+        fs.writeFile(pathToFile, data, (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            console.log(`Wrote file "${pathToFile}"`);
+            resolve();
+          }
+        });
+      }
     });
   });
 }
 
 /**
- * Fetches entries from the Contentful CDN and returns them
- * as a key-value map.
- *
- * @returns {Promise<{string: Object[]}>}
+ * Gets data from the CMS client.
+ * 
+ * @async
+ * @param {Config} config
+ * @returns {Promise<Data>} data
  */
-function getData() {
-  return Promise.all([
-    ...config.entries.map(({ key, contentType }) => {
-      return (
-        client
-          .getEntries({ content_type: contentType })
-          .then((data) => {
-            return [key, data.items];
-          })
-      );
-    })
-  ]).then(Object.fromEntries);
-}
+async function getData(config) {
+  const data = await config.client.getData(config.sources);
 
-/**
- * Renders a Nunjucks template.
- *
- * @param {string} template
- * @param {Object} ctx
- * @returns {Promise<string>}
- */
-function renderTemplate(template, ctx) {
-  return new Promise((resolve, reject) => {
-    nunjucks.render(template, ctx, (err, res) => {
-      if (err) return reject(err);
-
-      resolve(res);
-    });
-  });
+  return data;
 }
 
 /**
  * Renders a target.
  *
- * @param {Object} target
+ * @async
+ * @param {Config} config
+ * @param {Target} target
  * @param {Object} ctx
  * @returns {Promise<void>}
  */
-function renderTarget(target, ctx) {
+async function renderTarget(config, target, ctx) {
   const template = path.normalize(target.template);
   const dest = path.normalize(target.dest);
+  
+  const res = await config.engine.render(template, ctx);
 
-  return (
-    renderTemplate(template, ctx)
-      .then((res) => writeFile(dest, res))
-      .then(() => {
-        console.log(`Wrote file "${dest}"`);
-      })
-  );
+  await writeFile(dest, res);
 }
 
 /**
  * Builds a target.
  *
- * @param {Object} target
- * @param {Object} data
+ * @async
+ * @param {Config} config
+ * @param {Data} data
+ * @param {Target} target
  * @returns {Promise<void>}
  */
-function buildTarget(target, data) {
-  const ctx = {};
+async function buildTarget(config, data, target) {
+  if (target.src) {
+    await copyFiles(target.src, target.dest);
+  } else {
+    const ctx = {};
 
-  // Insert included data.
-  if (target.include) {
-    target.include.forEach((key) => {
-      ctx[key] = data[key];
-    });
+    // Apply included data.
+    if (target.include) {
+      target.include.forEach((key) => {
+        ctx[key] = data[key];
+      });
+    }
+
+    // Apply extra context.
+    if (target.extraContext) {
+      Object.assign(ctx, target.extraContext);
+    }
+
+    await renderTarget(config, target, ctx);
   }
-
-  // Insert extra context.
-  if (target.extraContext) {
-    Object.assign(ctx, target.extraContext);
-  }
-
-  return renderTarget(target, ctx);
 }
 
 /**
  * Builds all targets recursively.
  *
- * @param {Object[]} targets
- * @param {Object} data
+ * @async
+ * @param {Config} config
+ * @param {Data} data
+ * @param {(Target | TargetFn)[]} targets
  * @returns {Promise<void>}
  */
-function buildTargets(targets, data) {
-  return Promise.all([
-    ...targets.map((target) => {
-      if (target.entries) {
-        return data[target.entries].map((entry, ...rest) => {
-          const newTarget = target.handler(entry, ...rest);
-          const newTargetArr = Array.isArray(newTarget) ? newTarget : [newTarget];
+async function buildTargets(config, data, targets) {
+  for (const target of targets) {
+    if (typeof target === 'function') {
+      const newTarget = await target(data);
+      const newTargetArr = Array.isArray(newTarget) ? newTarget : [newTarget];
 
-          return buildTargets(newTargetArr, data);
-        });
-      } else {
-        return buildTarget(target, data);
-      }
-    })
-  ]);
+      await buildTargets(config, data, newTargetArr);
+    } else {
+      await buildTarget(config, data, target);
+    }
+  }
+}
+
+/**
+ * Reads the config file from the directory in which npm
+ * was invoked.
+ * 
+ * @async
+ * @returns {Promise<Config>}
+ */
+async function getConfig() {
+  const npmDir = process.cwd();
+  const pathToConfig = path.resolve(npmDir, 'config.js');
+
+  try {
+    const mod = await import(pathToConfig);
+
+    return {
+      sources: [],
+      targets: [],
+      ...mod.default
+    };
+  } catch (err) {
+    throw new Error('Config file is missing');
+  }
 }
 
 /**
  * Builds the static site.
  *
+ * @async
  * @returns {Promise<void>}
  */
-function build() {
-  return (
-    clean()
-      .then(() => copyStatic())
-      .then(() => getData())
-      .then((data) => buildTargets(config.targets, data))
-  );
+async function build() {
+  await clean();
+
+  const config = await getConfig();
+  const data = await getData(config);
+
+  await buildTargets(config, data, config.targets);
 }
 
 build();

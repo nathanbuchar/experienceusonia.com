@@ -37,14 +37,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: "Kirang Haerang", sans-serif;
   text-transform: uppercase;
+  font-weight: normal;
   font-size: 2.5rem;
   line-height: 2rem;
   color: inherit;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-family: "Kirang Haerang", sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 2rem;
   line-height: 1.75rem;
 }
 
@@ -62,6 +67,10 @@ img.lazyload[src] {
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
+}
+
+.module--wide {
+  max-width: 100%;
 }
 
 .module .module {

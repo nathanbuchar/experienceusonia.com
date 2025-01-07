@@ -1,0 +1,8 @@
+{% extends "layout.njk" %}
+
+{% set pageKey = "test" %}
+{% set title = "Test" %}
+
+{% block content %}
+  {{ readFile("src/static/md/test.md") | markdown | safe }}
+{% endblock %}

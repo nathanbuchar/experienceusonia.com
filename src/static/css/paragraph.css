@@ -1,7 +1,8 @@
 .paragraph-module.module {
   column-count: 2;
   column-gap: 20px;
-  margin: 4em auto;
+  margin: 3rem auto;
+  hyphens: auto;
 }
 
 .paragraph-module--align-left.module {
@@ -28,7 +29,7 @@
 @media screen and (max-width: 768px) {
   .paragraph-module.module {
     column-count: 1;
-    margin-bottom: 3em;
+    margin: 2rem auto;
   }
 
   .paragraph-module--col-1.module,
