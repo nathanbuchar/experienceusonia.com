@@ -33,9 +33,4 @@
   .links-module.module {
     margin-top: 8rem;
   }
-
-  .links-module__buttons {
-    flex-direction: column;
-    row-gap: 12px;
-  }
 }

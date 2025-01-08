@@ -175,10 +175,6 @@
     margin-bottom: 0.5rem;
   }
   
-  .hero-module__links .links-module.module .links-module__buttons {
-    flex-direction: row;
-  }
-  
   .hero-module__links .links-module.module .links-module__coming-soon {
     display: none;
   }
