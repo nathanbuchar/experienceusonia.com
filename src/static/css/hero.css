@@ -124,14 +124,14 @@
   }
 
   .hero-module__image {
-    object-position: 85% bottom;
+    object-position: 83% bottom;
     animation: pan;
-    animation-duration: 12s;
+    animation-duration: 10s;
     animation-timing-function: ease;
   }
 
   .hero-module__tagline-container {
-    mask-position: 85% bottom;
+    mask-position: 83% bottom;
     animation: pan;
     animation-duration: 12s;
     animation-timing-function: ease;
@@ -152,6 +152,7 @@
     width: 100%;
     min-width: auto;
     animation: none;
+    top: 0;
   }
 
   .hero-module__content {
@@ -161,7 +162,7 @@
 
   .hero-module__title {
     margin-bottom: 0.5rem;
-    max-width: 240px;
+    max-width: 320px;
   }
 
   .hero-module__title h1 {
@@ -170,7 +171,8 @@
   }
 
   .hero-module__metadata {
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
   }
   
   .hero-module__links .links-module.module .links-module__buttons {
