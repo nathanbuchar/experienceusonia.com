@@ -37,6 +37,13 @@
   </head>
   <body>
     <div id="content">
+      {% block banners %}
+        <div class="banners">
+          {% for banner in banners %}
+            {{ renderModule("banner", banner.fields) }}
+          {% endfor %}
+        </div>
+      {% endblock %}
       {% if url != "/" %}
         {{ renderModule("header") }}
       {% endif %}

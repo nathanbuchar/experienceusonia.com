@@ -42,6 +42,10 @@ const config = {
     {
       name: 'pages',
       contentType: 'page'
+    },
+    {
+      name: 'banners',
+      contentType: 'banner'
     }
   ],
   targets: [
@@ -52,21 +56,23 @@ const config = {
     {
       template: '404.njk',
       dest: 'dist/404.html',
+      include: ['banners']
     },
     {
       template: 'test.njk',
-      dest: 'dist/test/index.html'
+      dest: 'dist/test/index.html',
+      include: ['banners']
     },
     {
       template: 'debug.njk',
       dest: 'dist/debug/index.html',
-      include: ['pages'],
+      include: ['banners', 'pages'],
     },
     (data) => data.pages.map((page) => {
       return {
         template: 'page.njk',
         dest: `dist/${page.fields.url}/index.html`,
-        include: ['pages'],
+        include: ['banners', 'pages'],
         extraContext: {
           ...page.fields
         }
