@@ -5,8 +5,7 @@
 }
 
 .banner-module.module {
-	font-size: 14px;
-	font-family: "Jost", sans-serif;
+	font-size: 16px;
 	background: var(--secondary-color);
 	min-height: 24px;
 	display: flex;
@@ -14,9 +13,9 @@
 	justify-content: flex-start;
 	padding-left: 24px;
 	position: relative;
-	line-height: 16px;
+	line-height: 18px;
   padding-top: 4px;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
 .banner-module.module + .banner-module.module {
