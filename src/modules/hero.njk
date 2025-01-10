@@ -2,14 +2,11 @@
   <div class="hero-module__hero">
     <div class="hero-module__screen"></div>
     <img class="hero-module__image" src="{{ image.fields.file.url }}" alt="" />
-    <div class="hero-module__tagline-container" style="mask-image: url({{ mask.fields.file.url }})">
-      <div class="hero-module__tagline">
-        {% include "partials/tagline-2.njk" %}
-      </div>
-    </div>
     <div class="hero-module__content">
-      <div class="hero-module__title">
-        <h1>Goetsch&ndash;Winckler House</h1>
+      <div class="hero-module__wordmark">
+        <span aria-label="Goetsch–Winckler House" role="h1">
+          {% include "partials/wordmark.njk" %}
+        </span>
       </div>
       <div class="hero-module__metadata">
         <p>Frank Lloyd Wright &middot; 1940 &middot; Okemos,&nbsp;MI</p>
