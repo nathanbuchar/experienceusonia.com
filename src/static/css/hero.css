@@ -82,12 +82,12 @@
 
 @media screen and (max-width: 768px) {
   .hero-module__hero {
-    height: 75vh;
+    height: 80vh;
     min-height: auto;
   }
 
   .hero-module__image {
-    object-position: 10% bottom;
+    object-position: 7% bottom;
   }
 
   .hero-module__content {
