@@ -1,18 +1,27 @@
 .section-module.module {
-  margin-top: 7rem;
+  margin-top: 6rem;
   margin-bottom: 2rem;
 }
 
 .section-module h2 {
   width: 50%;
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: var(--link-color);
+  padding-left: 24px;
+  position: relative;
+}
+
+.section-module h2:before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background-color: var(--link-color);
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 12px;
 }
 
 .section-module.module .paragraph-module.module {
-  margin-top: 2em;
+  margin-top: 1.75em;
 }
 
 @media screen and (max-width: 768px) {

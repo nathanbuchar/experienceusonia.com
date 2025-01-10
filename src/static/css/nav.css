@@ -1,0 +1,25 @@
+#nav {
+	position: fixed;
+  top: 0;
+  left: 0;
+  height: 120px;
+  width: 120px;
+  z-index: 1000;
+}
+
+#nav a {
+	color: var(--primary-color);
+	line-height: 0;
+	height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background: var(--link-color);
+}
+
+#nav a:hover,
+#nav a:active {
+/*	color: var(--secondary-color);*/
+  background: var(--link-color-alt);
+	line-height: 0;
+}

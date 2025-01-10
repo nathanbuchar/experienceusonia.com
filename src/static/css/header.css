@@ -10,21 +10,24 @@
   position: relative;
   height: 100%;
   border-bottom: 1px solid var(--link-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.header-module__square {
+  background: var(--link-color);
+  height: 48px;
+  width: 48px;
+  justify-self: flex-start;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .header-module__logo {
-  color: var(--tertiary-color);
-  display: flex;
-  justify-content: center;
-  align-self: flex-end;
-  margin-bottom: -2px;
-}
-
-.header-module__logo a {
-  display: flex;
+  color: var(--link-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -7.5px;
 }
 
 .header-module__logo svg {

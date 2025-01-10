@@ -11,6 +11,7 @@
 @import "./footer.css";
 @import "./banner.css";
 @import "./big-text.css";
+@import "./nav.css";
 
 h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure, ul, ol {
   margin: 0;
@@ -32,26 +33,16 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Jost", sans-serif;
+  font-family: "Libre Bodoni", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   color: var(--header-color);
 }
 
-h1 {
-  font-family: "Libre Bodoni", sans-serif;
-  font-weight: normal;
-  font-size: 2.25rem;
+h2 { 
   line-height: 2.5rem;
-  color: inherit;
-}
-
-h2 {
-  font-family: "Libre Bodoni", sans-serif;
-  font-weight: normal;
   font-size: 2rem;
-  line-height: 1.75rem;
-  letter-spacing: -0.6px;
+  letter-spacing: -1px;
 }
 
 img.lazyload {

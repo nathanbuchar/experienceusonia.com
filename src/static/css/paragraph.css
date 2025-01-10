@@ -29,7 +29,7 @@
 @media screen and (max-width: 768px) {
   .paragraph-module.module {
     column-count: 1;
-    margin: 2rem auto;
+    margin: 1.75rem auto;
   }
 
   .paragraph-module--col-1.module,
