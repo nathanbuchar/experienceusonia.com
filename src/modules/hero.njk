@@ -2,6 +2,12 @@
   <div class="hero-module__hero">
     <div class="hero-module__screen"></div>
     <img class="hero-module__image" src="{{ image.fields.file.url }}" alt="" />
+    <div class="hero-module__tagline-desktop">
+      {% include "partials/tagline.njk" %}
+    </div>
+    <div class="hero-module__tagline-mobile">
+        {% include "partials/tagline-mobile.njk" %}
+    </div>
     <div class="hero-module__content">
       <div class="hero-module__wordmark">
         <span aria-label="Goetsch–Winckler House" role="h1">

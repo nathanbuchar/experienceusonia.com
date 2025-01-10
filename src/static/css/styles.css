@@ -39,17 +39,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-family: "Kirang Haerang", sans-serif;
-  text-transform: uppercase;
+  font-family: "Libre Bodoni", sans-serif;
   font-weight: normal;
-  font-size: 2.5rem;
-  line-height: 2rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
   color: inherit;
 }
 
 h2 {
-  font-family: "Kirang Haerang", sans-serif;
-  text-transform: uppercase;
+  font-family: "Libre Bodoni", sans-serif;
   font-weight: normal;
   font-size: 2rem;
   line-height: 1.75rem;
