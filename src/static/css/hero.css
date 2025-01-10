@@ -39,7 +39,6 @@
 .hero-module__tagline-desktop,
 .hero-module__tagline-mobile {
   position: absolute;
-  bottom: 66%;
   left: 0;
   z-index: 1;
   width: 100%;
@@ -50,12 +49,14 @@
   max-width: 75vw;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 66%;
 }
 
 .hero-module__tagline-mobile {
   padding: 16px;
   transform: none;
   left: 0;
+  top: 48px;
 }
 
 .hero-module__tagline-mobile {
