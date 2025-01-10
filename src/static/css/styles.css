@@ -51,6 +51,7 @@ h2 {
   font-weight: normal;
   font-size: 2rem;
   line-height: 1.75rem;
+  letter-spacing: -0.6px;
 }
 
 img.lazyload {
