@@ -46,6 +46,10 @@ const config = {
     {
       name: 'banners',
       contentType: 'banner'
+    },
+    {
+      name: 'opengraph',
+      contentType: 'opengraph'
     }
   ],
   targets: [
@@ -56,23 +60,23 @@ const config = {
     {
       template: '404.njk',
       dest: 'dist/404.html',
-      include: ['banners']
+      include: ['opengraph'],
     },
     {
       template: 'test.njk',
       dest: 'dist/test/index.html',
-      include: ['banners']
+      include: ['opengraph'],
     },
     {
       template: 'debug.njk',
       dest: 'dist/debug/index.html',
-      include: ['banners', 'pages'],
+      include: '*',
     },
     (data) => data.pages.map((page) => {
       return {
         template: 'page.njk',
         dest: `dist/${page.fields.url}/index.html`,
-        include: ['banners', 'pages'],
+        include: '*',
         extraContext: {
           ...page.fields
         }

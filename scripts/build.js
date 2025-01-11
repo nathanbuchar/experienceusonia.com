@@ -117,9 +117,13 @@ async function buildTarget(config, data, target) {
 
     // Apply included data.
     if (target.include) {
-      target.include.forEach((key) => {
-        ctx[key] = data[key];
-      });
+      if (target.include === '*') {
+        Object.assign(ctx, data);
+      } else {
+        target.include.forEach((key) => {
+          ctx[key] = data[key];
+        });
+      }
     }
 
     // Apply extra context.
