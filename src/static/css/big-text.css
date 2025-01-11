@@ -3,27 +3,27 @@
   line-height: 2.5rem;
   font-size: 28px;
   color: var(--link-color);
-	font-family: "Libre Bodoni", sans-serif;
-  line-height: 2.5rem;
-  font-size: 28px;
-  hyphens: auto;
+	font-family: "Montserrat", sans-serif;
+  line-height: 48px;
   text-align: center;
+  font-weight: 300;
+  font-size: 32px;
 }
 
 .big-text-module__inner {
   border: 1px solid var(--link-color);
-  padding: 48px;
+  padding: 64px;
 }
 
 @media screen and (max-width: 768px) {
   .big-text-module.module {
     margin: 3rem auto;
-    padding: 0 32px;
+    padding: 0 16px;
     font-size: 24px;
     line-height: 32px;
   }
 
   .big-text-module__inner {
-    padding: 32px;
+    padding: 32px 20px;
   }
 }
