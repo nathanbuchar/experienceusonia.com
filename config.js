@@ -44,10 +44,6 @@ const config = {
       contentType: 'page'
     },
     {
-      name: 'banners',
-      contentType: 'banner'
-    },
-    {
       name: 'opengraph',
       contentType: 'opengraph'
     }
