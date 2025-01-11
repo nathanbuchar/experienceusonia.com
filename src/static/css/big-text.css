@@ -1,9 +1,13 @@
 .big-text-module.module {
-	margin-top: 7rem;
+	margin: 4rem auto;
   line-height: 2.5rem;
   font-size: 28px;
   color: var(--link-color);
-	font-family: "Jost", sans-serif;
+	font-family: "Libre Bodoni", sans-serif;
+  line-height: 2.5rem;
+  font-size: 28px;
+  hyphens: auto;
+  text-align: center;
 }
 
 .big-text-module__inner {
@@ -13,12 +17,13 @@
 
 @media screen and (max-width: 768px) {
   .big-text-module.module {
-    margin-top: 5rem;
+    margin: 3rem auto;
+    padding: 0 32px;
+    font-size: 24px;
+    line-height: 32px;
   }
 
-	.big-text-module__inner {
-	  font-size: 24px;
+  .big-text-module__inner {
     padding: 32px;
-    line-height: 32px;
-	}
+  }
 }

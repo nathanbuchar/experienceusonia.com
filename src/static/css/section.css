@@ -29,6 +29,10 @@
     margin-top: 5rem;
   }
 
+  .section-module.module .paragraph-module.module {
+    margin-top: 1.25em;
+  }
+
   .section-module h2 {
     width: 100%;
   }
