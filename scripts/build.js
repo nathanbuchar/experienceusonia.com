@@ -2,6 +2,35 @@ import fs from 'fs';
 import path from 'path';
 
 /**
+ * @typedef {Object} Config
+ * @prop {Client} client
+ * @prop {Engine} engine
+ * @prop {Source[]} [sources]
+ * @prop {(Target | TargetFn)[]} [targets]
+ */
+
+/**
+ * @typedef {Object} Source
+ * @prop {string} name
+ * @prop {string} contentType
+ */
+
+/**
+ * @typedef {Object} Target
+ * @prop {string} dest
+ * @prop {string} [src]
+ * @prop {string} [template]
+ * @prop {Source['name'] | Source['name'][] | '*'} [include]
+ * @prop {Object} [extraContext]
+ */
+
+/**
+ * @function TargetFn
+ * @param {Data} data
+ * @returns {(Target | TargetFn)[]}
+ */
+
+/**
  * Removes the dist directory.
  *
  * @async
@@ -117,9 +146,14 @@ async function buildTarget(config, data, target) {
 
     // Apply included data.
     if (target.include) {
-      if (target.include === '*') {
-        Object.assign(ctx, data);
-      } else {
+      if (typeof target.include === 'string') {
+        if (target.include === '*') {
+          // Handle wildcard case.
+          Object.assign(ctx, data);
+        } else if (data.hasOwnProperty(target.include)) {
+          ctx[key] = data[key]
+        }
+      } else if (Array.isArray(target.include)) {
         target.include.forEach((key) => {
           ctx[key] = data[key];
         });
