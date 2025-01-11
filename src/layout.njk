@@ -14,7 +14,7 @@
     {# Open Graph stuffs #}
     <meta property="og:title" content="{{ opengraph[0].fields.ogtitle }}">
     <meta property="og:description" content="{{ opengraph[0].fields.ogdescription }}">
-    <meta property="og:image" content="{{ opengraph[0].fields.ogimage.fields.file.url }}">
+    <meta property="og:image" content="https:{{ opengraph[0].fields.ogimage.fields.file.url }}">
     <meta property="og:url" content="{{ opengraph[0].fields.ogurl }}">
     <meta property="og:type" content="{{ opengraph[0].fields.ogtype }}">
 
