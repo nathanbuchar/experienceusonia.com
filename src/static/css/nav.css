@@ -19,7 +19,13 @@
 
 #nav a:hover,
 #nav a:active {
-/*	color: var(--secondary-color);*/
   background: var(--link-color-alt);
 	line-height: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #nav {
+    height: 80px;
+    width: 80px;
+  }
 }
