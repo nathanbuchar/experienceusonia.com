@@ -80,11 +80,14 @@ img.lazyload[src] {
   border: 2px solid var(--link-color);
   color: var(--primary-color);
   background: var(--link-color);
+  transition: all 0.1s ease;
 }
 
-.button:hover {
+.button:hover,
+.button:active {
   background: var(--link-color-alt);
   border-color: var(--link-color-alt);
+  transform: scaleX(1.05) scaleY(1.05);
 }
 
 @media screen and (max-width: 768px) {

@@ -28,12 +28,18 @@
   align-items: center;
   padding: 8px;
   background: var(--link-color);
+  transition: all 0.1s ease;
+}
+
+.header-module.header-module--wide #nav a {
+  transform-origin: top left;
 }
 
 .header-module #nav a:hover,
 .header-module #nav a:active {
   background: var(--link-color-alt);
   line-height: 0;
+  transform: scaleX(1.05) scaleY(1.05);
 }
 
 @media screen and (max-width: 768px) {
