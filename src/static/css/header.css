@@ -1,82 +1,44 @@
 .header-module.module {
-  font-size: 0.75rem;
-  margin-top: 5rem;
-  background-color: var(--primary-color);
-  height: 36px;
-  padding: 0 16px;
-
-
-.header-module__inner {
-  position: relative;
-  height: 100%;
-  border-bottom: 1px solid var(--link-color);
+  margin-top: 16px;
 }
 
-.header-module__square {
-  background: var(--link-color);
-  height: 48px;
-  width: 48px;
-  justify-self: flex-start;
-  position: absolute;
+.header-module.header-module--wide {
+  margin-top: 0;
+}
+
+.header-module #nav {
+  height: 84px;
+  width: 84px;
+}
+
+.header-module.header-module--wide #nav {
+  position: fixed;
+  top: 0;
   left: 0;
-  bottom: 0;
+  z-index: 1000;
+  height: 120px;
+  width: 120px;
 }
 
-.header-module__logo {
-  color: var(--link-color);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -8px;
-  height: 24px;
-}
-
-.header-module__logo svg {
+.header-module #nav a {
+  color: var(--primary-color);
+  line-height: 0;
   height: 100%;
-  display: inline-block;
-  max-height: 18px;
-  color: inherit;
-}
-
-.header-module__nav {
-  margin-top: 8px;
-}
-
-.header-module__nav ol {
-  padding: 0;
-  list-style-type: none;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding: 8px;
+  background: var(--link-color);
 }
 
-.header-module__nav li {
-/*  padding: 0 8px;*/
-  font-family: "Jost", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  color: var(--header-color);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.7rem;
+.header-module #nav a:hover,
+.header-module #nav a:active {
+  background: var(--link-color-alt);
+  line-height: 0;
 }
 
-.header-module__nav li:not(:last-of-type)::after {
-  content: "·";
-  padding-left: 8px;
-  padding-right: 8px;
-  color: var(--link-color);
-  opacity: 0.5;
-}
-
-.header-module__nav li.active {
-  font-weight: bold;
-}
-
-.header-module__nav a {
-  text-decoration: none;
-}
-
-.header-module__nav a:hover {
-  text-decoration: underline;
+@media screen and (max-width: 768px) {
+  .header-module #nav {
+    height: 80px;
+    width: 80px;
+  }
 }

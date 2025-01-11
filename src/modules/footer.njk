@@ -1,16 +1,20 @@
 <footer class="footer-module module">
-  <div class="footer-module__logo">
-    {% include "partials/logo.njk" %}
+  <div class="footer-module__separator">
+      <div class="footer-module__logo">
+      {% include "partials/logo.njk" %}
+    </div>
   </div>
-  <p>
-    Copyright &copy; 2023&ndash;{{ currentYear() }} <a href="mailto:info@experienceusonia.com" title="Email info@experienceusonia.com">Experience Usonia, LLC</a><br/>
-    Website by <a href="https://n8.engineer">n8.engineer</a>
-  </p>
-  <p>
-    <a href="/">Home</a>
-    &middot;
-    <a href="/contact">Contact</a> 
-    &middot;
-    <a href="/privacy">Privacy</a>
-  </p>
+  <div class="footer-module__lower">
+    <p>
+      Copyright &copy; 2023&ndash;{{ currentYear() }} <a href="mailto:info@experienceusonia.com" title="Email info@experienceusonia.com">Experience Usonia, LLC</a><br/>
+      Website by <a href="https://n8.engineer">n8.engineer</a>
+    </p>
+    <p>
+      <a href="/">Home</a>
+      &middot;
+      <a href="/contact">Contact</a> 
+      &middot;
+      <a href="/privacy">Privacy</a>
+    </p>
+  </div>
 </footer>

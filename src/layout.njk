@@ -36,17 +36,9 @@
     {% block extraHead %}{% endblock %}
   </head>
   <body>
+    {% set isHomepage = pageKey == 'home' %}
     <div id="content">
-      {% if url != "/" %}
-        {{ renderModule("header") }}
-      {% endif %}
-      <nav id="nav">
-        <a href="/" title="Go home" aria-description="Goetsch-Winckler House logotype; Click to go home.">
-          <div class="nav__wordmark" aria-label="Goetsch–Winckler House" role="h1">
-            {% include "partials/wordmark.njk" %}
-          </div>
-        </a>
-      </nav>
+      {{ renderModule("header") }}
       <main id="main">
         {% block content %}
           {# Page content goes here. #}

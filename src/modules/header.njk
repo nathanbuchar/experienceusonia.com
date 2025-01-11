@@ -1,8 +1,9 @@
-<header class="header-module module module">
-  <div class="header-module__inner">
-    {# <div class="header-module__square"></div> #}
-    <div class="header-module__logo">
-      {% include "partials/logo.njk" %}
-    </div>
-  </div>
+<header class="header-module module {{ 'header-module--wide' if isHomepage }}">
+  <nav id="nav">
+    <a href="/" title="Go home" aria-description="Goetsch-Winckler House logotype; Click to go home.">
+      <div class="nav__wordmark" aria-label="Goetsch–Winckler House" role="h1">
+        {% include "partials/wordmark.njk" %}
+      </div>
+    </a>
+  </nav>
 </header>
