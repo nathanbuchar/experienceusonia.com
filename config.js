@@ -12,6 +12,10 @@ const config = {
       contentType: 'page'
     },
     {
+      name: 'banners',
+      contentType: 'banner'
+    },
+    {
       name: 'opengraph',
       contentType: 'opengraph'
     }
@@ -24,12 +28,12 @@ const config = {
     {
       template: '404.njk',
       dest: 'dist/404.html',
-      include: ['opengraph'],
+      include: ['opengraph', 'banners'],
     },
     {
       template: 'test.njk',
       dest: 'dist/test/index.html',
-      include: ['opengraph'],
+      include: ['opengraph', 'banners'],
     },
     {
       template: 'debug.njk',
