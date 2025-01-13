@@ -185,6 +185,8 @@ async function buildTargets(config, data, targets) {
       const newTargetArr = Array.isArray(newTarget) ? newTarget : [newTarget];
 
       await buildTargets(config, data, newTargetArr);
+    } else if (Array.isArray(target)) {
+      await buildTargets(config, data, target);
     } else {
       await buildTarget(config, data, target);
     }
