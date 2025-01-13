@@ -23,7 +23,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(180deg, rgba(83,4,9,0) 0%, rgba(83,4,9,0.35) 65%, rgba(83,33,4,0.75) 90%, rgba(83,33,4,0.75) 100%);
+  background: linear-gradient(180deg, rgba(83,4,9,0) 50%, rgba(83, 19, 4, 0.5) 77%, rgba(83, 33, 4, 0.6) 100%);
   opacity: 75%;
   z-index: 1;
 }
