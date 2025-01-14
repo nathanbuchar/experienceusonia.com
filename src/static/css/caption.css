@@ -1,0 +1,11 @@
+.caption-module.module {
+	font-size: small;
+	text-align: right;
+	margin-top: -8px;
+}
+
+@media screen and (max-width: 768px) {
+	.caption-module.module {
+		text-align: left;
+	}
+}

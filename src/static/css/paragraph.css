@@ -9,18 +9,6 @@
   text-align: justify;
 }
 
-.paragraph-module--align-left.module {
-  text-align: left;
-}
-
-.paragraph-module--align-center.module {
-  text-align: center;
-}
-
-.paragraph-module--align-right.module {
-  text-align: right;
-}
-
 @media screen and (max-width: 768px) {
   .paragraph-module.module {
     margin: 36px auto;
