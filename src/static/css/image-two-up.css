@@ -15,6 +15,7 @@
 @media screen and (max-width: 768px) {
   .image-two-up-module.module {
     flex-direction: column;
+    padding: 0;
   }
 
   .image-two-up-module img {

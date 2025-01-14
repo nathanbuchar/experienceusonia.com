@@ -2,3 +2,9 @@
   margin: 0 auto;
   margin-bottom: 12px;
 }
+
+@media screen and (max-width: 768px) {
+  .image-one-up-module.module {
+    padding: 0;
+  }
+}
