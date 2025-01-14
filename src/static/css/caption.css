@@ -5,6 +5,7 @@
   justify-content: flex-end;
   color: var(--tertiary-color);
 	margin-top: -8px;
+  margin-bottom: -15px;
 }
 
 .caption-module p {
