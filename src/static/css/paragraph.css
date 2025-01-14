@@ -1,8 +1,12 @@
 .paragraph-module.module {
-  column-count: 2;
-  column-gap: 20px;
-  margin: 3rem auto;
+  margin: 48px auto;
+  width: 100%;
+  max-width: 580px;
+}
+
+.paragraph-module p {
   hyphens: auto;
+  text-align: justify;
 }
 
 .paragraph-module--align-left.module {
@@ -11,29 +15,14 @@
 
 .paragraph-module--align-center.module {
   text-align: center;
-  column-count: 1;
 }
 
 .paragraph-module--align-right.module {
   text-align: right;
 }
 
-.paragraph-module--col-1.module {
-  column-count: 1;
-}
-
-.paragraph-module--col-2.module {
-  column-count: 2;
-}
-
 @media screen and (max-width: 768px) {
   .paragraph-module.module {
-    column-count: 1;
-    margin: 1.75rem auto;
-  }
-
-  .paragraph-module--col-1.module,
-  .paragraph-module--col-2.module {
-    column-count: 1;
+    margin: 36px auto;
   }
 }
