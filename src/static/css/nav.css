@@ -64,13 +64,28 @@
   justify-content: center;
   transition: background 0.1s ease;
   will-change: background;
-  font-size: 26px;
-  line-height: 48px;
 }
 
 .nav-module.module summary:hover,
 .nav-module.module summary:active {
   background: var(--link-color-alt);
+}
+
+.nav-module details summary:before {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.nav-module details:not([open]) summary:before {
+  content: '☰';
+  font-size: 26px;
+  margin-top: -4px;
+}
+
+.nav-module details[open] summary:before {
+  content: '✕';
+  font-size: 24px;
 }
 
 .nav-module .nav-module__screen {
