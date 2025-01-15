@@ -17,11 +17,15 @@
 
 @media screen and (max-width: 768px) {
   .image-two-up-module.module {
+    padding: 0;
+  }
+
+  .image-two-up-module .image-two-up-module__images {
     flex-direction: column;
     margin: 0;
   }
 
-  .image-two-up-module img {
+  .image-two-up-module .image-two-up-module__images img {
     max-width: 100%;
   }
 }
