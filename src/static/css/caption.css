@@ -4,7 +4,7 @@
 	display: flex;
   justify-content: flex-end;
   color: var(--tertiary-color);
-	margin-top: -8px;
+	margin-top: 4px;
   margin-bottom: -15px;
 }
 

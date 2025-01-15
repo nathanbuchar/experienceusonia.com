@@ -3,6 +3,10 @@
   margin-bottom: 12px;
 }
 
+.image-one-up-module:not(.image-one-up-module--wide).module {
+  max-width: 580px;
+}
+
 @media screen and (max-width: 768px) {
   .image-one-up-module.module {
     padding: 0;

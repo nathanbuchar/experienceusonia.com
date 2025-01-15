@@ -1,0 +1,10 @@
+.separator-module.module {
+	display: flex;
+	justify-content: center;
+}
+
+.separator-module__separator {
+  width: 12px;
+  height: 12px;
+  background-color: var(--link-color);
+}

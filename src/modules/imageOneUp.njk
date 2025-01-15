@@ -1,3 +1,6 @@
-<div class="image-one-up-module module">
+<div class="image-one-up-module {{ 'image-one-up-module--wide' if isWide }} module">
   <img class="lazyload" data-src="{{image.fields.file.url}}" alt="" />
+  {% if caption %}
+    {{ renderModule('caption', caption.fields) }}
+  {% endif %}
 </div>

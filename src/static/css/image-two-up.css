@@ -1,21 +1,24 @@
 .image-two-up-module.module {
   margin: 0 auto;
+  margin-bottom: 12px;
+}
+
+.image-two-up-module .image-two-up-module__images {
   display: flex;
   align-items: center;
   justify-content: space-around;
   column-gap: 12px;
   row-gap: 12px;
-  margin-bottom: 12px;
 }
 
-.image-two-up-module img {
+.image-two-up-module .image-two-up-module__images img {
   max-width: calc(50% - 6px);
 }
 
 @media screen and (max-width: 768px) {
   .image-two-up-module.module {
     flex-direction: column;
-    padding: 0;
+    margin: 0;
   }
 
   .image-two-up-module img {

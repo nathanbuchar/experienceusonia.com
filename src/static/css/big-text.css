@@ -1,6 +1,7 @@
 .big-text-module.module {
-	margin: 4rem auto;
-  line-height: 2.5rem;
+	margin-top: 48px;
+  margin-bottom: 48px;
+  line-height: 48px;
   font-size: 28px;
   color: var(--link-color);
 	font-family: "Montserrat", sans-serif;
@@ -15,10 +16,14 @@
   padding: 56px;
 }
 
+.big-text-module strong {
+  font-weight: 600;
+}
+
 @media screen and (max-width: 768px) {
   .big-text-module.module {
-    margin: 3rem auto;
-    padding: 0 16px;
+    margin-top: 36px;
+    margin-bottom: 36px;
     font-size: 24px;
     line-height: 32px;
   }

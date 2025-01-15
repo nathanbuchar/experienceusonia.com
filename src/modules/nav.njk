@@ -1,0 +1,29 @@
+<div class="nav-module module {{ 'nav-module--wide' if isHomepage }}">
+  <div class="nav-module__wordmark">
+    <a href="/" aria-description="Goetsch–Winckler house wordmark; Click to go home.">
+      {% include "partials/wordmark.njk" %}
+    </a>
+  </div>
+  <nav class="nav-module__nav">
+    <details>
+      <summary aria-description="Toggle navigation"></summary>
+      <div class="nav-module__screen"></div>
+      <div class="nav-module__links">
+        <ol>
+          <li>
+            <a href="/">
+              <div class="nav-module__wordmark-link">
+                {% include "partials/wordmark.njk" %}
+              </div>
+            </a>
+          </li>
+          <li><a class="{{ 'active' if pageKey === 'visit' }}" href="/visit">Visit</a></li>
+          <li><a class="{{ 'active' if pageKey === 'events' }}" href="/events">Events</a></li>
+          <li><a class="{{ 'active' if pageKey === 'bookings' }}" href="/bookings">Bookings</a></li>
+          <li><a class="{{ 'active' if pageKey === 'press' }}" href="/press">Press</a></li>
+          <li><a class="{{ 'active' if pageKey === 'contact' }}" href="/contact">Contact</a></li>
+        </ol>
+      </div>
+    </details>
+  </nav>
+</div>
