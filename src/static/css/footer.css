@@ -1,5 +1,5 @@
 .footer-module.module {
-  margin-top: 196px;
+  margin-top: 212px;
   margin-bottom: 96px;
   text-align: center;
   font-size: 11px;
@@ -13,8 +13,8 @@
 }
 
 .footer-module__wordmark {
-  width: 64px;
-  height: 85px;
+  width: 48px;
+  height: 64px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -25,7 +25,7 @@
 
 @media screen and (max-width: 768px) {
   .footer-module.module {
-    margin-top: 128px;
+    margin-top: 156px;
     margin-bottom: 64px;
     padding: 0 54px;
   }
