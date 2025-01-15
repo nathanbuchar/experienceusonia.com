@@ -52,6 +52,7 @@
   right: 12px;
   z-index: 4;
   border-radius: 48px;
+  padding: 10px;
 }
 
 .nav-module summary {
@@ -67,7 +68,9 @@
 }
 
 .nav-module.module summary:hover,
-.nav-module.module summary:active {
+.nav-module.module summary:active,
+.nav-module.module summary:hover::before,
+.nav-module.module summary:active::before {
   background: var(--link-color-alt);
 }
 
@@ -77,14 +80,20 @@
   line-height: 0;
 }
 
-.nav-module details:not([open]) summary:before {
-  content: '☰';
-  font-size: 26px;
-}
-
 .nav-module details[open] summary:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   content: '✕';
   font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  background: var(--link-color);
+  border-radius: 48px;
 }
 
 .nav-module .nav-module__screen {
