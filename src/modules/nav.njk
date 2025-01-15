@@ -12,11 +12,9 @@
       <div class="nav-module__screen"></div>
       <div class="nav-module__links">
         <ol>
-          <li>
+          <li class="nav-module__wordmark-link">
             <a href="/">
-              <div class="nav-module__wordmark-link">
-                {% include "partials/wordmark.njk" %}
-              </div>
+              {% include "partials/wordmark.njk" %}
             </a>
           </li>
           <li><a class="{{ 'active' if pageKey === 'visit' }}" href="/visit">Visit</a></li>

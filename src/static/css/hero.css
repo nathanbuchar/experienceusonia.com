@@ -95,23 +95,6 @@
 
 .hero-module__links {
   margin-bottom: 24px;
-  animation: blurInLong 3s ease;
-}
-
-@keyframes blurInLong {
-  0% {
-    opacity: 0;
-/*    transform: translateY(12px);*/
-  }
-  50% {
-    opacity: 0;
-/*    transform: translateY(12px);*/
-  }
-  100% {
-    filter: blur(0);
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .hero-module__links .links-module.module {

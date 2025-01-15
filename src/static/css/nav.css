@@ -131,6 +131,10 @@
   font-size: 24px;
   padding: 0;
   transform: translateY(25px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
 }
 
 .nav-module details[open] ol {
@@ -139,13 +143,17 @@
 }
 
 .nav-module details li {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .nav-module details li a {
   color: var(--secondary-color);
   text-decoration: none;
+}
+
+.nav-module details li a.active {
+  font-weight: 600;
 }
 
 .nav-module details li a:hover,
@@ -154,21 +162,25 @@
 }
 
 .nav-module .nav-module__wordmark-link {
+  margin-bottom: 16px;
+}
+
+.nav-module .nav-module__wordmark-link a {
   width: 96px;
   color: inherit;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-color);
   padding: 4px;
   height: 128px;
   display: flex;
   align-items: flex-end;
-  margin-bottom: 16px;
+  color: var(--secondary-color);
 }
 
-.nav-module .nav-module__wordmark-link:hover,
-.nav-module .nav-module__wordmark-link:active {
+.nav-module .nav-module__wordmark-link a:hover,
+.nav-module .nav-module__wordmark-link a:active {
   border: 1px solid var(--link-color);
   background: var(--link-color);
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 @media screen and (max-width: 768px) {
