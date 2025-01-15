@@ -80,7 +80,6 @@
 .nav-module details:not([open]) summary:before {
   content: '☰';
   font-size: 26px;
-  margin-top: -4px;
 }
 
 .nav-module details[open] summary:before {
