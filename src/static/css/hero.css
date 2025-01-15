@@ -114,6 +114,11 @@
     max-width: 280px;
   }
 
+  .hero-module__links .links-module.module .button {
+    height: 42px;
+    padding: 12px 14px;
+  }
+
   .hero-module__privacy {
     margin-top: 0;
     font-size: 10px;

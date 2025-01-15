@@ -91,10 +91,3 @@ img.lazyload[src] {
 .button:active {
   background: var(--link-color-alt);
 }
-
-@media screen and (max-width: 768px) {
-  .button, a.button {
-    height: 42px;
-    padding: 12px 14px;
-  }
-}
