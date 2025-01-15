@@ -18,8 +18,9 @@
 }
 
 @media screen and (max-width: 768px) {
-	.caption-module.module {
+	.module .caption-module.module {
 		text-align: left;
+		padding: 0 16px;
 	}
 
 	.caption-module p {
