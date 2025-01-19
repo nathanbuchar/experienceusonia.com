@@ -106,7 +106,17 @@ async function writeFile(pathToFile, data) {
  * @returns {Promise<Data>} data
  */
 async function getData(config) {
-  const data = await config.client.getData(config.sources);
+  const dataArr = await Promise.all([
+    ...config.sources.map((source) => {
+      return source.client.getData(source.args);
+    })
+  ]);
+
+  const data = dataArr.reduce((acc, obj) => {
+    // Flatten array of data.
+    // [{ k1: v1 }, { k2: v2 }, ...] => { k1: v1, k2: v2, ... }
+    return Object.assign(acc, obj);
+  }, {});
 
   return data;
 }

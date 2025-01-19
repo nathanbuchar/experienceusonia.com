@@ -13,6 +13,7 @@
 @import "./big-text.css";
 @import "./caption.css";
 @import "./separator.css";
+@import "./events.css";
 
 h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure, ul, ol {
   margin: 0;

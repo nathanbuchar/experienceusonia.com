@@ -1,23 +1,33 @@
 import 'dotenv/config';
 
-import client from './lib/client.js';
 import engine from './lib/engine.js';
 
+import ContentfulClient from './lib/contentful.js';
+import EventbriteClient from './lib/eventbrite.js';
+
 const config = {
-  client,
   engine,
   sources: [
     {
-      name: 'pages',
-      contentType: 'page'
+      client: ContentfulClient,
+      args: [
+        {
+          name: 'pages',
+          contentType: 'page'
+        },
+        {
+          name: 'banners',
+          contentType: 'banner'
+        },
+        {
+          name: 'opengraph',
+          contentType: 'opengraph'
+        }
+      ]
     },
     {
-      name: 'banners',
-      contentType: 'banner'
-    },
-    {
-      name: 'opengraph',
-      contentType: 'opengraph'
+      client: EventbriteClient,
+      args: []
     }
   ],
   targets: [

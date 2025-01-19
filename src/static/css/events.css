@@ -1,0 +1,13 @@
+.events-module.module {
+	max-width: 580px;
+}
+
+.events-module .events-module__event {
+	margin: 64px 0;
+}
+
+@media screen and (max-width: 768px) {
+	.events-module .events-module__event {
+		margin: 36px 0;
+	}
+}

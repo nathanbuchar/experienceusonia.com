@@ -1,0 +1,13 @@
+<div class="events-module module">
+	{% set liveEvents = events | filterBy('status', 'live') %}
+	{% for event in liveEvents %}
+	  <div class="events-module__event">
+	  	<h4>{{ "[Free!] " if event.is_free }}{{ event.name.text }}</h4>
+	  	<p>{{ event.description.text }}</p>
+	  	{% set startDate = toDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit' }) %}
+	  	{% set endHour = toDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit' }) %}
+	  	<p>{{ startDate }}–{{ endHour }}</p>
+	  	<p><a href="{{ event.url }}">Register</a></p>
+	  </div>
+	{% endfor %}
+</div>
