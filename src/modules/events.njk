@@ -2,12 +2,17 @@
 	{% set liveEvents = events | filterBy('status', 'live') %}
 	{% for event in liveEvents %}
 	  <div class="events-module__event">
-	  	<h4>{{ "[Free!] " if event.is_free }}{{ event.name.text }}</h4>
+	  	<h4>{{ '<span class="events-module__free">Free!</span>' | safe if event.is_free }}{{ event.name.text }}</h4>
 	  	<p>{{ event.description.text }}</p>
-	  	{% set startDate = toDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric', hour: 'numeric', minute: '2-digit' }) %}
-	  	{% set endHour = toDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit' }) %}
-	  	<p>{{ startDate }}–{{ endHour }}</p>
-	  	<p><a href="{{ event.url }}">Register</a></p>
+	  	{% set startDate = toFriendlyDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
+	  	{% set startHour = toFriendlyDateLocaleString(event.start.utc, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
+	  	{% set endHour = toFriendlyDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
+	  	<p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
+	  	<div class="events-module__button">
+				<a href="{{ event.url }}" class="button" target="_blank">
+					Register
+			  </a>
+	  	</div>
 	  </div>
 	{% endfor %}
 </div>

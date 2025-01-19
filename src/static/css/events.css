@@ -4,6 +4,19 @@
 
 .events-module .events-module__event {
 	margin: 64px 0;
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+}
+
+.events-module .events-module__free {
+	color: var(--link-color);
+	font-style: italic;
+	padding-right: 8px;
+}
+
+.events-module .events-module__button {
+	margin-top: 8px;
 }
 
 @media screen and (max-width: 768px) {
