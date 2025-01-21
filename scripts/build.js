@@ -3,71 +3,43 @@ import path from 'path';
 
 /**
  * @typedef {Object} Config
- * @prop {Client} client
  * @prop {Engine} engine
- * @prop {Source[]} [sources]
+ * @prop {Plugin[]} [plugins]
  * @prop {(Target | TargetFn)[]} [targets]
  */
 
 /**
- * @typedef {Object} Source
- * @prop {string} name
- * @prop {string} contentType
+ * @typedef {Object} Engine
+ * @prop {RenderFn} render
+ */
+
+/**
+ * @function RenderFn
+ * @param {string} template
+ * @param {Object} context
+ * @returns Promise<string>
+ */
+
+/**
+ * @function Plugin
+ * @param {Config} config
+ * @param {Object} ctx
+ * @returns {Promise<void>}
  */
 
 /**
  * @typedef {Object} Target
+ * @prop {string} template
  * @prop {string} dest
- * @prop {string} [src]
- * @prop {string} [template]
- * @prop {Source['name'] | Source['name'][] | '*'} [include]
+ * @prop {string[] | '*'} [include]
  * @prop {Object} [extraContext]
  */
 
 /**
  * @function TargetFn
- * @param {Data} data
+ * @param {Object} ctx
  * @returns {(Target | TargetFn)[]}
  */
-
-/**
- * Removes the dist directory.
- *
- * @async
- * @returns {Promise<void>}
- */
-async function clean() {
-  await new Promise((resolve, reject) => {
-    fs.rm('dist', { recursive: true }, (err) => {
-      if (err && err.code !== 'ENOENT') {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
-  });
-}
-
-/**
- * Copies files from src to dest recursively.
- *
- * @async
- * @param {Target.src} src
- * @param {Target.dest} dest
- * @returns {Promise<void>}
- */
-async function copyFiles(src, dest) {
-  await new Promise((resolve, reject) => {
-    fs.cp(src, dest, { recursive: true }, (err) => {
-      if (err && err.code !== 'ENOENT') {
-        reject(err);
-      } else {
-        console.log(`Copied "${src}" to "${dest}"`);
-        resolve();
-      }
-    });
-  });
-}
 
 /**
  * Writes a file.
@@ -99,29 +71,6 @@ async function writeFile(pathToFile, data) {
 }
 
 /**
- * Gets data from the CMS client.
- * 
- * @async
- * @param {Config} config
- * @returns {Promise<Data>} data
- */
-async function getData(config) {
-  const dataArr = await Promise.all([
-    ...config.sources.map((source) => {
-      return source.client.getData(source.args);
-    })
-  ]);
-
-  const data = dataArr.reduce((acc, obj) => {
-    // Flatten array of data.
-    // [{ k1: v1 }, { k2: v2 }, ...] => { k1: v1, k2: v2, ... }
-    return Object.assign(acc, obj);
-  }, {});
-
-  return data;
-}
-
-/**
  * Renders a target.
  *
  * @async
@@ -144,39 +93,31 @@ async function renderTarget(config, target, ctx) {
  *
  * @async
  * @param {Config} config
- * @param {Data} data
+ * @param {Object} ctx
  * @param {Target} target
  * @returns {Promise<void>}
  */
-async function buildTarget(config, data, target) {
-  if (target.src) {
-    await copyFiles(target.src, target.dest);
-  } else {
-    const ctx = {};
+async function buildTarget(config, ctx, target) {
+  const ownCtx = {};
 
-    // Apply included data.
-    if (target.include) {
-      if (typeof target.include === 'string') {
-        if (target.include === '*') {
-          // Handle wildcard case.
-          Object.assign(ctx, data);
-        } else if (data.hasOwnProperty(target.include)) {
-          ctx[key] = data[key]
-        }
-      } else if (Array.isArray(target.include)) {
-        target.include.forEach((key) => {
-          ctx[key] = data[key];
-        });
-      }
+  // Apply included context.
+  if (target.include) {
+    if (target.include === '*') {
+      // Handle wildcard case.
+      Object.assign(ownCtx, ctx);
+    } else {
+      target.include.forEach((key) => {
+        ownCtx[key] = ctx[key];
+      });
     }
-
-    // Apply extra context.
-    if (target.extraContext) {
-      Object.assign(ctx, target.extraContext);
-    }
-
-    await renderTarget(config, target, ctx);
   }
+
+  // Apply extra context.
+  if (target.extraContext) {
+    Object.assign(ownCtx, target.extraContext);
+  }
+
+  await renderTarget(config, target, ownCtx);
 }
 
 /**
@@ -184,22 +125,35 @@ async function buildTarget(config, data, target) {
  *
  * @async
  * @param {Config} config
- * @param {Data} data
+ * @param {Object} ctx
  * @param {(Target | TargetFn)[]} targets
  * @returns {Promise<void>}
  */
-async function buildTargets(config, data, targets) {
+async function buildTargets(config, ctx, targets) {
   for (const target of targets) {
     if (typeof target === 'function') {
-      const newTarget = await target(data);
+      const newTarget = await target(ctx);
       const newTargetArr = Array.isArray(newTarget) ? newTarget : [newTarget];
 
-      await buildTargets(config, data, newTargetArr);
+      await buildTargets(config, ctx, newTargetArr);
     } else if (Array.isArray(target)) {
-      await buildTargets(config, data, target);
+      return buildTargets(config, ctx, target);
     } else {
-      await buildTarget(config, data, target);
+      await buildTarget(config, ctx, target);
     }
+  }
+}
+
+/**
+ * Runs all plugins synchronously.
+ * 
+ * @param {Config} config
+ * @param {Object} ctx
+ * @returns {Promise<void>}
+ */
+async function runPlugins(config, ctx) {
+  for (const plugin of config.plugins) {
+    await plugin(config, ctx);
   }
 }
 
@@ -218,12 +172,12 @@ async function getConfig() {
     const mod = await import(pathToConfig);
 
     return {
-      sources: [],
+      plugins: [],
       targets: [],
-      ...mod.default
+      ...mod.default,
     };
   } catch (err) {
-    throw new Error('Config file is missing');
+    throw new Error(`Config file could not be loaded: ${err}`);
   }
 }
 
@@ -234,12 +188,12 @@ async function getConfig() {
  * @returns {Promise<void>}
  */
 async function build() {
-  await clean();
+  const ctx = {};
 
   const config = await getConfig();
-  const data = await getData(config);
 
-  await buildTargets(config, data, config.targets);
+  await runPlugins(config, ctx);
+  await buildTargets(config, ctx, config.targets);
 }
 
 build();

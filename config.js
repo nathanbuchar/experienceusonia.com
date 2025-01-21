@@ -1,68 +1,62 @@
 import 'dotenv/config';
 
+import clean from './lib/clean.js';
+import contentful from './lib/contentful.js';
+import copy from './lib/copy.js';
 import engine from './lib/engine.js';
-
-import ContentfulClient from './lib/contentful.js';
-import EventbriteClient from './lib/eventbrite.js';
+import eventbrite from './lib/eventbrite.js';
 
 const config = {
   engine,
-  sources: [
-    {
-      client: ContentfulClient,
-      args: [
-        {
-          name: 'pages',
-          contentType: 'page'
-        },
-        {
-          name: 'banners',
-          contentType: 'banner'
-        },
-        {
-          name: 'opengraph',
-          contentType: 'opengraph'
-        }
-      ]
-    },
-    {
-      client: EventbriteClient,
-      args: []
-    }
+  plugins: [
+    clean('dist'),
+    contentful([
+      {
+        key: 'pages',
+        contentType: 'page',
+      },
+      {
+        key: 'opengraph',
+        contentType: 'opengraph',
+      },
+    ]),
+    eventbrite(),
+    copy([
+      {
+        from: 'src/static', 
+        to: 'dist',
+      },
+    ]),
   ],
   targets: [
     {
-      src: 'src/static',
-      dest: 'dist'
-    },
-    {
       template: '404.njk',
       dest: 'dist/404.html',
-      include: ['opengraph', 'banners'],
+      include: ['opengraph'],
     },
     {
       template: 'test.njk',
       dest: 'dist/test/index.html',
-      include: ['opengraph', 'banners'],
+      include: ['opengraph'],
     },
     {
       template: 'debug.njk',
       dest: 'dist/debug/index.html',
       include: '*',
     },
-    (data) => {
-      return data.pages.map((page) => {
+    (ctx) => {
+      return ctx.pages.map((page) => {
         return {
           template: 'page.njk',
           dest: `dist/${page.fields.url}/index.html`,
           include: '*',
           extraContext: {
-            ...page.fields
-          }
+            ...page.fields,
+          },
         };
       });
-    }
-  ]
+    },
+  ],
 };
 
 export default config;
