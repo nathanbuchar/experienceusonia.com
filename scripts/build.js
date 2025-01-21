@@ -35,7 +35,6 @@ import path from 'path';
  * @typedef {Object} Target
  * @prop {string} template
  * @prop {string} dest
- * @prop {string[] | '*'} [include]
  * @prop {Object} [extraContext]
  */
 
@@ -104,12 +103,22 @@ class Builder {
    * Builds a target.
    *
    * @async
-   * @param {Target} target
+   * @param {Target | TargetFn} target
    * @returns {Promise<void>}
    */
   static async buildTarget(target) {
     const ctx = Builder.#ctx;
     const ownCtx = {};
+
+    // Derive target if target is a function.
+    if (typeof target === 'function') {
+      target = await target(ctx);
+
+      if (Array.isArray(target)) {
+        await Builder.buildTargets(target);
+        return;
+      }
+    }
 
     // Apply included context.
     if (target.include) {
@@ -117,9 +126,11 @@ class Builder {
         // Handle wildcard case.
         Object.assign(ownCtx, ctx);
       } else {
-        target.include.forEach((key) => {
-          ownCtx[key] = ctx[key];
-        });
+        for (const key of target.include) {
+          if (ctx.hasOwnProperty(key)) {
+            ownCtx[key] = ctx[key];
+          }
+        }
       }
     }
 
@@ -139,28 +150,13 @@ class Builder {
    * @returns {Promise<void>}
    */
   static async buildTargets(targets) {
-    const ctx = Builder.#ctx;
     const config = Builder.#config;
 
     for (const target of targets ?? config.targets) {
-      let currTarget = target;
-
-      if (Array.isArray(currTarget)) {
-        return Builder.buildTargets(currTarget);
+      if (Array.isArray(target)) {
+        await Builder.buildTargets(target);
       } else {
-        const ownCtx = {};
-
-        // Derive target if target is a function.
-        if (typeof currTarget === 'function') {
-          currTarget = await target(ctx);
-
-          if (Array.isArray(currTarget)) {
-            await Builder.buildTargets(currTarget);
-            return;
-          }
-        }
-
-        await Builder.buildTarget(currTarget);
+        await Builder.buildTarget(target);
       }
     }
   }
@@ -177,6 +173,9 @@ class Builder {
     for (const plugin of config.plugins) {
       await plugin(config, ctx);
     }
+
+    // Beyond this point, context may not be changed.
+    Object.freeze(ctx);
   }
 
   /**
@@ -193,11 +192,11 @@ class Builder {
     try {
       const mod = await import(pathToConfig);
 
-      Builder.#config = {
+      Builder.#config = Object.freeze({
         plugins: [],
         targets: [],
         ...mod.default,
-      };
+      });
     } catch (err) {
       throw new Error(`Config file could not be loaded: ${err}`);
     }
