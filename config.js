@@ -1,5 +1,6 @@
 import 'dotenv/config';
 
+import client from './lib/client.js';
 import engine from './lib/engine.js';
 
 import clean from './lib/plugins/clean.js';
@@ -11,16 +12,19 @@ const config = {
   engine,
   plugins: [
     clean('dist'),
-    contentful([
-      {
-        key: 'pages',
-        contentType: 'page',
-      },
-      {
-        key: 'opengraph',
-        contentType: 'opengraph',
-      },
-    ]),
+    contentful({
+      client,
+      sources: [
+        {
+          key: 'pages',
+          contentType: 'page',
+        },
+        {
+          key: 'opengraph',
+          contentType: 'opengraph',
+        },
+      ],
+    }),
     eventbrite(),
     copy({
       from: 'src/static', 

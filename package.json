@@ -16,8 +16,7 @@
     "dotenv": "^16.0.3",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^9.2.0",
-    "nunjucks": "^3.2.3",
-    "string": "^3.3.3"
+    "nunjucks": "^3.2.3"
   },
   "devDependencies": {
     "express": "^4.19.2"
