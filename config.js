@@ -22,12 +22,10 @@ const config = {
       },
     ]),
     eventbrite(),
-    copy([
-      {
-        from: 'src/static', 
-        to: 'dist',
-      },
-    ]),
+    copy({
+      from: 'src/static', 
+      to: 'dist',
+    }),
   ],
   targets: [
     {

@@ -15,8 +15,18 @@
 	padding-right: 8px;
 }
 
-.events-module .events-module__button {
+.events-module__register {
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
 	margin-top: 8px;
+}
+
+.events-module .events-module__button {
+}
+
+.events-module .events-module__spots {
+	font-style: italic;
 }
 
 @media screen and (max-width: 768px) {
