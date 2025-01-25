@@ -2,6 +2,6 @@
   {% if isInline %}
     <p>{{ content | markdownInline | safe }}</p>
   {% else %}
-    <p>{{ content | markdown | safe }}</p>
+    {{ content | markdown | safe }}
   {% endif %}
 </div>
