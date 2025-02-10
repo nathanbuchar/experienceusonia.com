@@ -2,8 +2,11 @@
 	{% set liveEvents = events | filterBy('status', 'live') %}
 	{% for event in liveEvents %}
 		{% set isOnlineEvent = event.online_event %}
+		{% set isFreeEvent = event.is_free %}
+		{% set freeTickets = event.ticket_classes[0] %}
+		{% set hasUnlimitedSeats = freeTickets.quantity_total === 999 %}
 	  <div class="events-module__event">
-	  	<h4>{{ '<span class="events-module__free">Free!</span>' | safe if event.is_free }}{{ event.name.text }}</h4>
+	  	<h4>{{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}{{ event.name.text }}</h4>
 	  	<p>{{ event.description.text }}</p>
 	  	{% set startDate = toFriendlyDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
 	  	{% set startHour = toFriendlyDateLocaleString(event.start.utc, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
@@ -12,23 +15,28 @@
 			<div class="events-module__register">
 		  	<div class="events-module__button">
 					<a href="{{ event.url }}" class="button" target="_blank">
+					{% if isFreeEvent and isOnlineEvent and hasUnlimitedSeats %}
+						More info
+					{% else %}
 						Register
+					{% endif %}
 				  </a>
 		  	</div>
-		  	<div class="events-module__spots">
-					{% set freeTickets = event.ticket_classes[0] %}
-					{% set ticketsRemaining = freeTickets.quantity_total - freeTickets.quantity_sold %}
-					{% set isSoldOut = freeTickets.on_sale_status === "SOLD_OUT" %}
-					{% if isSoldOut %}
-						<p>Registration full!</p>
-					{% else %}
-						{% if ticketsRemaining === 1 %}
-							<p>{{ ticketsRemaining }} spot left</p>
+		  	{% if not hasUnlimitedSeats %}
+			  	<div class="events-module__spots">
+						{% set ticketsRemaining = freeTickets.quantity_total - freeTickets.quantity_sold %}
+						{% set isSoldOut = freeTickets.on_sale_status === "SOLD_OUT" %}
+						{% if isSoldOut %}
+							<p>Registration full!</p>
 						{% else %}
-							<p>{{ ticketsRemaining }} spots left</p>
+							{% if ticketsRemaining === 1 %}
+								<p>{{ ticketsRemaining }} spot left</p>
+							{% else %}
+								<p>{{ ticketsRemaining }} spots left</p>
+							{% endif %}
 						{% endif %}
-					{% endif %}
-		  	</div>
+			  	</div>
+		  	{% endif %}
 	  </div>
 	{% endfor %}
 </div>
