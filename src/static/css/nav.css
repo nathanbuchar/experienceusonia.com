@@ -4,7 +4,7 @@
 }
 
 .nav-module .nav-module__wordmark {
-  width: 92px;
+  width: 124px;
   margin: 48px 0 0;
 }
 
@@ -19,8 +19,8 @@
 
 .nav-module summary {
   position: fixed;
-  top: 16px;
-  right: 16px;
+  top: 18px;
+  right: 18px;
   z-index: 4;
   border-radius: 48px;
   padding: 10px;
@@ -147,11 +147,7 @@
 @media screen and (max-width: 768px) {
 
   .nav-module .nav-module__wordmark {
-    margin: 72px 0 8px;
-  }
-
-  .nav-module summary {
-    right: 8px;
-    top: 8px;
+    width: 92px;
+    margin: 18px 0 0;
   }
 }
