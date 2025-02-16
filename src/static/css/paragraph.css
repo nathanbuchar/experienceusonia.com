@@ -8,16 +8,11 @@
 
 .paragraph-module p {
   hyphens: auto;
-  text-align: justify;
 }
 
 @media screen and (max-width: 768px) {
   .paragraph-module.module {
     margin-top: 38px;
     margin-bottom: 38px;
-  }
-
-  .paragraph-module p {
-    text-align: left;
   }
 }

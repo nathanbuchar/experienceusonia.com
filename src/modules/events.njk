@@ -13,15 +13,6 @@
 	  	{% set endHour = toFriendlyDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
 	  	<p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
 			<div class="events-module__register">
-		  	<div class="events-module__button">
-					<a href="{{ event.url }}" class="button" target="_blank">
-					{% if isFreeEvent and isOnlineEvent and hasUnlimitedSeats %}
-						More info
-					{% else %}
-						Register
-					{% endif %}
-				  </a>
-		  	</div>
 		  	{% if not hasUnlimitedSeats %}
 			  	<div class="events-module__spots">
 						{% set ticketsRemaining = freeTickets.quantity_total - freeTickets.quantity_sold %}
@@ -37,6 +28,15 @@
 						{% endif %}
 			  	</div>
 		  	{% endif %}
+		  	<div class="events-module__button">
+					<a href="{{ event.url }}" class="button" target="_blank">
+					{% if isFreeEvent and isOnlineEvent and hasUnlimitedSeats %}
+						More info
+					{% else %}
+						Register
+					{% endif %}
+				  </a>
+		  	</div>
 	  	</div>
 	  </div>
 	{% endfor %}
