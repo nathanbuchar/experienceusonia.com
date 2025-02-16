@@ -32,6 +32,8 @@ body {
   font-family: "EB Garamond", serif;
   font-optical-sizing: auto;
   font-style: normal;
+  line-height: 1.5em;
+  font-size: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,6 +41,8 @@ h1, h2, h3, h4, h5, h6 {
   font-optical-sizing: auto;
   font-style: normal;
   color: var(--header-color);
+  letter-spacing: 0;
+  line-height: 1.4em;
 }
 
 h2 { 
@@ -64,7 +68,7 @@ img.lazyload[src] {
   max-width: 840px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 18px;
 }
 
 .module--wide {

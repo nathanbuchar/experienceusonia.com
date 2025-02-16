@@ -6,6 +6,7 @@
   color: var(--tertiary-color);
 	margin-top: 4px;
   margin-bottom: -15px;
+  line-height: 1.4em;
 }
 
 .caption-module p {

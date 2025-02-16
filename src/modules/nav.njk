@@ -1,9 +1,11 @@
-<div class="nav-module module {{ 'nav-module--wide' if isHomepage }}">
-  <div class="nav-module__wordmark">
-    <a href="/" aria-description="Goetsch–Winckler house wordmark; Click to go home.">
-      {% include "partials/wordmark.njk" %}
-    </a>
-  </div>
+<div class="nav-module module">
+  {% if pageKey !== "home" %}
+    <div class="nav-module__wordmark">
+      <a href="/" aria-description="Goetsch–Winckler house wordmark; Click to go home.">
+        {% include "partials/wordmark.njk" %}
+      </a>
+    </div>
+  {% endif %}
   <nav class="nav-module__nav">
     <details>
       <summary aria-description="Toggle navigation">
@@ -13,7 +15,7 @@
       <div class="nav-module__links">
         <ol>
           <li class="nav-module__wordmark-link">
-            <a href="/">
+            <a href="/" title="Go home">
               {% include "partials/wordmark.njk" %}
             </a>
           </li>

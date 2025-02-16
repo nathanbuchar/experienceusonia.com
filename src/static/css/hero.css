@@ -61,22 +61,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 16px;
-  max-width: 320px;
-  animation: blurIn 1.5s ease;
-}
-
-@keyframes blurIn {
-  0% {
-    filter: blur(8px);
-    opacity: 0;
-    transform: scale(1.2);
-  }
-  100% {
-    filter: blur(0);
-    opacity: 1;
-    transform: scale(1);
-  }
+  margin-bottom: 24px;
+  max-width: 184px;
 }
 
 .hero-module__tagline span {
@@ -107,6 +93,7 @@
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
   opacity: 0.65;
+  line-height: 1.4em;
 }
 
 @media screen and (max-width: 768px) {
@@ -124,8 +111,7 @@
   }
 
   .hero-module__tagline {
-    margin-bottom: 12px;
-    max-width: 280px;
+    max-width: 148px;
   }
 
   .hero-module__links .links-module.module .button {
