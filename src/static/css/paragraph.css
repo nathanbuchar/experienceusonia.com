@@ -16,4 +16,8 @@
     margin-top: 38px;
     margin-bottom: 38px;
   }
+
+  .paragraph-module p {
+    text-align: left;
+  }
 }
