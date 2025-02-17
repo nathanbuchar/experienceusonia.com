@@ -97,7 +97,13 @@ img.lazyload[src] {
   display: inline-block;
 }
 
-.button:hover,
-.button:active {
+.button.inactive, a.button.inactive {
+  cursor: default;
+  background-color: var(--tertiary-color);
+  opacity: 0.66;
+}
+
+.button:not(.inactive):hover,
+.button:not(.inactive):active {
   background: var(--link-color-alt);
 }

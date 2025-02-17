@@ -61,8 +61,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 24px;
-  max-width: 184px;
+  margin-bottom: 16px;
+  max-width: 320px;
 }
 
 .hero-module__tagline span {
@@ -111,7 +111,8 @@
   }
 
   .hero-module__tagline {
-    max-width: 148px;
+    margin-bottom: 12px;
+    max-width: 280px;
   }
 
   .hero-module__links .links-module.module .button {

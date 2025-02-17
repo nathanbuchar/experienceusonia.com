@@ -1,31 +1,23 @@
-<div class="nav-module module">
-  {% if pageKey !== "home" %}
+<div class="nav-module {{ 'nav-module--home' if pageKey === 'home' }} module">
+  <nav class="nav-module__inner">
     <div class="nav-module__wordmark">
       <a href="/" aria-description="Goetsch–Winckler house wordmark; Click to go home.">
         {% include "partials/wordmark.njk" %}
       </a>
     </div>
-  {% endif %}
-  <nav class="nav-module__nav">
-    <details>
-      <summary aria-description="Toggle navigation">
-        {% include "partials/hamburger.njk" %}
-      </summary>
-      <div class="nav-module__screen"></div>
-      <div class="nav-module__links">
-        <ol>
-          <li class="nav-module__wordmark-link">
-            <a href="/" title="Go home">
-              {% include "partials/wordmark.njk" %}
-            </a>
-          </li>
-          <li><a class="{{ 'active' if pageKey === 'visit' }}" href="/visit">Visit</a></li>
-          <li><a class="{{ 'active' if pageKey === 'events' }}" href="/events">Events</a></li>
-          <li><a class="{{ 'active' if pageKey === 'bookings' }}" href="/bookings">Bookings</a></li>
-          <li><a class="{{ 'active' if pageKey === 'press' }}" href="/press">Press</a></li>
-          <li><a class="{{ 'active' if pageKey === 'contact' }}" href="/contact">Contact</a></li>
-        </ol>
-      </div>
-    </details>
+    <ol class="nav-module__list">
+      <li class="{{ 'active' if pageKey === 'visit' }}">
+        <a href="/visit">Visit</a>
+      </li>
+      <li class="{{ 'active' if pageKey === 'events' }}">
+        <a href="/events">Events</a>
+      </li>
+      <li class="{{ 'active' if pageKey === 'bookings' }}">
+        <a href="/bookings">Bookings</a>
+      </li>
+      <li class="{{ 'active' if pageKey === 'contact' }}">
+        <a href="/contact">Contact</a>
+      </li>
+    </ol>
   </nav>
 </div>

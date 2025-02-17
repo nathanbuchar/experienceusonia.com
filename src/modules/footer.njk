@@ -1,20 +1,24 @@
 <footer class="footer-module module">
-  <div class="footer-module__wordmark">
-    {% include "partials/wordmark.njk" %}
+  <div class="footer-module__inner">
+    <div class="footer-module__wordmark">
+      {% include "partials/wordmark.njk" %}
+    </div>
+    <p>
+      Copyright &copy; 2023&ndash;{{ currentYear() }} <a href="mailto:info@experienceusonia.com" title="Email info@experienceusonia.com">Experience Usonia, LLC</a><br/>
+      Website by <a href="https://n8.engineer">n8.engineer</a>
+    </p>
+    <p>
+      <strong>Not open to the public</strong><br/>
+      Private property. Do not disturb occupants. Enjoy from a distance.
+    </p>
+    <p>
+      <a href="/">Home</a>
+      &middot;
+      <a href="/contact">Contact</a>
+      &middot;
+      <a href="/privacy">Privacy</a>
+      &middot;
+      <a href="#content">Top</a>
+    </p>
   </div>
-  <p>
-    Copyright &copy; 2023&ndash;{{ currentYear() }} <a href="mailto:info@experienceusonia.com" title="Email info@experienceusonia.com">Experience Usonia, LLC</a><br/>
-    Website by <a href="https://n8.engineer">n8.engineer</a>
-  </p>
-  <p>
-    <strong>Not open to the public</strong><br/>
-    Private property. Do not disturb occupants. Enjoy from a distance.
-  </p>
-  <p>
-    <a href="/">Home</a>
-    &middot;
-    <a href="/contact">Contact</a> 
-    &middot;
-    <a href="/privacy">Privacy</a>
-  </p>
 </footer>
