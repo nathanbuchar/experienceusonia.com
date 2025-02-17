@@ -4,16 +4,15 @@
 }
 
 .footer-module__inner {
-  border-top: 1px solid #DEC1AF;
   padding-top: 48px;
   padding-bottom: 48px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   row-gap: 16px;
   color: var(--tertiary-color);
-  text-align: left;
+  text-align: center;
   font-size: 11px;
   font-family: "Montserrat", sans-serif;
   line-height: 1.5em;
@@ -26,10 +25,5 @@
 @media screen and (max-width: 768px) {
   .footer-module.module {
     margin-top: 136px;
-    border-top: 1px solid #DEC1AF;
-  }
-
-  .footer-module__inner {
-    border-top: none;
   }
 }

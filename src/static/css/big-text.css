@@ -11,9 +11,17 @@
   font-size: 32px;
 }
 
+.big-text-module:not(.big-text-module--wide).module {
+  max-width: 580px;
+}
+
 .big-text-module__inner {
   border: 1px solid var(--link-color);
   padding: 56px;
+}
+
+.big-text-module:not(.big-text-module--wide).module .big-text-module__inner {
+  padding: 36px;
 }
 
 .big-text-module strong {
@@ -28,7 +36,8 @@
     line-height: 32px;
   }
 
-  .big-text-module__inner {
+  .big-text-module__inner,
+  .big-text-module:not(.big-text-module--wide).module .big-text-module__inner {
     padding: 32px 16px;
   }
 }
