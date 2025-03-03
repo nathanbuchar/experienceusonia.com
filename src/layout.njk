@@ -36,6 +36,7 @@
     {% block extraHead %}{% endblock %}
   </head>
   <body>
+    {% include "partials/skip-link.njk" %}
     <div id="content">
       {{ renderModule("nav") }}
       <main id="main">
