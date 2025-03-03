@@ -20,6 +20,10 @@ const config = {
           contentType: 'page',
         },
         {
+          key: 'navLinks',
+          contentType: 'navLink',
+        },
+        {
           key: 'opengraph',
           contentType: 'opengraph',
         },
@@ -35,12 +39,12 @@ const config = {
     {
       template: '404.njk',
       dest: 'dist/404.html',
-      include: ['opengraph'],
+      include: ['navLinks', 'opengraph'],
     },
     {
       template: 'test.njk',
       dest: 'dist/test/index.html',
-      include: ['opengraph'],
+      include: ['navLinks', 'opengraph'],
     },
     {
       template: 'debug.njk',
