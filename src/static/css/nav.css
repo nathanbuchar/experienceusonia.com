@@ -71,14 +71,14 @@
 .nav-module details {
   position: relative;
   display: none;
-  height: 32px;
+  height: 36px;
 }
 
 .nav-module summary {
   background: var(--link-color);
   color: var(--primary-color);
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   padding: 4px;
   cursor: pointer;
 }
@@ -142,7 +142,12 @@
 
   .nav-module__inner {
     border-bottom: none;
-  align-items: flex-start;
+    align-items: flex-start;
+  }
+
+  .nav-module .nav-module__wordmark a {
+    width: 98px;
+    height: 148px;
   }
 
   .nav-module .nav-module__links {
