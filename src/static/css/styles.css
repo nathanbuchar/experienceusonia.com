@@ -14,6 +14,7 @@
 @import "./caption.css";
 @import "./separator.css";
 @import "./events.css";
+@import "./quote.css";
 
 h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure, ul, ol {
   margin: 0;
@@ -58,6 +59,15 @@ img.lazyload {
 
 img.lazyload[src] {
   opacity: 1;
+}
+
+blockquote {
+  border-left: none;
+  font: inherit;
+  font-style: italic;
+  margin-left: 24px;
+  background: transparent;
+  padding: 0 16px;
 }
 
 .noscroll {
