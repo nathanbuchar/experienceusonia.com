@@ -98,7 +98,7 @@
 
 @media screen and (max-width: 768px) {
   .hero-module__hero {
-    max-height: 572px;
+    height: 85vh;
     min-height: auto;
   }
 
