@@ -7,7 +7,7 @@
 			{% set hasUnlimitedSeats = freeTickets.quantity_total === 999 %}
 		  <div class="events-module__event">
 		  	<h4>
-		  		{{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
+		  		{% {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }} %}
 		  		<a href="{{ event.url }}" target="_blank">
 		  			{{ event.name.text }}
 		  		</a>
