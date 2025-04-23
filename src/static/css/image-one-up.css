@@ -14,9 +14,10 @@
 @media screen and (max-width: 768px) {
   .image-one-up-module.module {
     padding: 0;
+    margin-bottom: 8px;
   }
 
   .image-one-up-module__caption {
-    margin-bottom: -12px;
+    margin-bottom: -8px;
   }
 }

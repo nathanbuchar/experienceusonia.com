@@ -8,13 +8,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   flex-grow: 1;
   flex-direction: column;
 }
 
-.nav-module__logo {
+.nav-module__wordmark {
   max-width: 108px;
+  transition: transform 0.15s ease;
+}
+
+.nav-module__wordmark:hover {
+  transform: scale(1.05);
+}
+
+.nav-module__wordmark a {
+  display: block;
+  position: relative;
+  line-height: 0;
+}
+
+.nav-module__wordmark-art {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/goetsch-orbs.jpg');
+  background-size: 100%;
+  mask-image: url('/svg/wordmark.svg');
+  mask-size: 100%;
+  transition: opacity 0.1s ease;
+}
+
+.nav-module__wordmark-art:hover {
+  opacity: 1;
 }
 
 .nav-module .nav-module__links {}
