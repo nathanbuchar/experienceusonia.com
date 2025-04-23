@@ -2,8 +2,8 @@
   margin: 0 auto;
   width: 100%;
   max-width: 580px;
-  margin-top: 48px;
-  margin-bottom: 48px;
+  margin-top: 56px;
+  margin-bottom: 56px;
 }
 
 .paragraph-module p {
@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 768px) {
   .paragraph-module.module {
-    margin-top: 38px;
-    margin-bottom: 38px;
+    margin-top: 42px;
+    margin-bottom: 42px;
   }
 }

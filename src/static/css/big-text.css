@@ -11,6 +11,13 @@
   font-size: 32px;
 }
 
+.big-text-module.big-text-module--wide.module {
+  background-color: var(--link-color);
+  color: var(--secondary-color);
+  margin: 0;
+  max-width: 100%;
+}
+
 .big-text-module:not(.big-text-module--wide).module {
   max-width: 580px;
 }
@@ -18,6 +25,12 @@
 .big-text-module__inner {
   border: 2px solid var(--link-color);
   padding: 56px;
+}
+
+.big-text-module.big-text-module--wide.module .big-text-module__inner {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 64px 0;
 }
 
 .big-text-module:not(.big-text-module--wide).module .big-text-module__inner {
@@ -41,7 +54,8 @@
   }
 
   .big-text-module__inner,
-  .big-text-module:not(.big-text-module--wide).module .big-text-module__inner {
-    padding: 32px 16px;
+  .big-text-module:not(.big-text-module--wide).module .big-text-module__inner,
+  .big-text-module.big-text-module--wide.module .big-text-module__inner {
+    padding: 32px 0;
   }
 }
