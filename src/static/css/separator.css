@@ -1,6 +1,6 @@
 .separator-module.module {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .separator-module__separator {

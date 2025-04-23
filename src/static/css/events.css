@@ -1,38 +1,38 @@
 .events-module.module {
-	max-width: 580px;
-	margin-top: 72px;
-	display: flex;
-	flex-direction: column;
-	row-gap: 32px;
+  max-width: 580px;
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
 }
 
 .events-module .events-module__event {
-	display: flex;
-	flex-direction: column;
-	row-gap: 8px;
-	border: 1px solid #DEC1AF;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  border: 1px solid #DEC1AF;
   padding: 24px;
   font-size: 17px;
   line-height: 1.5em;
 }
 
 .events-module .events-module__free {
-	font-style: italic;
-	padding-right: 4px;
+  font-style: italic;
+  padding-right: 4px;
 }
 
 .events-module__register {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	column-gap: 16px;
-	margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 16px;
+  margin-top: 8px;
 }
 
 .events-module .events-module__button {
-	line-height: 20px;
+  line-height: 20px;
 }
 
 .events-module .events-module__spots {
-	font-style: italic;
+  font-style: italic;
 }

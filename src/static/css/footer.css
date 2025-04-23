@@ -18,8 +18,8 @@
   line-height: 1.5em;
 }
 
-.footer-module__wordmark {
-  max-width: 64px;
+.footer-module__logo {
+  max-width: 124px;
 }
 
 @media screen and (max-width: 768px) {

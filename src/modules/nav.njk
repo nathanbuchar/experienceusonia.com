@@ -1,22 +1,12 @@
 <div class="nav-module {{ 'nav-module--home' if pageKey === 'home' }} module">
-  <nav class="nav-module__inner">
-    <div class="nav-module__main">
-      <div class="nav-module__wordmark">
-        <a href="/" aria-description="Goetsch–Winckler house wordmark; Click to go home.">
-          {% include "partials/wordmark.njk" %}
-        </a>
-      </div>
-      <div class="nav-module__links">
-        {% include "partials/nav-links.njk" %}
-      </div>
+  <nav class="nav-module__main">
+    <div class="nav-module__logo">
+      <a href="/" aria-description="Goetsch–Winckler house logo; Click to go home.">
+        {% include "partials/wordmark.njk" %}
+      </a>
     </div>
-    <details>
-      <summary aria-description="Toggle navigation">
-        {% include "partials/hamburger.njk" %}
-      </summary>
-      <div class="nav-module__links">
-        {% include "partials/nav-links.njk" %}
-      </div>
-    </details>
+    <div class="nav-module__links">
+      {% include "partials/nav-links.njk" %}
+    </div>
   </nav>
 </div>

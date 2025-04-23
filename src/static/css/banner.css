@@ -1,34 +1,34 @@
 .banners {
-	top: 0;
-	z-index: 10;
-	position: fixed;
-	width: 100%;
+  top: 0;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
 }
 
 .banner-module.module {
-	font-size: 16px;
-	background: var(--secondary-color);
-	min-height: 24px;
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
-	padding-left: 24px;
-	position: relative;
-	line-height: 18px;
+  font-size: 16px;
+  background: var(--secondary-color);
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 24px;
+  position: relative;
+  line-height: 18px;
   padding-top: 4px;
   padding-bottom: 6px;
 }
 
 .banner-module.module + .banner-module.module {
-	border-top: 1px solid var(--link-color);
+  border-top: 1px solid var(--link-color);
 }
 
 .banner-module::before {
-	content: '';
-	width: 16px;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background: var(--link-color);
+  content: '';
+  width: 16px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--link-color);
 }
