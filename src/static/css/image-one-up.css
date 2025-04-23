@@ -7,8 +7,16 @@
   max-width: 580px;
 }
 
+.image-one-up-module__image {
+  margin: 0;
+}
+
 @media screen and (max-width: 768px) {
   .image-one-up-module.module {
     padding: 0;
+  }
+
+  .image-one-up-module__caption {
+    margin-bottom: -12px;
   }
 }

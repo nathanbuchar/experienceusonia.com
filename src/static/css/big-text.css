@@ -28,6 +28,10 @@
   font-weight: 600;
 }
 
+.big-text-module p {
+  margin: 0;
+}
+
 @media screen and (max-width: 768px) {
   .big-text-module.module {
     margin-top: 36px;

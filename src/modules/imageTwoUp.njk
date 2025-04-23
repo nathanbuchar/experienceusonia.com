@@ -4,6 +4,8 @@
     <img class="lazyload" data-src="{{image2.fields.file.url}}" alt="" />
   </div>
   {% if caption %}
-    {{ renderModule('caption', caption.fields) }}
+    <div class="image-two-up-module__caption">
+      {{ renderModule('caption', caption.fields) }}
+    </div>
   {% endif %}
 </div>

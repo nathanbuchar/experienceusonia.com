@@ -13,11 +13,16 @@
 
 .image-two-up-module .image-two-up-module__images img {
   max-width: calc(50% - 6px);
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
   .image-two-up-module.module {
     padding: 0;
+  }
+
+  .image-two-up-module__caption {
+    margin-bottom: -12px;
   }
 
   .image-two-up-module .image-two-up-module__images {

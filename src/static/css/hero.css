@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   margin-bottom: 12px;
-  padding: 0 24px 24px;
+  padding: 0 16px 16px;
 }
 
 .hero-module__hero {
@@ -17,6 +17,10 @@
   min-height: 768px;
   background-color: #371400;
   overflow: hidden;
+}
+
+.hero-module__hero p {
+  margin-bottom: 0;
 }
 
 .hero-module__screen {

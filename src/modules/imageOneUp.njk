@@ -1,6 +1,8 @@
 <div class="image-one-up-module {{ 'image-one-up-module--wide' if isWide }} module">
-  <img class="lazyload" data-src="{{image.fields.file.url}}" alt="" />
+  <img class="image-one-up-module__image lazyload" data-src="{{image.fields.file.url}}" alt="" />
   {% if caption %}
-    {{ renderModule('caption', caption.fields) }}
+    <div class="image-one-up-module__caption">
+      {{ renderModule('caption', caption.fields) }}
+    </div>
   {% endif %}
 </div>

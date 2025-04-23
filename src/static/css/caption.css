@@ -4,14 +4,14 @@
   display: flex;
   justify-content: flex-end;
   color: var(--tertiary-color);
-  margin-top: 4px;
-  margin-bottom: -15px;
-  line-height: 1.4em;
+  line-height: 14px;
 }
 
 .caption-module p {
   max-width: 66%;
   text-align: right;
+  margin: 0;
+  padding-top: 4px;
 }
 
 .caption-module.caption-module--wide {
@@ -21,7 +21,11 @@
 @media screen and (max-width: 768px) {
   .module .caption-module.module {
     text-align: left;
-    padding: 0 16px;
+  }
+
+  .module .caption-module.module p {
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
   .caption-module p {

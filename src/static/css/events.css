@@ -1,9 +1,9 @@
 .events-module.module {
   max-width: 580px;
-  margin-top: 72px;
   display: flex;
   flex-direction: column;
   row-gap: 32px;
+  margin-bottom: 48px;
 }
 
 .events-module .events-module__event {
@@ -14,6 +14,10 @@
   padding: 24px;
   font-size: 17px;
   line-height: 1.5em;
+}
+
+.events-module .events-module__event > * {
+  margin-bottom: 0;
 }
 
 .events-module .events-module__free {
@@ -35,4 +39,15 @@
 
 .events-module .events-module__spots {
   font-style: italic;
+}
+
+.events-module .events-module__spots p {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .events-module.module {
+    margin-bottom: 38px;
+    row-gap: 16px;
+  }
 }

@@ -17,7 +17,7 @@
 @import "./quote.css";
 
 h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure, ul, ol {
-  margin: 0;
+  margin: 0 0 2rem;
 }
 
 svg {
@@ -85,8 +85,9 @@ blockquote {
   max-width: 100%;
 }
 
-.module .module {
+.module.module .module.module {
   padding: 0;
+  margin: 0;
 }
 
 .button, a.button {

@@ -4,11 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 96px;
-  margin-bottom: 48px;
+  margin-top: 76px;
+  margin-bottom: 16px;
 }
 
 .section-module h2 {
+  margin-bottom: 24px;
   padding-left: 24px;
   position: relative;
   width: 100%;
@@ -34,10 +35,5 @@
 @media screen and (max-width: 768px) {
   .section-module.module {
     margin-top: 64px;
-    margin-bottom: 36px;
-  }
-
-  .section-module.module .paragraph-module.module {
-    margin-top: 18px;
   }
 }
