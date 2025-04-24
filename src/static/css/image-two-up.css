@@ -29,7 +29,6 @@
   .image-two-up-module .image-two-up-module__images {
     flex-direction: column;
     margin: 0;
-    column-gap: 8px;
     row-gap: 8px;
   }
 

@@ -70,6 +70,18 @@ blockquote {
   padding: 0 16px;
 }
 
+a:not(.button):nth-of-type(4n):hover {
+  color: var(--goetsch-green);
+}
+
+a:not(.button):nth-of-type(4n+2):hover {
+  color: var(--goetsch-gold);
+}
+
+a:not(.button):nth-of-type(4n+3):hover {
+  color: var(--goetsch-blue);
+}
+
 .noscroll {
   overflow: hidden;
 }
@@ -94,11 +106,11 @@ blockquote {
   display: inline-block;
   width: auto;
   border-radius: 48px;
-  height: 48px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 18px;
+  padding: 17px 21px;
   color: var(--primary-color);
   background: var(--link-color);
   text-decoration: none;
@@ -106,6 +118,7 @@ blockquote {
   font-size: 14px;
   font-weight: 600;
   display: inline-block;
+  transition: all 0.15s ease;
 }
 
 .button.inactive, a.button.inactive {
@@ -116,7 +129,10 @@ blockquote {
 
 .button:not(.inactive):hover,
 .button:not(.inactive):active {
-  background: var(--link-color-alt);
+  transform: scale(1.05);
+  background-image: url('/img/goetsch-orbs.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .skip-link {
@@ -131,4 +147,35 @@ blockquote {
 
 .skip-link:focus {
   top: 10px;
+}
+
+.art-bar {
+  position: relative;
+  padding-top: 16px;
+}
+
+.art-bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background-image: url('/img/goetsch-orbs-banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
+  .art-bar {
+    padding-top: 12px;
+  }
+
+  .art-bar::after {
+    height: 12px;
+  }
 }

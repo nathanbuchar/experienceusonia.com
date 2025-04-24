@@ -6,48 +6,51 @@
       {% set freeTickets = event.ticket_classes[0] %}
       {% set hasUnlimitedSeats = freeTickets.quantity_total === 999 %}
       <div class="events-module__event">
-        <h4>
-        {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
-          <a href="{{ event.url }}" target="_blank">
-            {{ event.name.text }}
-          </a>
-        </h4>
-        <p>{{ event.description.text }}</p>
-        {% set startDate = toFriendlyDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
-        {% set startHour = toFriendlyDateLocaleString(event.start.utc, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
-        {% set endHour = toFriendlyDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
-        <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
-        <div class="events-module__register">
-          {% set ticketsRemaining = freeTickets.quantity_total - freeTickets.quantity_sold %}
-          {% set isSoldOut = not hasUnlimitedSeats and freeTickets.on_sale_status === "SOLD_OUT" %}
-          {% if not hasUnlimitedSeats %}
-            <div class="events-module__spots">
-              {% if isSoldOut %}
-                <p>Registration full!</p>
-              {% else %}
-                {% if ticketsRemaining === 1 %}
-                  <p>{{ ticketsRemaining }} spot left</p>
-                {% else %}
-                  <p>{{ ticketsRemaining }} spots left</p>
-                {% endif %}
-              {% endif %}
-            </div>
-          {% endif %}
-          <div class="events-module__button">
-            {% if isSoldOut %}
-              <span class="button inactive">
-                Register
-              </span>
-            {% else %}
-              <a href="{{ event.url }}" class="button" target="_blank">
-                {% if isFreeEvent and isOnlineEvent and hasUnlimitedSeats %}
-                  More info
-                {% else %}
-                  Register
-                {% endif %}
-              </a>
-            {% endif %}
+        <div class="art-bar"></div>
+        <div class="events-module__event-inner">
+          <h4>
+          {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
+            <a href="{{ event.url }}" target="_blank">
+              {{ event.name.text }}
             </a>
+          </h4>
+          <p>{{ event.description.text }}</p>
+          {% set startDate = toFriendlyDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
+          {% set startHour = toFriendlyDateLocaleString(event.start.utc, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
+          {% set endHour = toFriendlyDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
+          <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
+          <div class="events-module__register">
+            {% set ticketsRemaining = freeTickets.quantity_total - freeTickets.quantity_sold %}
+            {% set isSoldOut = not hasUnlimitedSeats and freeTickets.on_sale_status === "SOLD_OUT" %}
+            {% if not hasUnlimitedSeats %}
+              <div class="events-module__spots">
+                {% if isSoldOut %}
+                  <p>Registration full!</p>
+                {% else %}
+                  {% if ticketsRemaining === 1 %}
+                    <p>{{ ticketsRemaining }} spot left</p>
+                  {% else %}
+                    <p>{{ ticketsRemaining }} spots left</p>
+                  {% endif %}
+                {% endif %}
+              </div>
+            {% endif %}
+            <div class="events-module__button">
+              {% if isSoldOut %}
+                <span class="button inactive">
+                  Register
+                </span>
+              {% else %}
+                <a href="{{ event.url }}" class="button" target="_blank">
+                  {% if isFreeEvent and isOnlineEvent and hasUnlimitedSeats %}
+                    More info
+                  {% else %}
+                    Register
+                  {% endif %}
+                </a>
+              {% endif %}
+              </a>
+            </div>
           </div>
         </div>
       </div>

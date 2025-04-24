@@ -3,6 +3,7 @@
   max-width: 100%;
   padding: 0;
   margin: 0;
+  padding: 18px;
 }
 
 .hero-module__hero {
@@ -105,6 +106,10 @@
     padding: 0;
   }
 
+  .hero-module.module + .big-text-module.module {
+    margin-top: 0;
+  }
+
   .hero-module__hero {
     height: 76vh;
     min-height: auto;
@@ -124,8 +129,8 @@
   }
 
   .hero-module__links .links-module.module .button {
-    height: 42px;
-    padding: 12px 14px;
+    height: 48px;
+    padding: 14px 18px;
     line-height: 0;
   }
 

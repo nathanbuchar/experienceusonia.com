@@ -14,27 +14,34 @@
 }
 
 .nav-module__wordmark {
-  max-width: 108px;
+  max-width: 116px;
 }
 
 .nav-module__wordmark a {
   display: block;
   position: relative;
   line-height: 0;
+  transition: transform 0.15s ease;
+}
+
+.nav-module__wordmark a:hover {
+  transform: scale(1.05);
+  color: var(--link-color);
 }
 
 .nav-module__wordmark-art {
-  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-image: url('/img/goetsch-orbs.jpg');
-  background-size: 100%;
+  background-size: 116%;
+  background-position: -10% center;
   mask-image: url('/svg/wordmark.svg');
   mask-size: 100%;
-  transition: opacity 0.1s ease;
+  opacity: 0;
+  transition: all 0.15s ease;
 }
 
 .nav-module__wordmark-art:hover {
@@ -64,11 +71,28 @@
   text-transform: uppercase;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1.5px;
   display: block;
   line-height: 11px;
   padding: 8px 0;
+}
+
+
+.nav-module .nav-module__links li:nth-of-type(4n) a:hover {
+  color: var(--goetsch-green);
+}
+
+.nav-module .nav-module__links li:nth-of-type(4n+1) a:hover {
+  color: var(--goetsch-purple);
+}
+
+.nav-module .nav-module__links li:nth-of-type(4n+2) a:hover {
+  color: var(--goetsch-gold);
+}
+
+.nav-module .nav-module__links li:nth-of-type(4n+3) a:hover {
+  color: var(--goetsch-blue);
 }
 
 .nav-module .nav-module__links li.active a {
@@ -78,6 +102,10 @@
 @media screen and (max-width: 768px) {
   .nav-module.module {
     padding: 42px 0 36px;
+  }
+
+  .nav-module__wordmark {
+    max-width: 108px;
   }
 
   .nav-module .nav-module__links ol {

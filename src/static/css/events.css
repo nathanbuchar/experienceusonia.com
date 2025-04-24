@@ -7,16 +7,20 @@
 }
 
 .events-module .events-module__event {
+}
+
+.events-module .events-module__event-inner {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
-  border: 1px solid #DEC1AF;
   padding: 24px;
   font-size: 17px;
   line-height: 1.5em;
+  border: 1px solid var(--link-color);
+  border-top: none;
 }
 
-.events-module .events-module__event > * {
+.events-module .events-module__event-inner > * {
   margin-bottom: 0;
 }
 
