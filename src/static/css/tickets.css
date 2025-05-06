@@ -1,0 +1,10 @@
+.tickets-module.module {
+  max-width: 580px;
+  margin-bottom: 48px;
+}
+
+@media screen and (max-width: 768px) {
+  .tickets-module.module {
+    margin-bottom: 38px;
+  }
+}
