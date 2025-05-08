@@ -15,9 +15,9 @@
             </a>
           </h4>
           <p>{{ event.description.text }}</p>
-          {% set startDate = toFriendlyDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
-          {% set startHour = toFriendlyDateLocaleString(event.start.utc, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
-          {% set endHour = toFriendlyDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
+          {% set startDate = toFriendlyETDateLocaleString(event.start.utc, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
+          {% set startHour = toFriendlyETDateLocaleString(event.start.utc, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
+          {% set endHour = toFriendlyETDateLocaleString(event.end.utc, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
           <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
           <div class="events-module__register">
             {% set ticketsRemaining = freeTickets.quantity_total - freeTickets.quantity_sold %}

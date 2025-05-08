@@ -2,9 +2,10 @@
   {% for event in events %}
     {% if event.status === 'published' and event.private !== 'true' and event.hidden !== 'true' %}
       {% set isOnlineEvent = event.online_event === 'true' %}
-      {% set isFreeEvent = event.revenue === 0 %}
-      {% set numSeats = event.total_issued_tickets %}
-      {% set numOrders = event.total_issued_tickets %}
+      {% set ticket = event.ticket_types[0] %}
+      {% set isFreeEvent = ticket.price === 0 %}
+      {% set numSeats = ticket.quantity_total %}
+      {% set numOrders = ticket.quantity_issued %}
       <div class="events-module__event">
         <div class="art-bar"></div>
         <div class="events-module__event-inner">
@@ -14,14 +15,14 @@
               {{ event.name }}
             </a>
           </h4>
-          <p>{{ event.description.text }}</p>
-          {% set startDate = toFriendlyDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
-          {% set startHour = toFriendlyDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
-          {% set endHour = toFriendlyDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
+          <p>{{ ticket.description }}</p>
+          {% set startDate = toFriendlyETDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
+          {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
+          {% set endHour = toFriendlyETDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
           <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
           <div class="events-module__register">
             {% set ticketsRemaining = numSeats - numOrders %}
-            {% set isSoldOut = event.tickets_available === "false" %}
+            {% set isSoldOut = event.tickets_available === "false" or event.status !== 'on_sale' %}
             <div class="events-module__spots">
               {% if isSoldOut %}
                 <p>Registration full!</p>
@@ -34,7 +35,7 @@
               {% endif %}
             </div>
             <div class="events-module__button">
-              <a href="{{ event.url }}" class="button {{ 'button-secondary if isSoldOut '}}" target="_blank">
+              <a href="{{ event.url }}" class="button {{ 'button-secondary' if isSoldOut }}" target="_blank">
                 {% if isSoldOut %}
                   {{ event.waitlist_call_to_action }}
                 {% else %}
