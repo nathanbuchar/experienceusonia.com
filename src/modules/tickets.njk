@@ -1,5 +1,50 @@
-<div class="tickets-module module">
-  <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
-<div class="tt-widget"><div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/all-tickets/goetschwincklerhouse/" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg_246988" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div><script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/all-tickets/goetschwincklerhouse/" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param="" data-inline-ref=""></script></div>
-  <!-- End of Ticket Tailor Widget -->
+<div class="events-module module">
+  {% for event in events %}
+    {% if event.status === 'published' and event.private !== 'true' and event.hidden !== 'true' %}
+      {% set isOnlineEvent = event.online_event === 'true' %}
+      {% set isFreeEvent = event.revenue === 0 %}
+      {% set numSeats = event.total_issued_tickets %}
+      {% set numOrders = event.total_issued_tickets %}
+      <div class="events-module__event">
+        <div class="art-bar"></div>
+        <div class="events-module__event-inner">
+          <h4>
+          {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
+            <a href="{{ event.url }}" target="_blank">
+              {{ event.name }}
+            </a>
+          </h4>
+          <p>{{ event.description.text }}</p>
+          {% set startDate = toFriendlyDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
+          {% set startHour = toFriendlyDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
+          {% set endHour = toFriendlyDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
+          <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
+          <div class="events-module__register">
+            {% set ticketsRemaining = numSeats - numOrders %}
+            {% set isSoldOut = event.tickets_available === "false" %}
+            <div class="events-module__spots">
+              {% if isSoldOut %}
+                <p>Registration full!</p>
+              {% else %}
+                {% if ticketsRemaining === 1 %}
+                  <p>{{ ticketsRemaining }} spot left</p>
+                {% else %}
+                  <p>{{ ticketsRemaining }} spots left</p>
+                {% endif %}
+              {% endif %}
+            </div>
+            <div class="events-module__button">
+              <a href="{{ event.url }}" class="button {{ 'button-secondary if isSoldOut '}}" target="_blank">
+                {% if isSoldOut %}
+                  {{ event.waitlist_call_to_action }}
+                {% else %}
+                  {{ event.call_to_action }}
+                {% endif %}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
 </div>

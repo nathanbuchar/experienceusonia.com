@@ -6,7 +6,7 @@ import engine from './lib/engine.js';
 import clean from './lib/plugins/clean.js';
 import contentful from './lib/plugins/contentful.js';
 import copy from './lib/plugins/copy.js';
-import eventbrite from './lib/plugins/eventbrite.js';
+import events from './lib/plugins/events.js';
 
 const config = {
   engine,
@@ -29,9 +29,9 @@ const config = {
         },
       ],
     }),
-    eventbrite(),
+    events(),
     copy({
-      from: 'src/static', 
+      from: 'src/static',
       to: 'dist',
     }),
   ],

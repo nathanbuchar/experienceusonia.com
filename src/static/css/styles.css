@@ -122,6 +122,13 @@ a:not(.button):nth-of-type(4n+3):hover {
   transition: all 0.15s ease;
 }
 
+.button.button-secondary,
+a.button.button-secondary {
+  box-shadow: inset 0px 0px 0px 2px var(--link-color);
+  background: var(--primary-color);
+  color: var(--link-color);
+}
+
 .button.inactive, a.button.inactive {
   cursor: default;
   background-color: var(--tertiary-color);
@@ -134,6 +141,12 @@ a:not(.button):nth-of-type(4n+3):hover {
   background-image: url('/img/goetsch-orbs.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.button.button-secondary:not(.inactive):hover,
+a.button.button-secondary:not(.inactive):hover {
+  color: var(--primary-color);
+  box-shadow: none;
 }
 
 .skip-link {
