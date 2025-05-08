@@ -22,7 +22,7 @@
           <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
           <div class="events-module__register">
             {% set ticketsRemaining = numSeats - numOrders %}
-            {% set isSoldOut = event.tickets_available === "false" or event.status !== 'on_sale' %}
+            {% set isSoldOut = event.tickets_available === "false" or ticket.status !== 'on_sale' %}
             <div class="events-module__spots">
               {% if isSoldOut %}
                 <p>Registration full!</p>
