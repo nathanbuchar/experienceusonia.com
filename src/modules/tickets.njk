@@ -10,17 +10,17 @@
       {% set numOrders = ticket.quantity_issued %}
       <div class="events-module__event">
         <div class="events-module__event-inner">
-          <h4>
-          {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
+          <h3>
             <a href="{{ event.url }}" target="_blank">
               {{ event.name }}
             </a>
-          </h4>
-          <p>{{ ticket.description }}</p>
+            {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
+          </h3>
           {% set startDate = toFriendlyETDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
           {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
           {% set endHour = toFriendlyETDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
           <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
+          <p>{{ ticket.description }}</p>
           <div class="events-module__register">
             {% set ticketsRemaining = numSeats - numOrders %}
             <div class="events-module__spots">

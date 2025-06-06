@@ -125,7 +125,7 @@ a:not(.button):nth-of-type(4n+3):hover {
 .button.button-secondary,
 a.button.button-secondary {
   box-shadow: inset 0px 0px 0px 2px var(--link-color);
-  background: var(--primary-color);
+  background: transparent;
   color: var(--link-color);
 }
 
