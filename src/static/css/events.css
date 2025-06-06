@@ -17,7 +17,6 @@
   font-size: 17px;
   line-height: 1.5em;
   border: 1px solid var(--link-color);
-  border-top: none;
 }
 
 .events-module .events-module__event-inner > * {

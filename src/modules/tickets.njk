@@ -9,7 +9,6 @@
       {% set numSeats = ticket.quantity_total %}
       {% set numOrders = ticket.quantity_issued %}
       <div class="events-module__event">
-        <div class="art-bar"></div>
         <div class="events-module__event-inner">
           <h4>
           {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
