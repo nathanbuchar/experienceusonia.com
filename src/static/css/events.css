@@ -40,6 +40,7 @@
 
 .events-module .events-module__button {
   line-height: 20px;
+  flex-shrink: 0;
 }
 
 .events-module .events-module__spots {
@@ -53,6 +54,10 @@
 @media screen and (max-width: 768px) {
   .events-module.module {
     margin-bottom: 38px;
-    row-gap: 24px;
+    row-gap: 18px;
+  }
+
+  .events-module .events-module__event-inner {
+    padding: 24px;
   }
 }
