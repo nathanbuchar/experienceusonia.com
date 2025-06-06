@@ -40,9 +40,9 @@ class Countdown {
     let countdownStr = '';
 
     if (days >= 1) {
-      countdownStr = `${days} ${days === 1 ? 'day' : 'days'}`;
+      countdownStr = `${days} ${days === 1 ? 'day' : 'days'} ${hours} ${hours === 1 ? 'hour' : 'hours'} ${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ${seconds} ${seconds === 1 ? 'second' : 'seconds'}`;
     } else if (days < 1 && hours >= 1) {
-      countdownStr = `${hours} ${hours === 1 ? 'hour' : 'hours'} ${minutes} ${minutes === 1 ? 'minute' : 'minutes'}`;
+      countdownStr = `${hours} ${hours === 1 ? 'hour' : 'hours'} ${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ${seconds} ${seconds === 1 ? 'second' : 'seconds'}`;
     } else if (hours < 1 && minutes >= 1) {
       countdownStr = `${minutes} ${minutes === 1 ? 'minute' : 'minutes'} ${seconds} ${seconds === 1 ? 'second' : 'seconds'}`;
     } else if (minutes < 1 && seconds >= 1) {
