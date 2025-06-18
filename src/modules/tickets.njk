@@ -14,7 +14,9 @@
             <a href="{{ event.url }}" target="_blank">
               {{ event.name }}
             </a>
-            {{ '<span class="events-module__free">Free!</span>' | safe if isFreeEvent }}
+            {% if isFreeEvent %}
+              <span class="events-module__free">Free!</span>
+            {% endif %}
           </h3>
           {% set startDate = toFriendlyETDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
           {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
@@ -27,8 +29,8 @@
               {% if isUnavailable %}
                 <p>{{ event.tickets_unavailable_at_message }}</p>
               {% elif isUpcoming %}
-                {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at, { month: 'short', year: 'numeric', day: 'numeric' }) %}
-                <p class="countdown" data-template="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at }}">
+                {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
+                <p class="countdown" data-template="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
                   Registration opens on {{ ticketsOnSaleDate }}
                 </p>
               {% else %}

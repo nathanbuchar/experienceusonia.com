@@ -6,7 +6,7 @@ import engine from './lib/engine.js';
 import clean from './lib/plugins/clean.js';
 import contentful from './lib/plugins/contentful.js';
 import copy from './lib/plugins/copy.js';
-import events from './lib/plugins/events.js';
+import tickets from './lib/plugins/tickets.js';
 
 const config = {
   engine,
@@ -29,7 +29,7 @@ const config = {
         },
       ],
     }),
-    events(),
+    tickets(),
     copy({
       from: 'src/static',
       to: 'dist',
