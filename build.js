@@ -1,15 +1,17 @@
 import 'dotenv/config';
 
+import Builder from './lib/builder.js';
+
 import client from './lib/client.js';
-import engine from './lib/engine.js';
+import render from './lib/render.js';
 
 import clean from './lib/plugins/clean.js';
 import contentful from './lib/plugins/contentful.js';
 import copy from './lib/plugins/copy.js';
 import tickets from './lib/plugins/tickets.js';
 
-const config = {
-  engine,
+const builder = new Builder({
+  render,
   plugins: [
     clean('dist'),
     contentful({
@@ -64,6 +66,6 @@ const config = {
       });
     },
   ],
-};
+});
 
-export default config;
+builder.build();

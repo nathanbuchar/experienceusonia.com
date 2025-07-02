@@ -8,8 +8,8 @@
     "node": "^23.0.0"
   },
   "scripts": {
-    "build": "node scripts/build.js",
-    "server": "node scripts/server.js"
+    "build": "node build.js",
+    "server": "node server.js"
   },
   "dependencies": {
     "contentful": "^9.3.3",
