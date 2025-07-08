@@ -22,25 +22,27 @@
           {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
           {% set endHour = toFriendlyETDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
           <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
-          <p>{{ ticket.description }}</p>
+          <p>{{ event.description | truncate('[\r\n]+', '… <a href="' + event.url + '" target="_blank">more</a>') | safe }}</p>
           <div class="events-module__register">
             {% set ticketsRemaining = numSeats - numOrders %}
-            <div class="events-module__spots">
-              {% if isUnavailable %}
-                <p>{{ event.tickets_unavailable_at_message }}</p>
-              {% elif isUpcoming %}
-                {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
-                <p class="countdown" data-template="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
-                  Registration opens on {{ ticketsOnSaleDate }}
-                </p>
-              {% else %}
-                {% if ticketsRemaining === 1 %}
-                  <p>{{ ticketsRemaining }} spot left</p>
+              <div class="events-module__spots">
+                {% if isUnavailable %}
+                  <p>{{ event.tickets_unavailable_at_message }}</p>
+                {% elif isUpcoming %}
+                  {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
+                  <p class="countdown" data-template="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
+                    Registration opens on {{ ticketsOnSaleDate }}
+                  </p>
                 {% else %}
-                  <p>{{ ticketsRemaining }} spots left</p>
+                  {% if show_quantity_remaining === 'true' %}
+                    {% if ticketsRemaining === 1 %}
+                      <p>{{ ticketsRemaining }} spot left</p>
+                    {% else %}
+                      <p>{{ ticketsRemaining }} spots left</p>
+                    {% endif %}
+                  {% endif %}
                 {% endif %}
-              {% endif %}
-            </div>
+              </div>
             {% if not isUpcoming %}
               <div class="events-module__button">
                 <a href="{{ event.url }}{{ '#ticket_selection' if isUnavailable }}" class="button {{ 'button-secondary' if (isUnavailable or isUpcoming) }}" target="_blank">
