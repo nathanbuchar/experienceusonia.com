@@ -40,7 +40,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding: 12px;
+    padding: 24px 12px 12px;
     font-weight: 450;
   }
 }
@@ -71,7 +71,7 @@ p, li, center {
 @media (max-width: 768px) {
   #content {
     flex-direction: column;
-    margin-top: 8px;
+    margin-top: 24px;
   }
 
   #content .section-module:not(:first-child) {
@@ -86,6 +86,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--header-color);
   letter-spacing: -0.03em;
   margin-bottom: 24px;
+  font-weight: 500;
 }
 
 h1, h2 {
