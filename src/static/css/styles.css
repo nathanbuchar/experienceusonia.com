@@ -195,8 +195,7 @@ a.button.button-secondary:hover {
   .airbnb-link {
     top: 12px;
     right: 12px;
-    width: 72px;
-    padding: 0;
+    display: none;
   }
 }
 
