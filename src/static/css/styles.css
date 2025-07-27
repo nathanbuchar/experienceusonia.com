@@ -71,7 +71,7 @@ p, li, center {
 @media (max-width: 768px) {
   #content {
     flex-direction: column;
-    margin-top: 24px;
+    margin-top: 8px;
   }
 
   #content .section-module:not(:first-child) {

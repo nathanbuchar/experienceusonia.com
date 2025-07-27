@@ -18,3 +18,9 @@
   font-size: 13px;
   line-height: 16px;
 }
+
+@media (max-width: 768px) {
+  .header-module__metadata {
+    display: none;
+  }
+}
