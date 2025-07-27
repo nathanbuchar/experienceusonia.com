@@ -30,12 +30,12 @@
               {% set ticketsRemaining = numSeats - numOrders %}
               <div class="tickets-module__spots">
                 {% if isUnavailable %}
-                  <p>{{ event.tickets_unavailable_at_message }}</p>
+                  {{ event.tickets_unavailable_at_message }}
                 {% elif isUpcoming %}
                   {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
-                  <p class="countdown" data-template="Registration opens on {{ ticketsOnSaleDate }}" data-message="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
+                  <span class="countdown" data-template="Registration opens on {{ ticketsOnSaleDate }}" data-message="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
                     Registration opens on {{ ticketsOnSaleDate }}
-                  </p>
+                  </span>
                 {% endif %}
               </div>
               <div class="tickets-module__button">
