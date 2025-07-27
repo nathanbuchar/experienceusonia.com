@@ -48,8 +48,8 @@
     height: auto;
     max-width: 100%;
     padding-top: 8px;
-    position: sticky;
-    top: -1px;
+    position: relative;
+    top: 0;
     padding: 12px 0;
     background-color: var(--primary-color);
     margin-bottom: 0;
