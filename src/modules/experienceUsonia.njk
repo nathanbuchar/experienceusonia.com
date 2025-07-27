@@ -13,6 +13,11 @@
       <a class="button button-secondary" href="https://airbnb.com/h/goetschwincklerhouse" rel="nofollow noreferrer" target="__blank" title="Airbnb">
         {% include "partials/airbnb.njk" %}
       </a>
+      {% if isWide %}
+        <a class="button button-secondary" href="https://instagram.com/goetschwincklerhouse" rel="nofollow noreferrer" target="__blank" title="Instagram">
+          {% include "partials/instagram.njk" %}
+        </a>
+      {% endif %}
     </div>
     {% if isWide %}
       See it for yourself.

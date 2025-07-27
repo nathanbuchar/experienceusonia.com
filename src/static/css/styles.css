@@ -185,14 +185,18 @@ a.button.button-secondary:hover {
   top: 10px;
 }
 
-.airbnb-link {
+.floating-links {
   position: absolute;
   top: 24px;
   right: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
 }
 
 @media (max-width: 768px) {
-  .airbnb-link.button {
+  .floating-links {
     top: 12px;
     right: 12px;
     display: none;
