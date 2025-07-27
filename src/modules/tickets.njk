@@ -1,52 +1,56 @@
-<div class="events-module module">
-  {% for event in events %}
-    {% if event.status === 'published' and event.private !== 'true' and event.hidden !== 'true' %}
-      {% set isOnlineEvent = event.online_event === 'true' %}
-      {% set ticket = event.ticket_types[0] %}
-      {% set isFreeEvent = ticket.price === 0 %}
-      {% set isUnavailable = event.tickets_available === 'false' %}
-      {% set isUpcoming = event.tickets_available === 'upcoming' %}
-      {% set numSeats = ticket.quantity_total %}
-      {% set numOrders = ticket.quantity_issued %}
-      <div class="events-module__event">
-        <div class="events-module__event-inner">
-          <h3>
-            <a href="{{ event.url }}" target="_blank">
-              {{ event.name }}
-            </a>
-            {% if isFreeEvent %}
-              <span class="events-module__free">Free!</span>
-            {% endif %}
-          </h3>
-          {% set startDate = toFriendlyETDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
-          {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
-          {% set endHour = toFriendlyETDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
-          <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
-          <p>{{ event.description | truncate('[\r\n]+', '… <a href="' + event.url + '" target="_blank">more</a>') | safe }}</p>
-          <div class="events-module__register">
-            {% set ticketsRemaining = numSeats - numOrders %}
-            <div class="events-module__spots">
-              {% if isUnavailable %}
-                <p>{{ event.tickets_unavailable_at_message }}</p>
-              {% elif isUpcoming %}
-                {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
-                <p class="countdown" data-template="Registration opens on {{ ticketsOnSaleDate }}" data-message="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
-                  Registration opens on {{ ticketsOnSaleDate }}
-                </p>
-              {% endif %}
-            </div>
-            <div class="events-module__button">
-              <a href="{{ event.url }}{{ '#ticket_selection' if isUnavailable }}" class="button {{ 'button-secondary' if (isUnavailable or isUpcoming) }}" target="_blank">
-                {% if isUnavailable %}
-                  {{ event.waitlist_call_to_action }}
-                {% else %}
-                  {{ event.call_to_action }}
-                {% endif %}
+<div class="tickets-module module">
+  <ol class="tickets-module__events">
+    {% for event in events %}
+      {% if event.status === 'published' and event.private !== 'true' and event.hidden !== 'true' %}
+        {% set isOnlineEvent = event.online_event === 'true' %}
+        {% set ticket = event.ticket_types[0] %}
+        {% set isFreeEvent = ticket.price === 0 %}
+        {% set isUnavailable = event.tickets_available === 'false' %}
+        {% set isUpcoming = event.tickets_available === 'upcoming' %}
+        {% set numSeats = ticket.quantity_total %}
+        {% set numOrders = ticket.quantity_issued %}
+        <li class="tickets-module__event">
+          <div class="tickets-module__event-inner">
+            <h3 class="tickets-module__event-title">
+              <a href="{{ event.url }}" target="_blank" rel="nofollow noreferrer">
+                {{ event.name }}
               </a>
+              {# {% if isFreeEvent %}
+                <span class="tickets-module__free">Free!</span>
+              {% endif %} #}
+            </h3>
+            {% set startDate = toFriendlyETDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
+            {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
+            {% set endHour = toFriendlyETDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
+            <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
+            <div class="tickets-module__event-description">
+              <p>{{ event.description | truncate('[\r\n]+', '… <a href="' + event.url + '" target="_blank">more</a>') | safe }}</p>
+            </div>
+            <div class="tickets-module__register">
+              {% set ticketsRemaining = numSeats - numOrders %}
+              <div class="tickets-module__spots">
+                {% if isUnavailable %}
+                  <p>{{ event.tickets_unavailable_at_message }}</p>
+                {% elif isUpcoming %}
+                  {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
+                  <p class="countdown" data-template="Registration opens on {{ ticketsOnSaleDate }}" data-message="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
+                    Registration opens on {{ ticketsOnSaleDate }}
+                  </p>
+                {% endif %}
+              </div>
+              <div class="tickets-module__button">
+                <a href="{{ event.url }}{{ '#ticket_selection' if isUnavailable }}" class="button {{ 'button-secondary' if (isUnavailable or isUpcoming) }}" target="_blank">
+                  {% if isUnavailable %}
+                    {{ event.waitlist_call_to_action }}
+                  {% else %}
+                    {{ event.call_to_action }}
+                  {% endif %}
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
 </div>

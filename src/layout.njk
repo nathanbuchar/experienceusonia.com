@@ -36,15 +36,20 @@
     {% block extraHead %}{% endblock %}
   </head>
   <body>
+    <div id="#top"></div>
     {% include "partials/skip-link.njk" %}
+    {% include "partials/trespassing.njk" %}
+    {{ renderModule("header") }}
     <div id="content">
       {{ renderModule("nav") }}
-      <main id="main">
-        {% block content %}
-          {# Page content goes here. #}
-        {% endblock %}
-      </main>
-      {{ renderModule("footer") }}
+      <div>
+        <main id="main">
+          {% block content %}
+            {# Page content goes here. #}
+          {% endblock %}
+        </main>
+        {{ renderModule("footer") }}
+      </div>
     </div>
   </body>
 </html>

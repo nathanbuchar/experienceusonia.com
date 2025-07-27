@@ -1,6 +1,5 @@
 <div class="big-text-module {{ 'big-text-module--wide' if isWide }} module">
-  <div class="art-bar"></div>
-  <div class="big-text-module__inner">
-    <p>{{ content | markdownInline | safe }}</p>
+  <div class="big-text-module__text">
+    {{ content | markdownInline | safe }}
   </div>
 </div>

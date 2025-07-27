@@ -1,35 +1,22 @@
 <footer class="footer-module module">
-  <div class="footer-module__art art-bar"></div>
-  <div class="footer-module__main">
-    <div class="footer-module__inner">
-      <div class="footer-module__wordmark">
-        {% include "partials/wordmark.njk" %}
-      </div>
-      <div class="footer-module__meta">
-        <p>
-          Copyright &copy; 2023&ndash;{{ currentYear() }} <a href="mailto:info@experienceusonia.com" title="Email info@experienceusonia.com">Experience Usonia, LLC</a><br/>
-          Website by <a href="https://n8.engineer">n8.engineer</a>
-        </p>
-        <p>
-          <strong>Not open to the public</strong><br/>
-          Private property. Do not disturb occupants. Enjoy from a distance.
-        </p>
-        <p>
-          <a href="/">Home</a>
-          &middot;
-          <a href="/contact">Contact</a>
-          &middot;
-          <a href="/press">Press</a>
-          &middot;
-          <a href="/privacy">Privacy</a>
-          &middot;
-          <a href="/licensing">Licensing</a>
-          &middot;
-          <a href="/sitemap">Sitemap</a>
-          <br/><br/>
-          <a href="#content">Top</a>
-        </p>
-      </div>
+  <div class="footer-module__content">
+    <div class="footer-module__wordmark">
+      {% include "partials/wordmark.njk" %}
+    </div>
+    <div class="footer-module__meta">
+      <p>
+        Copyright &copy; 2023&ndash;{{ currentYear() }} <a href="mailto:info@experienceusonia.com" title="Email info@experienceusonia.com">Experience Usonia, LLC</a>.<br/>
+        Website by <a href="https://n8.engineer" target="__blank">n8.engineer</a>.
+      </p>
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/press">Press</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/licensing">Licensing</a></li>
+        <li><a href="/sitemap">Sitemap</a></li>
+      </ol>
+      <p><a href="#top">Top</a></p>
     </div>
   </div>
 </footer>

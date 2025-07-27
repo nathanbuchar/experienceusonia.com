@@ -1,13 +1,15 @@
-<div class="nav-module {{ 'nav-module--home' if pageKey === 'home' }} module">
-  <nav class="nav-module__main">
-    <div class="nav-module__wordmark">
-      <a href="/" aria-description="Goetsch–Winckler house wordmark; Click to go home.">
-        <div class="nav-module__wordmark-art"></div>
-        {% include "partials/wordmark.njk" %}
-      </a>
-    </div>
-    <div class="nav-module__links">
-      {% include "partials/nav-links.njk" %}
-    </div>
+<aside class="nav-module module">
+  <nav class="nav-module__nav">
+    <ol class="nav-module__links">
+      {% for navLink in navLinks | sortByField('order') %}
+        {% if not navLink.fields.isHidden %}
+          <li class="{{ classnames('nav-module__link', { active: pageKey === navLink.fields.pageKey }) }}">
+            <a href="{{ navLink.fields.url }}">
+              {{ navLink.fields.name }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ol>
   </nav>
-</div>
+</aside>

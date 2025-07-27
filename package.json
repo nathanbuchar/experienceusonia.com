@@ -12,6 +12,7 @@
     "server": "node lib/server.js"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "contentful": "^9.3.3",
     "dotenv": "^16.0.3",
     "markdown-it": "^13.0.1",

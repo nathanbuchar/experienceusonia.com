@@ -1,24 +1,23 @@
 .caption-module.module {
-  font-size: 10px;
-  font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: flex-end;
-  color: var(--tertiary-color);
-  line-height: 14px;
+  color: var(--text-color);
+  margin: 0;
 }
 
 .caption-module p {
-  max-width: 66%;
   text-align: right;
   margin: 0;
-  padding-top: 4px;
+  padding-top: 2px;
+  font-size: 10px;
+  line-height: 12px;
 }
 
 .caption-module.caption-module--wide {
   max-width: 100%;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .module .caption-module.module {
     text-align: left;
   }

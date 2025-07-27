@@ -1,0 +1,82 @@
+.experience-usonia-module.module {
+  margin-bottom: 128px;
+}
+
+.experience-usonia-module--wide .experience-usonia-module__separator {
+  grid-column: span 12;
+}
+
+.experience-usonia-module__separator {
+  grid-column: span 8;
+  border-top: 1px solid var(--text-color);
+  padding-top: 32px;
+  grid-row: 1;
+}
+
+.experience-usonia-module--wide .experience-usonia-module__tagline {
+  grid-column: span 8;
+}
+
+.experience-usonia-module__tagline {
+  margin-bottom: 36px;
+  grid-row: 2;
+  grid-column: span 4;
+}
+
+.experience-usonia-module__text {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 48px;
+  letter-spacing: -0.03em;
+  line-height: 120%;
+  font-style: italic;
+  margin-bottom: 48px;
+  grid-row: 3;
+  grid-column: span 10;
+}
+
+.experience-usonia-module__cta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+  font-size: 16px;
+  grid-row: 4;
+  grid-column: span 8;
+}
+
+.experience-usonia-module__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .experience-usonia-module.module {
+    margin-bottom: 64px;
+  }
+
+  .experience-usonia-module--wide .experience-usonia-module__separator,
+  .experience-usonia-module__separator {
+    grid-column: span 6;
+  }
+
+  .experience-usonia-module--wide .experience-usonia-module__tagline {
+    grid-column: span 5;
+  }
+
+  .experience-usonia-module__tagline {
+    grid-column: span 4;
+    margin-bottom: 24px;
+  }
+
+  .experience-usonia-module__text {
+    grid-column: span 6;
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .experience-usonia-module__cta {
+    grid-column: span 6;
+  }
+}
