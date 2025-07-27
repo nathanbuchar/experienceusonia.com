@@ -1,9 +1,22 @@
 .image-three-up-module.module {
-  margin-bottom: 64px;
+  margin-bottom: 48px;
+}
+
+.image-three-up-module--wide.module {
+  max-width: 100%;
 }
 
 .image-three-up-module .image-three-up-module__content {
   grid-column: span 10;
+}
+
+.image-three-up-module .image-one-up-module.module {
+  margin-bottom: 12px;
+}
+
+.image-three-up-module .image-one-up-module__content,
+.image-three-up-module .image-two-up-module__content {
+  grid-column: span 12;
 }
 
 .image-three-up-module .image-three-up-module__images {
