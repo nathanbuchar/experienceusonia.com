@@ -195,11 +195,6 @@ a.button.button-secondary:hover {
     top: 12px;
     right: 12px;
   }
-
-  .floating-links a.button {
-    height: 36px;
-    padding: 9px;
-  }
 }
 
 .trespassing {
