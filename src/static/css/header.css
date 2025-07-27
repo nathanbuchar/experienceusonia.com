@@ -20,9 +20,7 @@
 
 @media (max-width: 768px) {
   .header-module__metadata {
-    grid-row: 1;
-    grid-column: 4 / span 3;
-    text-align: right;
-    margin-top: 0;
+    font-size: 12px;
+    line-height: 15px;
   }
 }
