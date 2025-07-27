@@ -39,10 +39,10 @@
     <div id="#top"></div>
     {% include "partials/skip-link.njk" %}
     {% include "partials/floating-links.njk" %}
-    {% include "partials/trespassing.njk" %}
     {{ renderModule("header") }}
     <div id="content">
       {{ renderModule("nav") }}
+      {% include "partials/trespassing.njk" %}
       <div>
         <main id="main">
           {% block content %}

@@ -14,6 +14,7 @@
 @import "./caption.css";
 @import "./big-text.css";
 @import "./tickets.css";
+@import "./separator.css";
 
 h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure, ul, ol {
   margin: 0;
@@ -44,7 +45,7 @@ body {
   }
 }
 
-p, li {
+p, li, center {
   margin: 0;
   font-size: 16px;
   line-height: 26px;

@@ -1,10 +1,13 @@
 .separator-module.module {
-  display: flex;
-  justify-content: center;
 }
 
 .separator-module__separator {
-  width: 12px;
-  height: 12px;
-  background-color: var(--link-color);
+  grid-column: span 8;
+  border-top: 1px solid var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .separator-module__separator {
+    grid-column: span 6;
+  }
 }
