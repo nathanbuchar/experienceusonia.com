@@ -192,7 +192,7 @@ a.button.button-secondary:hover {
 }
 
 @media (max-width: 768px) {
-  .airbnb-link {
+  .airbnb-link.button {
     top: 12px;
     right: 12px;
     display: none;
