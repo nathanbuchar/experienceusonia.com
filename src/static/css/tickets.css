@@ -26,6 +26,12 @@
   margin: 0;
 }
 
+.tickets-module__event-date,
+.tickets-module__register {
+  font-size: 14px;
+  line-height: 18px;
+}
+
 .tickets-module__register {
   display: flex;
   flex-direction: row;
@@ -33,8 +39,6 @@
   justify-content: flex-end;
   column-gap: 16px;
   margin-top: 8px;
-  font-size: 13px;
-  line-height: 17px;
 }
 
 .tickets-module__free {

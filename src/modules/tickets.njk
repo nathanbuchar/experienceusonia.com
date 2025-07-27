@@ -22,7 +22,9 @@
             {% set startDate = toFriendlyETDateLocaleString(event.start.iso, { month: 'short', weekday: 'short', year: 'numeric', day: 'numeric' }) %}
             {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
             {% set endHour = toFriendlyETDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
-            <p>{{ startDate }}, {{startHour}}–{{ endHour }}</p>
+            <span class="tickets-module__event-date">
+              {{ startDate }}, {{startHour}}–{{ endHour }}
+            </span>
             <div class="tickets-module__event-description">
               <p>{{ event.description | truncate('[\r\n]+', '… <a href="' + event.url + '" target="_blank">more</a>') | safe }}</p>
             </div>
