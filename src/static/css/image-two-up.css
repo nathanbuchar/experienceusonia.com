@@ -50,4 +50,9 @@
   .image-two-up-module__caption {
     margin-bottom: -8px;
   }
+
+  .image-two-up-module--wide.module .image-two-up-module__content,
+  .image-two-up-module__content {
+    grid-column: span 6;
+  }
 }

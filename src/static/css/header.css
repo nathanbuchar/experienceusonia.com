@@ -2,13 +2,32 @@
   margin-bottom: 0;
 }
 
-.header-module__logo {
+.header-module a {
+  display: flex;
   grid-row: 1;
   grid-column: span 2;
+  aspect-ratio: 3 / 4;
 }
 
-.header-module__logo a {
+.header-module__logo {
+  overflow: hidden;
   display: flex;
+  align-items: flex-end;
+  background-color: var(--text-color);
+}
+
+.header-module a:hover .header-module__logo,
+.header-module a:focus .header-module__logo {
+  background-image: url('/img/goetsch-orbs-big.jpg');
+  background-size: cover;
+  background-position: 36%;
+  background-repeat: no-repeat;
+}
+
+.header-module__logo svg {
+  transform: scale(1.04);
+  transform-origin: top center;
+  color: var(--primary-color);
 }
 
 .header-module__metadata {
@@ -16,7 +35,7 @@
   grid-row: 2;
   grid-column: span 3;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 17px;
 }
 
 @media (max-width: 768px) {

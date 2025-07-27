@@ -29,7 +29,7 @@
   }
 
   .image-one-up-module.hero-image {
-    min-height: 70vh;
+    min-height: 60vh;
   }
 
   .image-one-up-module.hero-image img {
@@ -40,5 +40,10 @@
 
   .image-one-up-module__caption {
     margin-bottom: -8px;
+  }
+
+  .image-one-up-module--wide.module .image-one-up-module__content,
+  .image-one-up-module__content {
+    grid-column: span 6;
   }
 }

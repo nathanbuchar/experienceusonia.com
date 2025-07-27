@@ -51,4 +51,9 @@
   .image-three-up-module .image-three-up-module__images img {
     max-width: 100%;
   }
+
+  .image-three-up-module--wide.module .image-three-up-module__content,
+  .image-three-up-module__content {
+    grid-column: span 6;
+  }
 }
