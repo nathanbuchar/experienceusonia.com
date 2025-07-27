@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: row;
   row-gap: 4px;
-  column-gap: 8px;
+  column-gap: 12px;
   padding: 0;
   margin: 0;
 }
@@ -39,8 +39,8 @@
 
 .footer-module__meta p,
 .footer-module__meta li {
-  font-size: 11px;
-  line-height: 15px;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .footer-module__wordmark {

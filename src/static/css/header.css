@@ -15,12 +15,6 @@
   margin-top: 8px;
   grid-row: 2;
   grid-column: span 3;
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
-  .header-module__metadata {
-    font-size: 12px;
-    line-height: 15px;
-  }
+  font-size: 13px;
+  line-height: 16px;
 }

@@ -37,11 +37,6 @@
   text-decoration: line-through;
 }
 
-.nav-module__metadata,
-.nav-module__alert {
-  display: none;
-}
-
 @media (max-width: 768px) {
   .nav-module.module {
     position: unset;

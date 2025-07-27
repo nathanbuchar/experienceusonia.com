@@ -32,8 +32,8 @@ body {
   font-family: "Inconsolata", system-ui, sans-serif;
   background: var(--primary-color);
   color: var(--text-color);
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 13px;
+  line-height: 17px;
   padding: 48px 48px 0;
 }
 
@@ -74,7 +74,7 @@ p, li {
   }
 
   #content .section-module:not(:first-child) {
-    margin-top: 120px;
+    margin-top: 64px;
   }
 }
 
@@ -101,6 +101,7 @@ h3 {
 @media (max-width: 768px) {
   h1, h2 {
     font-size: 32px;
+    margin-bottom: 16px;
   }
 }
 
@@ -148,12 +149,6 @@ a.button {
   text-decoration: none;
 }
 
-/* button.button:hover,
-a.button:hover {
-  background: var(--text-color);
-  color: var(--primary-color);
-} */
-
 button.button.button-secondary,
 a.button.button-secondary {
   border: 1px solid var(--text-color);
@@ -199,7 +194,11 @@ a.button.button-secondary:hover {
   .floating-links {
     top: 12px;
     right: 12px;
-    /* display: none; */
+  }
+
+  .floating-links a.button {
+    height: 36px;
+    padding: 9px;
   }
 }
 

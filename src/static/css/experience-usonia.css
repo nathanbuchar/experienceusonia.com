@@ -1,5 +1,11 @@
 .experience-usonia-module.module {
+  margin-top: 72px;
   margin-bottom: 128px;
+}
+
+.hero-image + .experience-usonia-module.module {
+  margin-top: 0;
+  margin-bottom: 96px;
 }
 
 .experience-usonia-module--wide .experience-usonia-module__separator {
