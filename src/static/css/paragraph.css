@@ -1,18 +1,33 @@
 .paragraph-module.module {
-  margin: 0 auto;
   width: 100%;
-  max-width: 580px;
-  margin-top: 56px;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
-.paragraph-module p {
+.paragraph-module__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  grid-column: span 8;
+}
+
+.paragraph-module__content p {
   hyphens: auto;
+  text-wrap: pretty;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 1024px)  {
+  .paragraph-module__content {
+    grid-column: span 10;
+  }
+}
+
+
+@media (max-width: 768px)  {
   .paragraph-module.module {
-    margin-top: 42px;
-    margin-bottom: 42px;
+    margin-bottom: 32px;
+  }
+
+  .paragraph-module__content {
+    grid-column: span 6;
   }
 }

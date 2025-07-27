@@ -2,16 +2,10 @@
   --desktop-font-size: 19px/1.5;
   --mobile-font-size: 19px/1.5;
   --header-color: #532104;
-  --text-color: #7F4829;
-  --link-color: #E94B26;
-  --link-color-alt: #7d4d99;
-  --primary-color: #FFF5EB;
-  --secondary-color: #FFDEBF;
-  --tertiary-color: #A98B78;
-  --goetsch-purple: #7d4d99;
-  --goetsch-gold: #ffbb6a;
-  --goetsch-green: #96b44c;
-  --goetsch-pink: #f074ae;
-  --goetsch-blue: #58b2d6;;
-  --goetsch-plum: #511f28;
+  --text-color: #F03B11;
+  --link-color: #F03B11;
+  --link-color-alt: #F03B11;
+  --primary-color: #FFD3A9;
+  --secondary-color: #511F28;
+  --tertiary-color: #511F28;
 }

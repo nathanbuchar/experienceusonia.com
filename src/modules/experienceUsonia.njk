@@ -1,0 +1,21 @@
+<div class="experience-usonia-module {{ 'experience-usonia-module--wide' if isWide }} module">
+  <div class="experience-usonia-module__separator"></div>
+  <div class="experience-usonia-module__tagline" aria-label="Experience Usonia" role="h1">
+    {% include "partials/tagline.njk" %}
+  </div>
+  {% if isWide %}
+    <p class="experience-usonia-module__text">
+      {{ text | markdownInline | safe }}
+    </p>
+  {% endif %}
+  <div class="experience-usonia-module__cta">
+    <div class="experience-usonia-module__buttons">
+      <a class="button button-secondary" href="https://airbnb.com/h/goetschwincklerhouse" rel="nofollow noreferrer" target="__blank" title="Airbnb">
+        {% include "partials/airbnb.njk" %}
+      </a>
+    </div>
+    {% if isWide %}
+      See it for yourself.
+    {% endif %}
+  </div>
+</div>

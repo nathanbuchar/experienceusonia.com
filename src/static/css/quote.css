@@ -1,12 +1,15 @@
-.quote-module.module {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 580px;
-  margin-top: 48px;
-  margin-bottom: 48px;
+.quote-module.module {}
+
+.quote-module__quote {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 48px;
+  letter-spacing: -0.03em;
+  line-height: 120%;
+  font-style: italic;
+  grid-template-columns: span 10;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .quote-module.module {
     margin-top: 38px;
     margin-bottom: 38px;

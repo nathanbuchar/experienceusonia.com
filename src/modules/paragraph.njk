@@ -1,7 +1,9 @@
 <div class="paragraph-module module">
-  {% if isInline %}
-    <p>{{ content | markdownInline | safe }}</p>
-  {% else %}
-    {{ content | markdown | safe }}
-  {% endif %}
+  <div class="paragraph-module__content">
+    {% if isInline %}
+      <p>{{ content | markdownInline | safe }}</p>
+    {% else %}
+      {{ content | markdown | safe }}
+    {% endif %}
+  </div>
 </div>
