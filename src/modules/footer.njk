@@ -1,5 +1,8 @@
 <footer class="footer-module module">
   <div class="footer-module__content">
+    <div class="footer-module__graphic">
+      {% include "partials/house-2.njk" %}
+    </div>
     <div class="footer-module__meta">
       <p>
         Copyright &copy; 2023&ndash;{{ currentYear() }} <a href="mailto:info@experienceusonia.com" title="Email info@experienceusonia.com">Experience Usonia, LLC</a><br/>
@@ -7,7 +10,8 @@
       </p>
       <p>
         <strong>Private property.</strong><br/>
-        No trespassing. Do not disturb occupants.
+        No trespassing.<br/>
+        Do not disturb occupants.
       </p>
       <ol>
         <li><a href="/">Home</a></li>
@@ -17,7 +21,7 @@
         <li><a href="/licensing">Licensing</a></li>
         <li><a href="/sitemap">Sitemap</a></li>
       </ol>
-      <p><a href="#top">Top</a></p>
+      <p class="footer-module__top"><a href="#top">Top</a></p>
     </div>
   </div>
 </footer>

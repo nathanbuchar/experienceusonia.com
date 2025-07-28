@@ -32,14 +32,14 @@
   margin: 0;
 }
 
+.image-three-up-module__caption {
+  margin-bottom: -8px;
+}
+
 @media (max-width: 768px) {
   .image-three-up-module.module {
     padding: 0;
     margin-bottom: 8px;
-  }
-
-  .image-three-up-module__caption {
-    margin-bottom: -8px;
   }
 
   .image-three-up-module .image-three-up-module__images {

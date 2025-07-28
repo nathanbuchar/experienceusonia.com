@@ -31,6 +31,10 @@
   margin: 0;
 }
 
+.image-two-up-module__caption {
+  margin-bottom: -8px;
+}
+
 @media (max-width: 768px) {
   .image-two-up-module.module {
     margin-bottom: 32px;
@@ -45,10 +49,6 @@
 
   .image-two-up-module__images img {
     max-width: 100%;
-  }
-
-  .image-two-up-module__caption {
-    margin-bottom: -8px;
   }
 
   .image-two-up-module--wide.module .image-two-up-module__content,
