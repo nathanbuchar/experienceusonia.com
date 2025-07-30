@@ -10,10 +10,6 @@
   grid-column: span 8;
 }
 
-.paragraph-module__content h2 {
-  margin-bottom: -8px;
-}
-
 .paragraph-module__content p {
   hyphens: auto;
   text-wrap: pretty;
@@ -33,5 +29,9 @@
 
   .paragraph-module__content {
     grid-column: span 6;
+  }
+
+  .paragraph-module__content h2 {
+    margin-bottom: -8px;
   }
 }
