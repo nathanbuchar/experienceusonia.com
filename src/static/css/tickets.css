@@ -45,6 +45,11 @@
   color: var(--text-color);
 }
 
+.tickets-module__spots {
+  font-size: 15px;
+  font-style: italic;
+}
+
 @media (max-width: 1024px)  {
   .tickets-module__events {
     grid-column: span 10;

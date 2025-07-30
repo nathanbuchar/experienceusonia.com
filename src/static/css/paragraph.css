@@ -6,8 +6,12 @@
 .paragraph-module__content {
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 20px;
   grid-column: span 8;
+}
+
+.paragraph-module__content h2 {
+  margin-bottom: -8px;
 }
 
 .paragraph-module__content p {
