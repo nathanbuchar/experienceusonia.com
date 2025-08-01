@@ -19,10 +19,9 @@
   display: block;
 }
 
-@media (max-width: 1024px)  {
-  .section-module__content {
-    grid-column: span 10;
-  }
+.section-module.module.no-margin-bottom,
+.section-module.module.no-margin-bottom h1 {
+  margin-block-end: 0;
 }
 
 @media (max-width: 768px)  {
@@ -37,5 +36,11 @@
 
   .section-module__title {
     padding-top: 24px;
+  }
+}
+
+@media (max-width: 1024px)  {
+  .section-module__content {
+    grid-column: span 10;
   }
 }

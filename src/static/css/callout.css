@@ -1,0 +1,29 @@
+.callout-module.module {
+  width: 100%;
+  margin: 27px 0;
+}
+
+.callout-module__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  grid-column: span 8;
+  padding: 8px 12px;
+  border: 1px solid var(--text-color);
+}
+
+@media (max-width: 768px)  {
+  .callout-module.module {
+    margin: 28px 0;
+  }
+
+  .callout-module__content {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 1024px)  {
+  .callout-module__content {
+    grid-column: span 10;
+  }
+}

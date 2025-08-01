@@ -51,14 +51,14 @@
   margin-top: 32px;
 }
 
-@media (max-width: 1024px)  {
-  .footer-module__content {
-    grid-column: span 10;
-  }
-}
-
 @media (max-width: 768px)  {
   .footer-module.module {
     padding-bottom: 36px;
+  }
+}
+
+@media (max-width: 1024px)  {
+  .footer-module__content {
+    grid-column: span 10;
   }
 }

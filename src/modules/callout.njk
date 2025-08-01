@@ -1,0 +1,9 @@
+<div class="callout-module module">
+  <div class="callout-module__content">
+    {% if isInline %}
+      <p>{{ content | markdownInline | safe }}</p>
+    {% else %}
+      {{ content | markdown | safe }}
+    {% endif %}
+  </div>
+</div>

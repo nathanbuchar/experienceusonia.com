@@ -1,10 +1,10 @@
-<div class="section-module module">
+<div class="section-module module {{ customClasses }}">
   <div class="section-module__title">
     <h1>{{ title }}</h1>
   </div>
-  <div class="section-module__content">
-    {% if content %}
-      {{ renderModule("paragraph", ctx()) }}
-    {% endif %}
-  </div>
+  {% if content %}
+    <div class="section-module__content">
+        {{ renderModule("paragraph", ctx()) }}
+    </div>
+  {% endif %}
 </div>

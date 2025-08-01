@@ -18,7 +18,7 @@
 
 .header-module a:hover .header-module__logo,
 .header-module a:focus .header-module__logo {
-  background-image: url('/img/goetsch-orbs-big.jpg');
+  background-image: url('/img/goetsch-orbs-logo.webp');
   background-size: cover;
   background-position: 36%;
   background-repeat: no-repeat;
