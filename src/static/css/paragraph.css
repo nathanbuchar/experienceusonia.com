@@ -15,6 +15,12 @@
   text-wrap: pretty;
 }
 
+@media (max-width: 1024px)  {
+  .paragraph-module__content {
+    grid-column: span 10;
+  }
+}
+
 @media (max-width: 768px)  {
   .paragraph-module.module {
     margin-bottom: 32px;
@@ -26,11 +32,5 @@
 
   .paragraph-module__content h2 {
     margin-bottom: -4px;
-  }
-}
-
-@media (max-width: 1024px)  {
-  .paragraph-module__content {
-    grid-column: span 10;
   }
 }

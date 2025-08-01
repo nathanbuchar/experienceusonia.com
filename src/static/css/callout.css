@@ -12,6 +12,12 @@
   border: 1px solid var(--text-color);
 }
 
+@media (max-width: 1024px)  {
+  .callout-module__content {
+    grid-column: span 10;
+  }
+}
+
 @media (max-width: 768px)  {
   .callout-module.module {
     margin: 28px 0;
@@ -19,11 +25,5 @@
 
   .callout-module__content {
     grid-column: span 6;
-  }
-}
-
-@media (max-width: 1024px)  {
-  .callout-module__content {
-    grid-column: span 10;
   }
 }

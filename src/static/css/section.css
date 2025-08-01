@@ -24,6 +24,12 @@
   margin-block-end: 0;
 }
 
+@media (max-width: 1024px)  {
+  .section-module__content {
+    grid-column: span 10;
+  }
+}
+
 @media (max-width: 768px)  {
   .section-module.module {
     margin-bottom: 32px;
@@ -36,11 +42,5 @@
 
   .section-module__title {
     padding-top: 24px;
-  }
-}
-
-@media (max-width: 1024px)  {
-  .section-module__content {
-    grid-column: span 10;
   }
 }

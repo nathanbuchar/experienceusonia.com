@@ -46,7 +46,7 @@ body {
   }
 }
 
-p, li, center {
+p, li, center, em, strong {
   margin: 0;
   font-size: 17px;
   line-height: 27px;
@@ -58,7 +58,7 @@ small {
 }
 
 @media (max-width: 768px) {
-  p, li, center {
+  p, li, center, em, strong {
     line-height: 28px;
   }
 }
@@ -205,9 +205,9 @@ a.button.button-secondary:hover {
   }
 }
 
-*:focus {
+/* *:focus {
   outline: 1px solid var(--text-color);
-}
+} */
 
 .skip-link {
   position: absolute;

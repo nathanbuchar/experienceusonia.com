@@ -5,8 +5,9 @@
   padding-top: 24px;
   position: sticky;
   top: 16px;
-  height: 320px;
+  height: 500px;
   margin-bottom: 0;
+  display: block;
 }
 
 .nav-module__links {
@@ -26,6 +27,8 @@
   font-size: 24px;
   letter-spacing: -0.03em;
   margin-bottom: 0;
+  position: relative;
+  width: 100%;
 }
 
 .nav-module__link a {
@@ -34,6 +37,29 @@
 
 .nav-module__link.active a,
 .nav-module__link a:hover {
+  text-decoration: line-through;
+}
+
+.nav-module__sub-links {
+  list-style-type: none;
+  padding-left: 16px;
+  margin: 8px 0;
+}
+
+.nav-module__sub-link {
+  font-family: "Jost", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  margin-bottom: 4px;
+  padding-left: 12px;
+  text-indent: -12px;
+}
+
+.nav-module__link.active .nav-module__sub-link a {
+  text-decoration: none;
+}
+
+.nav-module__link.active .nav-module__sub-link a:hover {
   text-decoration: line-through;
 }
 
@@ -50,11 +76,6 @@
     margin-bottom: 0;
   }
 
-  .nav-module__nav {
-    grid-row: 1;
-    grid-column: span 6;
-  }
-
   .nav-module__links {
     row-gap: 12px;
     column-gap: 12px;
@@ -64,5 +85,10 @@
 
   .nav-module__link {
     font-size: 16px;
+    width: auto;
+  }
+
+  .nav-module__sub-links {
+    display: none;
   }
 }

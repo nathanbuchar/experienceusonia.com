@@ -3,10 +3,23 @@
     <ol class="nav-module__links">
       {% for navLink in navLinks | sortByField('order') %}
         {% if not navLink.fields.isHidden %}
-          <li class="{{ classnames('nav-module__link', { active: pageKey === navLink.fields.pageKey }) }}">
+          {% set isActive = pageKey === navLink.fields.pageKey %}
+          {% set hasSublinks = navLink.fields.subLinks.length > 0 %}
+          <li class="{{ classnames('nav-module__link', { active: isActive }) }}">
             <a href="{{ navLink.fields.url }}">
               {{ navLink.fields.name }}
             </a>
+            {% if isActive and hasSublinks %}
+              <ol class="nav-module__sub-links">
+                {% for subLink in navLink.fields.subLinks %}
+                  <li class="nav-module__sub-link">
+                    <a href="{{ subLink.url }}">
+                      {{ subLink.name | safe }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ol>
+            {% endif %}
           </li>
         {% endif %}
       {% endfor %}
