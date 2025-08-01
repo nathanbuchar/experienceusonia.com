@@ -1,14 +1,14 @@
 .caption-module.module {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   color: var(--text-color);
   margin: 0;
 }
 
 .caption-module p {
-  text-align: right;
+  text-align: left;
   margin: 0;
-  padding-top: 2px;
+  padding-top: 4px;
   font-size: 11px;
   line-height: 12px;
 }

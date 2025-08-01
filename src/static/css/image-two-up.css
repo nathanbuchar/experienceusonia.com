@@ -3,7 +3,7 @@
 }
 
 .image-two-up-module--wide.module {
-  max-width: 100%;
+  max-width: 1280px;
 }
 
 .image-two-up-module--wide.module .image-two-up-module__content {
@@ -11,7 +11,7 @@
 }
 
 .image-two-up-module--wide.module .caption-module.module {
-  max-width: 100%;
+  max-width: 1280px;
 }
 
 .image-two-up-module__content {
@@ -32,7 +32,7 @@
 }
 
 .image-two-up-module__caption {
-  margin-bottom: -8px;
+  margin-bottom: -10px;
 }
 
 @media (max-width: 768px) {

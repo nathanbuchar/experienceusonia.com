@@ -3,11 +3,15 @@
 }
 
 .image-three-up-module--wide.module {
-  max-width: 100%;
+  max-width: 1280px;
 }
 
 .image-three-up-module .image-three-up-module__content {
   grid-column: span 10;
+}
+
+.image-three-up-module--wide.module .caption-module.module {
+  max-width: 1280px;
 }
 
 .image-three-up-module .image-one-up-module.module {
@@ -33,7 +37,7 @@
 }
 
 .image-three-up-module__caption {
-  margin-bottom: -8px;
+  margin-bottom: -10px;
 }
 
 @media (max-width: 768px) {
