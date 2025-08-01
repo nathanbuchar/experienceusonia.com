@@ -11,12 +11,14 @@ import contentful from './lib/plugins/contentful.js';
 import copy from './lib/plugins/copy.js';
 import tickets from './lib/plugins/tickets.js';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 Builder.build({
   render,
   plugins: [
     clean('dist'),
     cache({
-      disabled: process.argv.includes('--no-cache'),
+      enabled: !isProduction && !process.argv.includes('--no-cache'),
       plugins: [
         contentful({
           client,

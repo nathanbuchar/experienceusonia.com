@@ -7,7 +7,7 @@
           {% set hasSublinks = navLink.fields.subLinks.length > 0 %}
           <li class="{{ classnames('nav-module__link', { active: isActive }) }}">
             <a href="{{ navLink.fields.url }}">
-              {{ navLink.fields.name }}
+              {{ navLink.fields.name | safe }}
             </a>
             {% if isActive and hasSublinks %}
               <ol class="nav-module__sub-links">

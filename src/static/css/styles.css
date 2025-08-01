@@ -57,6 +57,11 @@ small {
   line-height: 17px;
 }
 
+sup {
+  font-size: 66%;
+  vertical-align: super;
+}
+
 @media (max-width: 768px) {
   p, li, center {
     line-height: 28px;

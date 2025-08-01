@@ -15,6 +15,16 @@
   text-wrap: pretty;
 }
 
+.paragraph-module.module.footnotes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.paragraph-module.module.footnotes li {
+  padding-left: 32px;
+  text-indent: -32px;
+}
+
 @media (max-width: 1024px)  {
   .paragraph-module__content {
     grid-column: span 10;

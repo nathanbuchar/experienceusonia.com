@@ -1,4 +1,4 @@
-<div class="paragraph-module module">
+<div class="paragraph-module module {{ classnames(customClasses) }}">
   <div class="paragraph-module__content">
     {% if isInline %}
       <p>{{ content | markdownInline | safe }}</p>
