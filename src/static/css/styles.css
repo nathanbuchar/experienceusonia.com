@@ -59,7 +59,9 @@ small {
 
 sup {
   font-size: 66%;
-  vertical-align: super;
+  vertical-align: top;
+  position: relative;
+  top: -0.5em;
 }
 
 @media (max-width: 768px) {
