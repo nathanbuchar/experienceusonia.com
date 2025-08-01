@@ -15,14 +15,25 @@
   text-wrap: pretty;
 }
 
+.paragraph-module.module.footnotes {
+  margin-top: 96px;
+}
+
+.paragraph-module.module.footnotes .paragraph-module__content {
+  border-top: 1px solid var(--text-color);
+}
+
 .paragraph-module.module.footnotes ul {
   list-style-type: none;
   padding: 0;
 }
 
 .paragraph-module.module.footnotes li {
-  padding-left: 32px;
-  text-indent: -32px;
+  padding-left: 24px;
+  text-indent: -24px;
+  font-size: 13px;
+  line-height: 17px;
+  margin-bottom: 12px;
 }
 
 @media (max-width: 1024px)  {
