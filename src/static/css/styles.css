@@ -46,7 +46,7 @@ body {
   }
 }
 
-p, li, center, em, strong {
+p, li, center {
   margin: 0;
   font-size: 17px;
   line-height: 27px;
@@ -58,7 +58,7 @@ small {
 }
 
 @media (max-width: 768px) {
-  p, li, center, em, strong {
+  p, li, center {
     line-height: 28px;
   }
 }
