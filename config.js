@@ -15,30 +15,37 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 Builder.build({
   render,
+  watch: {
+    dir: 'src',
+    enabled: process.argv.includes('--watch'),
+  },
   plugins: [
     clean('dist'),
     cache({
+      key: 'plugins',
       enabled: !isProduction && !process.argv.includes('--no-cache'),
-      plugins: [
-        contentful({
-          client,
-          sources: [
-            {
-              key: 'pages',
-              contentType: 'page',
-            },
-            {
-              key: 'navLinks',
-              contentType: 'navLink',
-            },
-            {
-              key: 'opengraph',
-              contentType: 'opengraph',
-            },
-          ],
-        }),
-        tickets(),
-      ],
+      run() {
+        return Builder.runPlugins([
+          tickets(),
+          contentful({
+            client,
+            sources: [
+              {
+                key: 'pages',
+                contentType: 'page',
+              },
+              {
+                key: 'navLinks',
+                contentType: 'navLink',
+              },
+              {
+                key: 'opengraph',
+                contentType: 'opengraph',
+              },
+            ],
+          }),
+        ]);
+      },
     }),
     copy({
       from: 'src/static',
