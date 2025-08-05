@@ -1,11 +1,14 @@
 .header-module.module {
   margin-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  align-items: center;
 }
 
 .header-module a {
   display: flex;
-  grid-row: 1;
-  grid-column: span 2;
+  width: 72px;
   aspect-ratio: 3 / 4;
 }
 
@@ -31,15 +34,10 @@
 }
 
 .header-module__metadata {
-  margin-top: 8px;
-  grid-row: 2;
-  grid-column: span 3;
   font-size: 13px;
   line-height: 17px;
 }
 
-@media (max-width: 768px) {
-  .header-module__metadata {
-    display: none;
-  }
+.header-module__metadata strong {
+  font-size: 15px;
 }
