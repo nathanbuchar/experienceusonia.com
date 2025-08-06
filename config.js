@@ -14,10 +14,6 @@ import tickets from './lib/plugins/tickets.js';
 
 Builder.build({
   render,
-  context: {
-    isDevelopment: env.isDevelopment,
-    isProduction: env.isProduction,
-  },
   watch: {
     dir: 'src',
     enabled: process.argv.includes('--watch'),
@@ -25,11 +21,10 @@ Builder.build({
   plugins: [
     clean('dist'),
     cache({
-      key: 'plugins',
+      key: 'contentful',
       enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
       run() {
         return Builder.runPlugins([
-          tickets(),
           contentful({
             client,
             sources: [
@@ -50,6 +45,15 @@ Builder.build({
         ]);
       },
     }),
+    cache({
+      key: 'tickets',
+      enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
+      run() {
+        return Builder.runPlugins([
+          tickets(),
+        ]);
+      },
+    }),
     copy({
       from: 'src/static',
       to: 'dist',
@@ -61,23 +65,17 @@ Builder.build({
       dest: 'dist/404.html',
       include: ['navLinks', 'opengraph'],
     },
-    () => {
-      if (env.isDevelopment) {
-        return [
-          {
-            template: 'test.njk',
-            dest: 'dist/test/index.html',
-            include: ['navLinks', 'opengraph'],
-          },
-          {
-            template: 'debug.njk',
-            dest: 'dist/debug/index.html',
-            include: '*',
-          },
-        ];
-      }
-
-      return [];
+    {
+      template: 'test.njk',
+      dest: 'dist/test/index.html',
+      include: ['navLinks', 'opengraph'],
+      enabled: env.isDevelopment,
+    },
+    {
+      template: 'debug.njk',
+      dest: 'dist/debug/index.html',
+      include: '*',
+      enabled: env.isDevelopment,
     },
     (ctx) => {
       return ctx.pages.map((page) => {
