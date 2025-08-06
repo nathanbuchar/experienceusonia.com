@@ -3,6 +3,7 @@ import 'dotenv/config';
 import Builder from './lib/builder.js';
 
 import client from './lib/client.js';
+import env from './lib/env.js';
 import render from './lib/render.js';
 
 import cache from './lib/plugins/cache.js';
@@ -11,10 +12,12 @@ import contentful from './lib/plugins/contentful.js';
 import copy from './lib/plugins/copy.js';
 import tickets from './lib/plugins/tickets.js';
 
-const isProduction = process.env.NODE_ENV === 'production';
-
 Builder.build({
   render,
+  context: {
+    isDevelopment: env.isDevelopment,
+    isProduction: env.isProduction,
+  },
   watch: {
     dir: 'src',
     enabled: process.argv.includes('--watch'),
@@ -23,7 +26,7 @@ Builder.build({
     clean('dist'),
     cache({
       key: 'plugins',
-      enabled: !isProduction && !process.argv.includes('--no-cache'),
+      enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
       run() {
         return Builder.runPlugins([
           tickets(),
@@ -58,15 +61,23 @@ Builder.build({
       dest: 'dist/404.html',
       include: ['navLinks', 'opengraph'],
     },
-    {
-      template: 'test.njk',
-      dest: 'dist/test/index.html',
-      include: ['navLinks', 'opengraph'],
-    },
-    {
-      template: 'debug.njk',
-      dest: 'dist/debug/index.html',
-      include: '*',
+    () => {
+      if (env.isDevelopment) {
+        return [
+          {
+            template: 'test.njk',
+            dest: 'dist/test/index.html',
+            include: ['navLinks', 'opengraph'],
+          },
+          {
+            template: 'debug.njk',
+            dest: 'dist/debug/index.html',
+            include: '*',
+          },
+        ];
+      }
+
+      return [];
     },
     (ctx) => {
       return ctx.pages.map((page) => {

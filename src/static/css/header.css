@@ -38,6 +38,14 @@
   line-height: 17px;
 }
 
+.header-module__title {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 12px;
+  display: block;
+}
+
 .header-module__metadata strong {
   font-size: 15px;
 }
