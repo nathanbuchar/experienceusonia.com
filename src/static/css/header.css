@@ -28,8 +28,7 @@
 }
 
 .header-module__logo svg {
-  transform: scale(1.04);
-  transform-origin: top center;
+  padding: 2px;
   color: var(--primary-color);
 }
 
