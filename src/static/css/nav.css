@@ -37,7 +37,7 @@
 
 .nav-module__link.active a,
 .nav-module__link a:hover {
-  text-decoration: line-through;
+  text-decoration: underline;
 }
 
 .nav-module__sub-links {
@@ -60,7 +60,7 @@
 }
 
 .nav-module__link.active .nav-module__sub-link a:hover {
-  text-decoration: line-through;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
