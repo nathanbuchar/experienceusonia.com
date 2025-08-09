@@ -3,7 +3,7 @@
   margin: 27px 0;
 }
 
-.callout-module__content {
+.callout-module .callout-module__content {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
@@ -12,8 +12,13 @@
   border: 1px solid var(--text-color);
 }
 
+.callout-module .callout-module__content p {
+  font-size: 15px;
+  line-height: 22px;
+}
+
 @media (max-width: 1024px)  {
-  .callout-module__content {
+  .callout-module .callout-module__content {
     grid-column: span 10;
   }
 }
@@ -23,7 +28,7 @@
     margin: 28px 0;
   }
 
-  .callout-module__content {
+  .callout-module .callout-module__content {
     grid-column: span 6;
   }
 }
