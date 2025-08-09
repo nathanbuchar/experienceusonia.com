@@ -6,12 +6,12 @@
   border-top: 1px solid var(--text-color);
   padding-top: 48px;
   grid-row: 1;
-  grid-column: span 10;
+  grid-column: span 12;
 }
 
 .section-module__content {
   grid-row: 2;
-  grid-column: span 8;
+  grid-column: span 10;
 }
 
 .section-module .paragraph-module.module {
@@ -26,7 +26,7 @@
 
 @media (max-width: 1024px)  {
   .section-module__content {
-    grid-column: span 10;
+    grid-column: span 12;
   }
 }
 
@@ -37,7 +37,7 @@
 
   .section-module__title,
   .section-module__content {
-    grid-column: span 6;
+    grid-column: span 8;
   }
 
   .section-module__title {
