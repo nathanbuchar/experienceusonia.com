@@ -1,0 +1,7 @@
+<ul class="banners">
+  {% for banner in banners %}
+    <li class="banner">
+      {{ banner.fields.content | markdownInline | safe }}
+    </li>
+  {% endfor %}
+</ul>

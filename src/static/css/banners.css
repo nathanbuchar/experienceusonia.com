@@ -1,0 +1,21 @@
+.banners {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  padding: 8px;
+  margin: 12px 48px 0;
+  border: 1px solid var(--text-color);
+  font-size: 15px;
+  line-height: 22px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    margin: 12px;
+  }
+}

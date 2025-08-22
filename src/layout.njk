@@ -36,20 +36,25 @@
     {% block extraHead %}{% endblock %}
   </head>
   <body>
-    <div id="#top"></div>
     {% include "partials/skip-link.njk" %}
-    {% include "partials/floating-links.njk" %}
-    {{ renderModule("header") }}
-    <div id="content">
-      {{ renderModule("nav") }}
-      {% include "partials/trespassing.njk" %}
-      <div>
-        <main id="main">
-          {% block content %}
-            {# Page content goes here. #}
-          {% endblock %}
-        </main>
-        {{ renderModule("footer") }}
+    <div id="#top"></div>
+    {% if banners.length > 0 %}
+      {% include "partials/banners.njk" %}
+    {% endif %}
+    <div id="wrapper">
+      {{ renderModule("header") }}
+      <div id="content">
+        {% include "partials/floating-links.njk" %}
+        {{ renderModule("nav") }}
+        {% include "partials/trespassing.njk" %}
+        <div>
+          <main id="main">
+            {% block content %}
+              {# Page content goes here. #}
+            {% endblock %}
+          </main>
+          {{ renderModule("footer") }}
+        </div>
       </div>
     </div>
   </body>

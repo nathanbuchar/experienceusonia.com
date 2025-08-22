@@ -16,6 +16,7 @@
 @import "./tickets.css";
 @import "./separator.css";
 @import "./callout.css";
+@import "./banners.css";
 
 h1, h2, h3, h4, h5, h6, p, blockquote, dl, img, figure, ul, ol {
   margin: 0;
@@ -36,13 +37,22 @@ body {
   color: var(--text-color);
   font-size: 17px;
   line-height: 27px;
-  padding: 48px 48px 0;
 }
 
 @media (max-width: 768px) {
   body {
-    padding: 24px 12px 12px;
     font-weight: 450;
+  }
+}
+
+#wrapper {
+  position: relative;
+  padding: 48px 48px 0;
+}
+
+@media (max-width: 768px) {
+  #wrapper {
+    padding: 24px 12px 12px;
   }
 }
 
@@ -232,8 +242,8 @@ a.button.button-secondary:hover {
 
 .floating-links {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 48px;
+  right: 48px;
   display: flex;
   flex-direction: row;
   align-items: center;

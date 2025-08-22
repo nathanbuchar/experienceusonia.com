@@ -37,6 +37,10 @@ Builder.build({
                 contentType: 'navLink',
               },
               {
+                key: 'banners',
+                contentType: 'banner',
+              },
+              {
                 key: 'opengraph',
                 contentType: 'opengraph',
               },
@@ -63,12 +67,12 @@ Builder.build({
     {
       template: '404.njk',
       dest: 'dist/404.html',
-      include: ['navLinks', 'opengraph'],
+      include: ['navLinks', 'banners', 'opengraph'],
     },
     {
       template: 'test.njk',
       dest: 'dist/test/index.html',
-      include: ['navLinks', 'opengraph'],
+      include: ['navLinks', 'banners', 'opengraph'],
       enabled: env.isDevelopment,
     },
     {
