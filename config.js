@@ -13,7 +13,13 @@ import copy from './lib/plugins/copy.js';
 import tickets from './lib/plugins/tickets.js';
 
 Builder.build({
-  render,
+  render: {
+    renderFn: render,
+    encryption: {
+      enabled: process.argv.includes('--encrypt'),
+      password: process.env.AUTH_PASSWORD,
+    },
+  },
   watch: {
     dir: 'src',
     enabled: process.argv.includes('--watch'),
