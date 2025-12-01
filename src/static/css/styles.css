@@ -88,12 +88,12 @@ sup {
   margin-top: 48px;
 }
 
-#content > div {
-  width: 100%;
-}
-
 #content .section-module:not(:first-child) {
   margin-top: 144px;
+}
+
+#main-wrapper {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
