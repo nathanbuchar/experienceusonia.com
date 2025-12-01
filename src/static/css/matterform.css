@@ -1,0 +1,18 @@
+.matterform-module.module {
+  margin-bottom: 48px;
+}
+
+.matterform-module__content {
+  grid-column: span 10;
+}
+
+@media (max-width: 768px) {
+  .matterform-module.module {
+    padding: 0;
+    margin-bottom: 32px;
+  }
+
+  .matterform-module__content {
+    grid-column: span 6;
+  }
+}
