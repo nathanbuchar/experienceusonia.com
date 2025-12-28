@@ -29,6 +29,6 @@
   }
 
   .callout-module .callout-module__content {
-    grid-column: span 6;
+    grid-column: span 8;
   }
 }
