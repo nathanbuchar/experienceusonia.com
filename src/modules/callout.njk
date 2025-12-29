@@ -1,4 +1,4 @@
-<div class="callout-module module">
+<div class="callout-module {{ 'callout-module--big' if isBig }} module">
   <div class="callout-module__content">
     {% if isInline %}
       <p>{{ content | markdownInline | safe }}</p>
