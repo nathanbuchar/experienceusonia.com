@@ -1,8 +1,9 @@
 .separator-module.module {
+  margin: 48px 0;
 }
 
 .separator-module__separator {
-  grid-column: span 8;
+  grid-column: span 10;
   border-top: 1px solid var(--text-color);
 }
 
