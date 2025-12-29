@@ -7,14 +7,9 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  grid-column: span 8;
+  grid-column: span 10;
   padding: 8px 12px;
   border: 1px solid var(--text-color);
-}
-
-.callout-module .callout-module__content p {
-  font-size: 15px;
-  line-height: 22px;
 }
 
 @media (max-width: 1024px)  {
@@ -29,6 +24,6 @@
   }
 
   .callout-module .callout-module__content {
-    grid-column: span 10;
+    grid-column: span 6;
   }
 }
