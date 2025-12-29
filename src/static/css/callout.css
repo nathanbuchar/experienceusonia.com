@@ -8,12 +8,12 @@
   flex-direction: column;
   row-gap: 20px;
   grid-column: span 10;
-  padding: 24px;
+  padding: 8px 12px;
   border: 1px solid var(--text-color);
 }
 
-.callout-module.callout-module--small .callout-module__content {
-  padding: 8px 12px;
+.callout-module.callout-module--big .callout-module__content {
+  padding: 24px;
 }
   
 
