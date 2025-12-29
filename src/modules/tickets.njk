@@ -45,7 +45,8 @@
               <div class="tickets-module__button">
                 <a href="{{ event.url }}{{ '#ticket_selection' if isUnavailable }}" class="button {{ 'button-secondary' if (isUnavailable or isUpcoming) }}" target="_blank">
                   {% if isUnavailable %}
-                    {{ event.waitlist_call_to_action }}
+                    {# {{ event.waitlist_call_to_action }} #}
+                    Event info
                   {% else %}
                     {{ event.call_to_action }}
                   {% endif %}
