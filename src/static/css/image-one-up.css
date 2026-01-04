@@ -2,10 +2,6 @@
   margin-bottom: 48px;
 }
 
-.image-one-up-module--wide:not(.hero-image).module {
-  /* max-width: 1280px; */
-}
-
 .image-one-up-module--wide.module .image-one-up-module__content {
   grid-column: span 12;
 }
@@ -26,10 +22,6 @@
   .image-one-up-module.module {
     padding: 0;
     margin-bottom: 32px;
-  }
-
-  .image-one-up-module.hero-image {
-    min-height: 60vh;
   }
 
   .image-one-up-module.hero-image img {

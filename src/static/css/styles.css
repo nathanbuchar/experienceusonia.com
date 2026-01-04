@@ -56,7 +56,7 @@ body {
 
 @media (max-width: 768px) {
   #wrapper {
-    padding: 24px 12px 12px;
+    padding: 12px;
   }
 }
 
@@ -268,7 +268,6 @@ a.button.button-secondary:hover {
   padding: 0 24px;
   column-gap: 16px;
   line-height: 12px;
-  pointer-events: none;
 }
 
 .trespassing__glyph,
@@ -287,6 +286,28 @@ a.button.button-secondary:hover {
 
 @media (max-width: 768px) {
   .trespassing {
+    position: relative;
+    transform: none;
+    width: auto;
+    height: auto;
+    bottom: unset;
+    right: unset;
+    padding: 0;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .trespassing__glyph {
     display: none;
+  }
+
+  .trespassing__text {
+    padding: 6px;
+    border: 1px solid var(--text-color);
+    line-height: 17px;
+    text-align: center;
+    flex-shrink: 1;
+    flex-grow: 1;
   }
 }

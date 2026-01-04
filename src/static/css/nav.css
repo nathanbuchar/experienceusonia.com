@@ -33,7 +33,6 @@
   margin-bottom: 0;
   position: relative;
   width: auto;
-  transition: background-color 0.2s ease;
 }
 
 .nav-module__link.has-sublinks:hover {
@@ -69,7 +68,6 @@
   background-color: var(--primary-color-light);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
   z-index: 100;
   padding: 8px 0;
 }
@@ -151,6 +149,7 @@
     top: 44px;
     left: -8px;
     width: calc(100% + 12px);
+    padding: 16px 0;
   }
 
   .nav-module__sub-link a {

@@ -88,5 +88,6 @@
 
   .experience-usonia-module__cta {
     grid-column: span 6;
+    font-size: unset;
   }
 }
