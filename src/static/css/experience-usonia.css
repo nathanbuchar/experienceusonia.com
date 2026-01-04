@@ -13,7 +13,7 @@
 }
 
 .experience-usonia-module__separator {
-  grid-column: span 10;
+  grid-column: span 6;
   border-top: 1px solid var(--text-color);
   padding-top: 32px;
   grid-row: 1;
@@ -45,7 +45,7 @@
   flex-direction: row;
   align-items: center;
   column-gap: 20px;
-  font-size: 16px;
+  font-size: 20px;
   grid-row: 4;
   grid-column: span 8;
 }
@@ -80,6 +80,10 @@
     grid-column: span 6;
     font-size: 32px;
     margin-bottom: 24px;
+  }
+
+  .experience-usonia-module--wide .experience-usonia-module__text {
+    margin-bottom: 32px;
   }
 
   .experience-usonia-module__cta {

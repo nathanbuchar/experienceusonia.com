@@ -1,7 +1,7 @@
 .big-text-module.module {}
 
 .big-text-module.big-text-module--wide .big-text-module__text {
-  grid-column: span 12;
+  grid-column: span 10;
 }
 
 .big-text-module__text {

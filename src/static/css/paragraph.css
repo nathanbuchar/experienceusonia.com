@@ -10,6 +10,10 @@
   grid-column: span 10;
 }
 
+.paragraph-module.wide .paragraph-module__content {
+  grid-column: span 10;
+}
+
 .paragraph-module__content p {
   hyphens: auto;
   text-wrap: pretty;

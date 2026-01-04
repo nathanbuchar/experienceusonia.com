@@ -20,13 +20,6 @@
   font-size: 15px;
   line-height: 22px;
 }
-  
-
-@media (max-width: 1024px)  {
-  .callout-module .callout-module__content {
-    grid-column: span 10;
-  }
-}
 
 @media (max-width: 768px)  {
   .callout-module.module {

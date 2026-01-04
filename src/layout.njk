@@ -38,14 +38,14 @@
   <body>
     {% include "partials/skip-link.njk" %}
     <div id="#top"></div>
-    {% if banners.length > 0 %}
-      {% include "partials/banners.njk" %}
-    {% endif %}
     <div id="wrapper">
       {{ renderModule("header") }}
+      {{ renderModule("nav") }}
+      {% if pageKey == "home" and banners.length > 0 %}
+        {% include "partials/banners.njk" %}
+      {% endif %}
       <div id="content">
-        {% include "partials/floating-links.njk" %}
-        {{ renderModule("nav") }}
+        {# {% include "partials/floating-links.njk" %} #}
         {% include "partials/trespassing.njk" %}
         <div id="main-wrapper">
           <main id="main">

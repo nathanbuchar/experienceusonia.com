@@ -49,6 +49,9 @@ body {
 #wrapper {
   position: relative;
   padding: 48px 48px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -82,10 +85,7 @@ sup {
 }
 
 #content {
-  display: flex;
-  flex-direction: row;
-  column-gap: 24px;
-  margin-top: 48px;
+  margin-top: 0;
 }
 
 #content .section-module:not(:first-child) {
@@ -97,11 +97,6 @@ sup {
 }
 
 @media (max-width: 768px) {
-  #content {
-    flex-direction: column;
-    margin-top: 24px;
-  }
-
   #content .section-module:not(:first-child) {
     margin-top: 64px;
   }
@@ -177,7 +172,7 @@ img.lazyload[src] {
 
 .module {
   width: 100%;
-  max-width: 840px;
+  max-width: 900px;
   display: grid;
   column-gap: 24px;
   grid-template-columns: repeat(12, 1fr);
@@ -199,7 +194,6 @@ a.button {
   color: var(--primary-color);
   padding: 13px 15px;
   display: flex;
-  /* border-radius: 48px; */
   height: 48px;
   font-size: 17px;
   line-height: 18px;
@@ -213,6 +207,13 @@ a.button.button-secondary {
   background: transparent;
 }
 
+button.button.button-large.button-large,
+a.button.button-large.button-large {
+  border-width: 2px;
+  height: 64px;
+  padding: 16px 20px;
+}
+
 button.button.button-secondary:hover,
 a.button.button-secondary:hover {
   background-color: var(--text-color);
@@ -224,6 +225,13 @@ a.button.button-secondary:hover {
   a.button {
     padding: 12px 14px;
     height: 44px;
+  }
+
+  button.button.button-large.button-large,
+  a.button.button-large.button-large {
+    border-width: 2px;
+    height: 56px;
+    padding: 14px 16px;
   }
 }
 
@@ -245,24 +253,6 @@ a.button.button-secondary:hover {
   top: 10px;
 }
 
-.floating-links {
-  position: absolute;
-  top: 48px;
-  right: 48px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  column-gap: 8px;
-}
-
-@media (max-width: 768px) {
-  .floating-links {
-    top: 12px;
-    right: 12px;
-    display: none;
-  }
-}
-
 .trespassing {
   position: fixed;
   right: 48px;
@@ -276,21 +266,24 @@ a.button.button-secondary:hover {
   flex-direction: row;
   align-items: center;
   padding: 0 24px;
-  column-gap: 8px;
+  column-gap: 16px;
   line-height: 12px;
   pointer-events: none;
 }
 
-.trespassing::before {
+.trespassing__glyph,
+.trespassing__text {
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* .trespassing__text::before {
   content: '';
   width: 8px;
   height: 8px;
   background-color: var(--text-color);
-}
-
-.tresspassing__text {
-  flex-shrink: 0;
-}
+  display: inline-block;
+} */
 
 @media (max-width: 768px) {
   .trespassing {

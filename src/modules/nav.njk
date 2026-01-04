@@ -1,15 +1,21 @@
-<aside class="nav-module module">
-  <nav class="nav-module__nav">
-    <ol class="nav-module__links">
-      {% for navLink in navLinks | sortByField('order') %}
-        {% if not navLink.fields.isHidden %}
-          {% set isActive = pageKey === navLink.fields.pageKey %}
-          {% set hasSublinks = navLink.fields.subLinks.length > 0 %}
-          <li class="{{ classnames('nav-module__link', { active: isActive }) }}">
-            <a href="{{ navLink.fields.url }}">
-              {{ navLink.fields.name | safe }}
-            </a>
-            {% if isActive and hasSublinks %}
+<nav class="nav-module module">
+  <div class="nav-module__metadata">
+    <strong>Goetsch–Winckler House</strong><br/>
+    Frank Lloyd Wright<br/>
+    Okemos, MI<br/>
+    1940
+  </div>
+  <ol class="nav-module__links">
+    {% for navLink in navLinks | sortByField('order') %}
+      {% if not navLink.fields.isHidden %}
+        {% set isActive = pageKey === navLink.fields.pageKey %}
+        {% set hasSublinks = navLink.fields.subLinks.length > 0 %}
+        <li class="{{ classnames('nav-module__link', { active: isActive, 'has-sublinks': hasSublinks }) }}"{% if hasSublinks %} tabindex="0"{% endif %}>
+          <a class="nav-module__link-anchor" href="{{ navLink.fields.url }}">
+            {{ navLink.fields.name | safe }}
+          </a>
+          {% if hasSublinks %}
+            <div class="nav-module__dropdown">
               <ol class="nav-module__sub-links">
                 {% for subLink in navLink.fields.subLinks %}
                   <li class="nav-module__sub-link">
@@ -19,10 +25,10 @@
                   </li>
                 {% endfor %}
               </ol>
-            {% endif %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ol>
-  </nav>
-</aside>
+            </div>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>

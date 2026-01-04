@@ -1,15 +1,23 @@
 <header class="header-module module">
-  <a href="/" aria-title="Goetsch&ndash;Winckler house; Click to go to the homepage">
-    <div class="header-module__logo">
-      {% include "partials/wordmark.njk" %}
+  <div class="header-module__main">
+    <a href="/" aria-title="Goetsch&ndash;Winckler house; Click to go to the homepage">
+      <div class="header-module__logo">
+        {% include "partials/wordmark.njk" %}
+      </div>
+    </a>
+    <div class="header-module__metadata">
+      <strong>Goetsch–Winckler House</strong><br/>
+      Frank Lloyd Wright<br/>
+      Okemos, MI<br/>
+      1940
     </div>
-  </a>
-  <div class="header-module__metadata">
-    <span class="header-module__title">
-      Goetsch–Winckler House
-    </span>
-    Frank Lloyd Wright<br/>
-    Okemos, MI<br/>
-    1940
+  </div>
+  <div class="header-module__links">
+    <a class="button button-secondary" rel="nofollow noreferrer" target="_blank" href="https://airbnb.com/h/goetschwincklerhouse">
+      {% include "partials/airbnb.njk" %}
+    </a>
+    <a class="button button-secondary" rel="nofollow noreferrer" target="_blank" href="https://instagram.com/goetschwincklerhouse">
+      {% include "partials/instagram.njk" %}
+    </a>
   </div>
 </header>

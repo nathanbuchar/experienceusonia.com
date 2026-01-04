@@ -3,7 +3,7 @@
 }
 
 .image-three-up-module--wide.module {
-  max-width: 1280px;
+  /* max-width: 1280px; */
 }
 
 .image-three-up-module .image-three-up-module__content {
@@ -11,7 +11,7 @@
 }
 
 .image-three-up-module--wide.module .caption-module.module {
-  max-width: 1280px;
+  /* max-width: 1280px; */
 }
 
 .image-three-up-module .image-one-up-module.module {
