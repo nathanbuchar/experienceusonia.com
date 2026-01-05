@@ -24,6 +24,10 @@
     margin-bottom: 32px;
   }
 
+  .image-one-up-module.hero-image {
+    min-height: 340px;
+  }
+
   .image-one-up-module.hero-image img {
     height: 100%;
     object-fit: cover;
