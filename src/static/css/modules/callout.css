@@ -21,12 +21,12 @@
   line-height: 22px;
 }
 
-@media (max-width: 768px)  {
+@media (max-width: 768px) {
   .callout-module.module {
     margin: 28px 0;
   }
 
   .callout-module .callout-module__content {
-    grid-column: span 6;
+    grid-column: span 12;
   }
 }

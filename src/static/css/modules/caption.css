@@ -13,10 +13,6 @@
   line-height: 12px;
 }
 
-.caption-module.caption-module--wide {
-  max-width: 100%;
-}
-
 @media (max-width: 768px) {
   .module .caption-module.module {
     text-align: left;

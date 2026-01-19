@@ -38,24 +38,16 @@
   <body>
     {% include "partials/skip-link.njk" %}
     <div id="#top"></div>
-    <div id="wrapper">
-      {% include "partials/trespassing.njk" %}
-      {{ renderModule("header") }}
-      {{ renderModule("nav") }}
-      {% if pageKey == "home" and banners.length > 0 %}
-        {% include "partials/banners.njk" %}
-      {% endif %}
-      <div id="content">
-        {# {% include "partials/floating-links.njk" %} #}
-        <div id="main-wrapper">
-          <main id="main">
-            {% block content %}
-              {# Page content goes here. #}
-            {% endblock %}
-          </main>
-          {{ renderModule("footer") }}
-        </div>
+    {{ renderModule("header") }}
+    {{ renderModule("nav") }}
+    <main id="main">
+      <div class="modules">
+        {% block content %}
+          {# Page content goes here. #}
+        {% endblock %}
       </div>
-    </div>
+      {% include "partials/extras.njk" %}
+    </main>
+    {{ renderModule("footer") }}
   </body>
 </html>

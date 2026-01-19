@@ -1,8 +1,6 @@
-.image-one-up-module.module {
-  margin-bottom: 48px;
-}
+.image-one-up-module.module {}
 
-.image-one-up-module--wide.module .image-one-up-module__content {
+.image-one-up-module.image-one-up-module--wide .image-one-up-module__content {
   grid-column: span 12;
 }
 
@@ -34,8 +32,7 @@
     object-position: 10%;
   }
 
-  .image-one-up-module--wide.module .image-one-up-module__content,
   .image-one-up-module__content {
-    grid-column: span 6;
+    grid-column: span 12;
   }
 }

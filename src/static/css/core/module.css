@@ -1,0 +1,22 @@
+.modules {
+  grid-column: span 9;
+  gap: 24px;
+}
+
+.module {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 48px;
+}
+
+.module .module {
+  padding: 0;
+  column-span: span 12;
+}
+
+@media (max-width: 768px) {
+  .module {
+    grid-template-columns: repeat(6, 1fr);
+    margin-bottom: 64px;
+  }
+}

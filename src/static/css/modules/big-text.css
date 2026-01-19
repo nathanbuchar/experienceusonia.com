@@ -1,0 +1,20 @@
+.big-text-module.module {
+  margin-bottom: 48px;
+}
+
+.big-text-module__text {
+  font-family: "Libre Bodoni", serif;
+  font-size: 48px;
+  letter-spacing: -0.03em;
+  line-height: 120%;
+  font-style: italic;
+  grid-column: span 10;
+  padding: 24px 0;
+}
+
+@media (max-width: 768px) {
+  .big-text-module__text {
+    padding: 16px 0;
+    font-size: 32px;
+  }
+}

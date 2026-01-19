@@ -1,4 +1,5 @@
-.tickets-module.module {}
+.tickets-module.module {
+}
 
 .tickets-module__events {
   display: flex;
@@ -50,8 +51,8 @@
   font-style: italic;
 }
 
-@media (max-width: 1024px)  {
+@media (max-width: 1024px) {
   .tickets-module__events {
-    grid-column: span 10;
+    grid-column: span 12;
   }
 }
