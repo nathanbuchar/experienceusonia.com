@@ -1,7 +1,12 @@
 .big-text-module.module {}
 
 .big-text-module.big-text-module--wide .big-text-module__text {
-  grid-column: span 10;
+  grid-column: span 12;
+}
+
+.big-text-module:not(.big-text-module--wide) .big-text-module__text {
+  padding: 40px 32px;
+  border: 1px solid var(--text-color);
 }
 
 .big-text-module__text {
@@ -11,12 +16,10 @@
   line-height: 120%;
   font-style: italic;
   grid-column: span 10;
-  padding: 40px 32px;
-  border: 1px solid var(--text-color);
 }
 
 @media (max-width: 768px) {
-  .big-text-module__text {
+  .big-text-module:not(.big-text-module--wide) .big-text-module__text {
     padding: 32px 20px;
     font-size: 32px;
   }

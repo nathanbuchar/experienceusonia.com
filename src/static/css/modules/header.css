@@ -27,14 +27,6 @@
   background-color: var(--text-color);
 }
 
-.header-module a:hover .header-module__logo,
-.header-module a:focus .header-module__logo {
-  background-image: url('/img/goetsch-orbs-logo.webp');
-  background-size: cover;
-  background-position: 36%;
-  background-repeat: no-repeat;
-}
-
 .header-module__logo svg {
   padding: 2px;
   color: var(--primary-color);

@@ -1,13 +1,15 @@
 <div class="newsletter-module module">
-  <div>
-    <strong>Newsletter</strong><br/>
-    Be the first to know about tours and events.
+  <div class="newsletter-module__inner">
+    <div>
+      <strong>Newsletter</strong><br/>
+      <p>Be the first to hear about new tours and events.</p>
+    </div>
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/goetschwincklerhouse"
+      method="post"
+    >
+      <input type="email" name="email" id="email" placeholder="you@example.com" required />
+      <input type="submit" value="Subscribe" />
+    </form>
   </div>
-  <form
-    action="https://buttondown.com/api/emails/embed-subscribe/goetschwincklerhouse"
-    method="post"
-  >
-    <input type="email" name="email" id="email" placeholder="you@example.com" required />
-    <input type="submit" value="Subscribe" />
-  </form>
 </div>

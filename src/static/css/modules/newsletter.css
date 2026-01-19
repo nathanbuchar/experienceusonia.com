@@ -1,26 +1,26 @@
-.newsletter-module {
+.newsletter-module.module{}
+
+.newsletter-module__inner {
   border: 1px solid var(--text-color);
   padding: 16px;
-  font-size: small;
-  line-height: 18px;
   display: flex;
   flex-direction: column;
   row-gap: 24px;
+  grid-column: span 8;
 }
 
-.newsletter form {
+.newsletter-module form {
   display: flex;
-  flex-direction: column;
-  row-gap: 12px;
+  flex-direction: row;
+  gap: 12px;
 }
 
-.newsletter label {
-  font-weight: 500;
+.newsletter-module input[type="email"] {
+  flex-grow: 1;
 }
 
-.newsletter input {}
-
-
-.newsletter .powered-by a {
-  color: var(--text-color);
+@media (max-width: 768px) {
+  .newsletter-module form {
+    flex-direction: column;
+  }
 }

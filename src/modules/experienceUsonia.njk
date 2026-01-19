@@ -1,8 +1,8 @@
-<div class="experience-usonia-module {{ 'experience-usonia-module--wide' if isWide }} module">
-  {% if isWide %}
-    <p class="experience-usonia-module__text">
-      {{ text | markdownInline | safe }}
-    </p>
+<div class="experience-usonia-module module">
+  {% if text %}
+    <div class="experience-usonia-module__text">
+      {{ renderModule("bigText", { wide: true, content: text }) }}
+    </div>
   {% endif %}
   <div class="experience-usonia-module__cta">
     <div class="experience-usonia-module__buttons">
