@@ -8,27 +8,6 @@
   margin-bottom: 96px;
 }
 
-.experience-usonia-module--wide .experience-usonia-module__separator {
-  grid-column: span 12;
-}
-
-.experience-usonia-module__separator {
-  grid-column: span 6;
-  border-top: 1px solid var(--text-color);
-  padding-top: 32px;
-  grid-row: 1;
-}
-
-.experience-usonia-module--wide .experience-usonia-module__tagline {
-  grid-column: span 8;
-}
-
-.experience-usonia-module__tagline {
-  margin-bottom: 36px;
-  grid-row: 2;
-  grid-column: span 4;
-}
-
 .experience-usonia-module__text {
   font-family: 'Libre Bodoni', serif;
   font-size: 48px;
@@ -37,7 +16,7 @@
   font-style: italic;
   margin-bottom: 48px;
   grid-row: 3;
-  grid-column: span 10;
+  grid-column: span 12;
 }
 
 .experience-usonia-module__cta {
