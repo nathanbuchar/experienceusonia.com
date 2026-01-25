@@ -11,6 +11,7 @@
         {% set isUpcoming = event.tickets_available === 'upcoming' %}
         {% set numSeats = ticket.quantity_total %}
         {% set numOrders = ticket.quantity_issued %}
+        {% set eventInstanceURL = "https://www.tickettailor.com/checkout/view-event/id/" + event.event_series_id + "/chk/" + event.chk %}; 
         <li class="tickets-module__event">
           <div class="tickets-module__event-inner">
             <h3 class="tickets-module__event-title">
@@ -44,7 +45,7 @@
                 {% endif %}
               </div>
               <div class="tickets-module__button">
-                <a href="{{ event.url }}{{ '#ticket_selection' if isRegularTicketsSoldOut }}" class="button {{ 'button-secondary' if (isRegularTicketsSoldOut or isUpcoming) }}" target="_blank">
+                <a href="{{ eventInstanceURL }}{{ '#ticket_selection' if isRegularTicketsSoldOut }}" class="button {{ 'button-secondary' if (isRegularTicketsSoldOut or isUpcoming) }}" target="_blank">
                   {% if isRegularTicketsSoldOut %}
                     {# {{ event.waitlist_call_to_action }} #}
                     {{ event.call_to_action }}
