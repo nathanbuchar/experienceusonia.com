@@ -11,7 +11,7 @@
         {% set isUpcoming = event.tickets_available === 'upcoming' %}
         {% set numSeats = ticket.quantity_total %}
         {% set numOrders = ticket.quantity_issued %}
-        {% set eventInstanceURL = "https://www.tickettailor.com/checkout/view-event/id/" + event.event_series_id + "/chk/" + event.chk %}; 
+        {% set eventInstanceURL = "https://www.tickettailor.com/checkout/view-event/id/" + event.id + "/chk/" + event.chk %}; 
         <li class="tickets-module__event">
           <div class="tickets-module__event-inner">
             <h3 class="tickets-module__event-title">
