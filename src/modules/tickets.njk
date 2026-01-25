@@ -6,6 +6,8 @@
         {% set ticket = event.ticket_types[0] %}
         {% set isFreeEvent = ticket.price === 0 %}
         {% set isUnavailable = event.tickets_available === 'false' %}
+        {% set ticketsRemaining = ticket.quantity - quantity_held %}
+        {% set isRegularTicketsSoldOut = ticketsRemaining === 0 %}
         {% set isUpcoming = event.tickets_available === 'upcoming' %}
         {% set numSeats = ticket.quantity_total %}
         {% set numOrders = ticket.quantity_issued %}
@@ -29,9 +31,8 @@
               <p>{{ event.description | truncate('[\r\n]+', '… <a href="' + event.url + '" target="_blank">more</a>') | safe }}</p>
             </div>
             <div class="tickets-module__register">
-              {% set ticketsRemaining = numSeats - numOrders %}
               <div class="tickets-module__spots">
-                {% if isUnavailable %}
+                {% if isRegularTicketsSoldOut %}
                   {{ event.tickets_unavailable_at_message }}
                 {% elif isUpcoming %}
                   {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
@@ -43,8 +44,8 @@
                 {% endif %}
               </div>
               <div class="tickets-module__button">
-                <a href="{{ event.url }}{{ '#ticket_selection' if isUnavailable }}" class="button {{ 'button-secondary' if (isUnavailable or isUpcoming) }}" target="_blank">
-                  {% if isUnavailable %}
+                <a href="{{ event.url }}{{ '#ticket_selection' if isRegularTicketsSoldOut }}" class="button {{ 'button-secondary' if (isRegularTicketsSoldOut or isUpcoming) }}" target="_blank">
+                  {% if isRegularTicketsSoldOut %}
                     {# {{ event.waitlist_call_to_action }} #}
                     {{ event.call_to_action }}
                   {% else %}
