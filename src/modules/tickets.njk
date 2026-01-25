@@ -6,7 +6,7 @@
         {% set ticket = event.ticket_types[0] %}
         {% set isFreeEvent = ticket.price === 0 %}
         {% set isUnavailable = event.tickets_available === 'false' %}
-        {% set ticketsRemaining = ticket.quantity - quantity_held %}
+        {% set ticketsRemaining = ticket.quantity - ticket.quantity_held %}
         {% set isRegularTicketsSoldOut = ticketsRemaining === 0 %}
         {% set isUpcoming = event.tickets_available === 'upcoming' %}
         {% set numSeats = ticket.quantity_total %}
