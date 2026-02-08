@@ -48,7 +48,8 @@
                 <a href="{{ eventInstanceURL }}{{ '#ticket_selection' if isRegularTicketsSoldOut }}" class="button {{ 'button-secondary' if (isRegularTicketsSoldOut or isUpcoming) }}" target="_blank">
                   {% if isRegularTicketsSoldOut %}
                     {# {{ event.waitlist_call_to_action }} #}
-                    {{ event.call_to_action }}
+                    {# {{ event.call_to_action }} #}
+                    No spaces left
                   {% else %}
                     {{ event.call_to_action }}
                   {% endif %}
