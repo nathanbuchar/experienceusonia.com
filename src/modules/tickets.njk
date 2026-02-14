@@ -34,7 +34,8 @@
             <div class="tickets-module__register">
               <div class="tickets-module__spots">
                 {% if isRegularTicketsSoldOut %}
-                  {{ event.tickets_unavailable_at_message }}
+                  {# {{ event.tickets_unavailable_at_message }} #}
+                  No spaces left
                 {% elif isUpcoming %}
                   {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
                   <span class="countdown" data-template="Registration opens on {{ ticketsOnSaleDate }}" data-message="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
@@ -48,8 +49,7 @@
                 <a href="{{ eventInstanceURL }}{{ '#ticket_selection' if isRegularTicketsSoldOut }}" class="button {{ 'button-secondary' if (isRegularTicketsSoldOut or isUpcoming) }}" target="_blank">
                   {% if isRegularTicketsSoldOut %}
                     {# {{ event.waitlist_call_to_action }} #}
-                    {# {{ event.call_to_action }} #}
-                    No spaces left
+                    {{ event.call_to_action }}
                   {% else %}
                     {{ event.call_to_action }}
                   {% endif %}
