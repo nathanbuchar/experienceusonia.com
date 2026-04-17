@@ -1,26 +1,20 @@
-.big-text-module.module {}
-
-.big-text-module.big-text-module--wide .big-text-module__text {
-  grid-column: span 12;
-}
-
-.big-text-module:not(.big-text-module--wide) .big-text-module__text {
-  padding: 40px 32px;
-  border: 1px solid var(--text-color);
+.big-text-module.module {
+  margin-bottom: 48px;
 }
 
 .big-text-module__text {
-  font-family: 'Libre Bodoni', serif;
+  font-family: "Libre Bodoni", serif;
   font-size: 48px;
   letter-spacing: -0.03em;
   line-height: 120%;
   font-style: italic;
   grid-column: span 10;
+  padding: 24px 0;
 }
 
 @media (max-width: 768px) {
-  .big-text-module:not(.big-text-module--wide) .big-text-module__text {
-    padding: 32px 20px;
+  .big-text-module__text {
+    padding: 16px 0;
     font-size: 32px;
   }
 }

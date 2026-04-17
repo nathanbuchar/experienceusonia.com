@@ -3,7 +3,7 @@
 }
 
 .matterport-module__content {
-  grid-column: span 10;
+  grid-column: span 12;
 }
 
 @media (max-width: 768px) {
@@ -13,6 +13,6 @@
   }
 
   .matterport-module__content {
-    grid-column: span 6;
+    grid-column: span 12;
   }
 }

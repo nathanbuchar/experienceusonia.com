@@ -1,9 +1,7 @@
 <div class="experience-usonia-module module">
-  {% if text %}
-    <div class="experience-usonia-module__text">
-      {{ renderModule("bigText", { wide: true, content: text }) }}
-    </div>
-  {% endif %}
+  <div class="experience-usonia-module__text">
+    {{ renderModule("bigText", { content: text }) }}
+  </div>
   <div class="experience-usonia-module__cta">
     <div class="experience-usonia-module__buttons">
       <a class="button button-secondary {{ 'button-large' if isWide }}" href="https://airbnb.com/h/goetschwincklerhouse" rel="nofollow noreferrer" target="__blank" title="Airbnb">

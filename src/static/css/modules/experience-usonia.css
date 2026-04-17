@@ -8,6 +8,12 @@
   margin-bottom: 96px;
 }
 
+.experience-usonia-module__tagline {
+  margin-bottom: 36px;
+  grid-row: 2;
+  grid-column: span 12;
+}
+
 .experience-usonia-module__text {
   grid-column: span 12;
 }

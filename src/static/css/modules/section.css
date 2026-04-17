@@ -1,10 +1,10 @@
 .section-module.module {
-  margin-bottom: 48px;
+  margin-block-end: 48px;
 }
 
 .section-module__title {
   border-top: 1px solid var(--text-color);
-  padding-top: 48px;
+  padding-top: 32px;
   grid-row: 1;
   grid-column: span 12;
 }
@@ -24,20 +24,20 @@
   margin-block-end: 0;
 }
 
-@media (max-width: 1024px)  {
+@media (max-width: 1024px) {
   .section-module__content {
     grid-column: span 12;
   }
 }
 
-@media (max-width: 768px)  {
+@media (max-width: 768px) {
   .section-module.module {
     margin-bottom: 32px;
   }
 
   .section-module__title,
   .section-module__content {
-    grid-column: span 8;
+    grid-column: span 12;
   }
 
   .section-module__title {

@@ -1,6 +1,6 @@
 .paragraph-module.module {
   width: 100%;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 
 .paragraph-module__content {
@@ -10,13 +10,11 @@
   grid-column: span 10;
 }
 
-.paragraph-module.wide .paragraph-module__content {
-  grid-column: span 10;
-}
-
 .paragraph-module__content p {
   hyphens: auto;
   text-wrap: pretty;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .paragraph-module.module.footnotes {
@@ -40,22 +38,22 @@
   margin-bottom: 12px;
 }
 
-@media (max-width: 1024px)  {
-  .paragraph-module__content {
-    grid-column: span 10;
-  }
-}
-
-@media (max-width: 768px)  {
+@media (max-width: 768px) {
   .paragraph-module.module {
     margin-bottom: 32px;
   }
 
   .paragraph-module__content {
-    grid-column: span 8;
+    grid-column: span 12;
   }
 
   .paragraph-module__content h2 {
     margin-bottom: -4px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .paragraph-module__content {
+    grid-column: span 12;
   }
 }

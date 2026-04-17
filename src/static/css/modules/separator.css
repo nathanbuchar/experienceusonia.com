@@ -3,12 +3,12 @@
 }
 
 .separator-module__separator {
-  grid-column: span 10;
+  grid-column: span 12;
   border-top: 1px solid var(--text-color);
 }
 
 @media (max-width: 768px) {
   .separator-module__separator {
-    grid-column: span 6;
+    grid-column: span 12;
   }
 }
