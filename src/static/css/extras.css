@@ -45,3 +45,9 @@
 .newsletter .powered-by a {
   color: var(--text-color);
 }
+
+@media (max-width: 768px) {
+  .extras {
+    flex-direction: column-reverse;
+  }
+}
