@@ -1,5 +1,6 @@
 .big-text-module.module {
   margin-bottom: 48px;
+  color: var(--link-color);
 }
 
 .big-text-module__text {

@@ -11,14 +11,14 @@
 .trespassing {
   border: 1px solid var(--text-color);
   padding: 16px;
-  font-size: small;
+  font-size: 14px;
   line-height: 18px;
 }
 
 .newsletter {
   border: 1px solid var(--text-color);
   padding: 16px;
-  font-size: small;
+  font-size: 14px;
   line-height: 18px;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,12 @@
 
 .newsletter label {
   font-weight: 500;
+}
+
+.newsletter input[type=submit] {
+  background-color: var(--link-color);
+  color: var(--primary-color);
+  border: 1px solid var(--link-color);
 }
 
 
