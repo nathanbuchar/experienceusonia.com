@@ -12,14 +12,8 @@ import contentful from './lib/plugins/contentful.js';
 import copy from './lib/plugins/copy.js';
 import tickets from './lib/plugins/tickets.js';
 
-Builder.build({
-  render: {
-    renderFn: render,
-    encryption: {
-      enabled: process.argv.includes('--encrypt'),
-      password: process.env.AUTH_PASSWORD,
-    },
-  },
+const builder = new Builder({
+  render,
   watch: {
     dir: 'src',
     enabled: process.argv.includes('--watch'),
@@ -29,8 +23,8 @@ Builder.build({
     cache({
       key: 'contentful',
       enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
-      run() {
-        return Builder.runPlugins([
+      handler() {
+        return builder.runPlugins([
           contentful({
             client,
             sources: [
@@ -59,7 +53,7 @@ Builder.build({
       key: 'tickets',
       enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
       run() {
-        return Builder.runPlugins([
+        return builder.runPlugins([
           tickets(),
         ]);
       },
@@ -87,17 +81,17 @@ Builder.build({
       include: '*',
       enabled: env.isDevelopment,
     },
-    (ctx) => {
-      return ctx.pages.map((page) => {
-        return {
-          template: 'page.njk',
-          dest: `dist/${page.fields.url}/index.html`,
-          include: '*',
-          extraContext: {
-            ...page.fields,
-          },
-        };
-      });
-    },
+    (ctx) => [
+      ...ctx.pages.map((page) => ({
+        template: 'page.njk',
+        dest: `dist/${page.fields.url}/index.html`,
+        include: '*',
+        extraContext: {
+          ...page.fields,
+        },
+      }))
+    ],
   ],
 });
+
+builder.build();
