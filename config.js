@@ -23,7 +23,7 @@ const builder = new Builder({
     cache({
       key: 'contentful',
       enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
-      handler() {
+      run() {
         return builder.runPlugins([
           contentful({
             client,
