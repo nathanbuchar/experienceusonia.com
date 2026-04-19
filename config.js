@@ -12,7 +12,7 @@ import contentful from './lib/plugins/contentful.js';
 import copy from './lib/plugins/copy.js';
 import tickets from './lib/plugins/tickets.js';
 
-const builder = new Builder({
+Builder.build({
   render,
   watch: {
     dir: 'src',
@@ -24,7 +24,7 @@ const builder = new Builder({
       key: 'contentful',
       enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
       run() {
-        return builder.runPlugins([
+        return Builder.runPlugins([
           contentful({
             client,
             sources: [
@@ -53,7 +53,7 @@ const builder = new Builder({
       key: 'tickets',
       enabled: env.isDevelopment && !process.argv.includes('--no-cache'),
       run() {
-        return builder.runPlugins([
+        return Builder.runPlugins([
           tickets(),
         ]);
       },
@@ -93,5 +93,3 @@ const builder = new Builder({
     ],
   ],
 });
-
-builder.build();
