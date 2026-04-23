@@ -1,5 +1,6 @@
 .big-text-module.module {
   margin-bottom: 48px;
+  color: var(--link-color);
 }
 
 .big-text-module__text {
@@ -13,6 +14,10 @@
 }
 
 @media (max-width: 768px) {
+  .big-text-module.module {
+    margin-bottom: 32px;
+  }
+
   .big-text-module__text {
     padding: 16px 0;
     font-size: 32px;

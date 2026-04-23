@@ -1,6 +1,7 @@
 .experience-usonia-module.module {
   margin-top: 72px;
   margin-bottom: 128px;
+  color: var(--link-color);
 }
 
 .hero-image + .experience-usonia-module.module {
@@ -35,8 +36,17 @@
   column-gap: 8px;
 }
 
+.experience-usonia-module .big-text-module.module {
+  margin-bottom: 16px;
+}
+
 @media (max-width: 768px) {
   .experience-usonia-module.module {
+    margin-bottom: 64px;
+  }
+
+  .hero-image + .experience-usonia-module.module {
+    margin-top: 0;
     margin-bottom: 64px;
   }
 
@@ -54,5 +64,9 @@
   .experience-usonia-module__cta {
     grid-column: span 12;
     font-size: unset;
+  }
+
+  .experience-usonia-module .big-text-module.module {
+    margin-bottom: 0;
   }
 }

@@ -4,7 +4,7 @@ Extends [Static Website Starter](https://github.com/nathanbuchar/static-website-
 
 **Config**
 
-Define entries and build targets in `config.js`.
+Define entries and build targets in `build.js`.
 
 **Modules**
 

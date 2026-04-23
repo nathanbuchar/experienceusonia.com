@@ -23,7 +23,16 @@
             {% set startHour = toFriendlyETDateLocaleString(event.start.iso, { hour: 'numeric', minute: '2-digit', hour12: true }) %}
             {% set endHour = toFriendlyETDateLocaleString(event.end.iso, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }) %}
             <span class="tickets-module__event-date">
-              {{ startDate }}, {{startHour}}–{{ endHour }}
+              {{-
+                formatMessage({
+                  message: '{startDate}, {startHour}–{endHour}',
+                  values: {
+                    startDate: startDate,
+                    startHour: startHour,
+                    endHour: endHour
+                  }
+                })
+              -}}
             </span>
             <div class="tickets-module__event-description">
               <p>{{ event.description | truncate('[\r\n]+', '… <a href="' + event.url + '" target="_blank">more</a>') | safe }}</p>
@@ -36,10 +45,24 @@
                 {% elif isUpcoming %}
                   {% set ticketsOnSaleDate = toFriendlyETDateLocaleString(event.tickets_available_at.iso, { month: 'short', year: 'numeric', day: 'numeric' }) %}
                   <span class="countdown" data-template="Registration opens on {{ ticketsOnSaleDate }}" data-message="{{ event.tickets_available_at_message }}" data-target="{{ event.tickets_available_at.iso }}">
-                    Registration opens on {{ ticketsOnSaleDate }}
+                    {{-
+                      formatMessage({
+                        message: 'Registration opens on {ticketsOnSaleDate}',
+                        values: {
+                          ticketsOnSaleDate: ticketsOnSaleDate
+                        }
+                      })
+                    -}}
                   </span>
                 {% elif ticketsRemaining > 0 %}
-                  {{ ticketsRemaining }} {{ 'spots' if ticketsRemaining > 1 else 'spot' }} left
+                  {{-
+                    formatMessage({
+                      message: '{ticketsRemaining, plural, =1 {# spot left} other {# spots left}}',
+                      values: {
+                        ticketsRemaining: ticketsRemaining
+                      }
+                    })
+                  -}}
                 {% endif %}
               </div>
               <div class="tickets-module__button">

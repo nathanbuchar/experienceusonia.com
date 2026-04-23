@@ -2,9 +2,9 @@
   --desktop-font-size: 19px/1.5;
   --mobile-font-size: 19px/1.5;
   --header-color: #532104;
-  /*--text-color: #301200;*/
-  --text-color: #F03B11;
+  --text-color: #3b1600;
   --link-color: #F03B11;
+  --text-color: var(--link-color);
   --link-color-alt: #F03B11;
   --primary-color: #FFDDC0;
   --primary-color-light: #FFEDDC;
