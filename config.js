@@ -1,5 +1,3 @@
-import 'dotenv/config';
-
 import Builder from '#lib/builder.js';
 
 import client from '#lib/client.js';
@@ -16,7 +14,7 @@ import watch from '#lib/plugins/watch.js';
 const watchEnabled = process.argv.includes('--watch');
 const cacheDisabled = process.argv.includes('--no-cache');
 
-const builder = new Builder({
+export default {
   render,
   plugins: [
     clean('dist'),
@@ -65,7 +63,7 @@ const builder = new Builder({
     watch({
       dir: 'src',
       enabled: watchEnabled,
-      async handler() {
+      async handler(ctx, builder) {
         await builder.build();
       },
     }),
@@ -99,6 +97,4 @@ const builder = new Builder({
       })),
     ],
   ],
-});
-
-builder.build();
+};

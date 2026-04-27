@@ -8,8 +8,8 @@
     "node": "^23.0.0"
   },
   "scripts": {
-    "build": "node build.js",
-    "server": "node lib/server.js"
+    "build": "node scripts/build.js",
+    "server": "node scripts/server.js"
   },
   "imports": {
     "#lib/*.js": "./lib/*.js"
