@@ -8,7 +8,7 @@ const debug = createDebug('lib:server');
 const server = () => {
   const app = express();
 
-  // Express plugins.
+  // Express middleware.
   app.use(express.static('dist', {
     dotfiles: 'allow',
   }));
@@ -17,6 +17,8 @@ const server = () => {
   app.listen(3000, () => {
     debug('Listening on port 3000...');
   });
+
+  return app;
 };
 
 server();

@@ -13,6 +13,8 @@ const build = async () => {
   // Build the project.
   const builder = new Builder(config);
   await builder.build();
+
+  return builder;
 };
 
 build();

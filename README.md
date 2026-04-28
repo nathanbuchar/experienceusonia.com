@@ -1,6 +1,6 @@
 # Experience Usonia Website
 
-A static website for Goetsch–Winckler House built with a custom static site generator. Content is managed through Contentful CMS and Ticket Tailor, compiled to static HTML, and deployed on Render.com.
+A static website for Goetsch–Winckler House built with a custom static site generator. Content is managed through [Contentful CMS](https://contentful.com) and [Ticket Tailor](https://tickettailor.com), compiled to static HTML, and deployed on [Render.com](https://render.com).
 
 ## Requirements
 
@@ -55,9 +55,9 @@ npm run server
 This is a **static site generator** that:
 
 1. **Fetches content** from Contentful and Ticket Tailor via plugins
-2. **Caches data** during development to speed up builds
+2. **Caches data** during development to speed up builds and minimize unnecessary API requests to prevent rate limiting for free tiers
 3. **Renders pages** using Nunjucks templates
-4. **Outputs static HTML** to the `dist/` directory
+  4. **Outputs static HTML** to the `dist/` directory (or whichever directory you specify in `config.js`)
 
 The build process is controlled by `config.js` which defines:
 - Which plugins to run (data fetching, cleaning, copying assets)
@@ -76,9 +76,7 @@ Run Plugins → Render Targets → Run After-Build Plugins
 - Fetch/transform data and add it to the build context
 - Perform side effects (cleaning directories, copying files, watching for changes)
 
-#### Context
-
-Plugins receive a shared **context object** (`ctx`) that they progressively contribute to. The context starts as an empty object `{}` and each plugin can add data to it:
+**Shared context** (`ctx`) is received by each plugin that they progressively contribute to. The context starts as an empty object `{}` and each plugin can add data to it:
 
 ```javascript
 // Plugin 1 adds pages data
@@ -111,24 +109,12 @@ This shared context is then passed to all templates during the render phase. Plu
 
 Content is stored in Contentful and fetched during builds. The site uses a **modular content** approach where pages are composed of reusable content modules.
 
-#### Content Models → Module Files
-
 Each Contentful content type must have a corresponding Nunjucks template file in `src/modules/`. The **filename must match the Contentful content type API identifier ID exactly**.
 
 **Example:**
 
 - Contentful Content Type ID: `imageOneUp`
 - Required Module File: `src/modules/imageOneUp.njk`
-
-#### How Pages Are Built
-
-Pages in Contentful have a `modules` field containing an array of content modules. The `page.njk` template loops through these modules and renders each one:
-
-```nunjucks
-{% for module in modules %}
-  {{ renderModule(moduleId, moduleFields) }}
-{% endfor %}
-```
 
 The `renderModule()` global function:
 1. Takes the content type ID (e.g., `imageOneUp`)
@@ -203,7 +189,7 @@ The main configuration file (`config.js`) exports an object with:
 
 ### Plugins
 
-Plugins are function which accept configuration options and return objects with optional lifecycle methods:
+Plugins are functions which accept configuration options and return objects with optional lifecycle methods:
 
 ```javascript
 const myPlugin = (config) => {
@@ -249,8 +235,8 @@ The `hydrate()` function is called when cache is expired or doesn't exist. It sh
 
 Targets define pages to generate:
 
-**Static target:**
 ```javascript
+// Static target
 {
   template: '404.njk',
   dest: 'dist/404.html',
@@ -259,15 +245,21 @@ Targets define pages to generate:
 }
 ```
 
-**Dynamic target (function):**
+Targets can also be function, which have access to the shared context:
+
 ```javascript
+// Dynamic target
 (ctx) => ctx.pages.map((page) => ({
   template: 'page.njk',
   dest: `dist/${page.fields.url}/index.html`,
   include: '*',
-  extraContext: page.fields,
+  extraContext: {
+    ...page.fields,
+  },
 }))
 ```
+
+Targets may also be a nested tree of any combination of static or dynamic targets:
 
 **Target options:**
 - `template` - Template file in `src/` to render
@@ -303,9 +295,9 @@ export default myPlugin;
 
 **Important Notes:**
 
-- **Context Mutation**: Plugins mutate the shared `ctx` object. Data you add in one plugin is available to all subsequent plugins and templates.
-- **Plugin Order Matters**: Plugins run sequentially in the order defined in `config.js`. If your plugin depends on data from another plugin, place it after that plugin in the array.
-- **Return Value**: The `run()` method doesn't need to return anything - just mutate `ctx` directly.
+- **Context mutation**: Plugins mutate the shared `ctx` object. Data you add in one plugin is available to all subsequent plugins and templates.
+- **Plugin order matters**: Plugins run sequentially in the order defined in `config.js`. If your plugin depends on data from another plugin, place it after that plugin in the array.
+- **Return value**: The `run()` method doesn't need to return anything — just mutate `ctx` directly.
 
 **Add to config.js:**
 ```javascript
@@ -341,23 +333,6 @@ experienceusonia.com/
 ├── package.json
 └── README.md
 ```
-
-## Deployment
-
-The site is hosted on **Render.com** and automatically deploys when changes are pushed to the main branch.
-
-**Build Command:** `npm run build`  
-**Publish Directory:** `dist`
-
-### Environment Variables on Render
-
-Make sure these are set in the Render dashboard:
-
-- `CONTENTFUL_SPACE_ID`
-- `CONTENTFUL_ACCESS_TOKEN`
-- `CONTENTFUL_HOST`
-- `TICKET_TAILOR_API_KEY`
-- `NODE_ENV=production`
 
 ## Development Workflow
 
@@ -401,22 +376,6 @@ npm run server
 4. Test by adding to a page in Contentful
 5. Build with `--no-cache` to see changes
 
-## Troubleshooting
-
-**Build fails with "Cannot read properties of undefined"**
-- Usually means Contentful data is missing. Run with `--no-cache` to refresh.
-
-**Module not rendering**
-- Check that `src/modules/[contentTypeId].njk` exists
-- Verify the content type ID matches exactly (case-sensitive)
-
-**Changes not appearing**
-- Build with `--no-cache` to bypass cache
-- Clear `.cache/` directory manually if needed
-
-**Port 3000 already in use**
-- Change port in `scripts/server.js` or kill process using port 3000
-
 ## Support
 
 For questions about:
@@ -426,4 +385,5 @@ For questions about:
 
 ## License
 
-UNLICENSED - Private project
+Copyright © 2023–2026 Experience Usonia, LLC
+All rights reserved.

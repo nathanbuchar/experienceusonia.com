@@ -14,7 +14,7 @@ import watch from '#lib/plugins/watch.js';
 const watchEnabled = process.argv.includes('--watch');
 const cacheDisabled = process.argv.includes('--no-cache');
 
-export default {
+const config = {
   render,
   plugins: [
     clean('dist'),
@@ -87,14 +87,18 @@ export default {
       enabled: runtime.isDevelopment,
     },
     (ctx) => [
-      ...ctx.pages.map((page) => ({
-        template: 'page.njk',
-        dest: `dist/${page.fields.url}/index.html`,
-        include: '*',
-        extraContext: {
-          ...page.fields,
-        },
-      })),
+      ...ctx.pages.map((page) => {
+        return {
+          template: 'page.njk',
+          dest: `dist/${page.fields.url}/index.html`,
+          include: '*',
+          extraContext: {
+            ...page.fields,
+          },
+        };
+      }),
     ],
   ],
 };
+
+export default config;
