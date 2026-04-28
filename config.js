@@ -92,7 +92,7 @@ const config = {
       ...ctx.pages.map((page) => {
         return {
           template: 'page.njk',
-          dest: dist(`${page.fields.url}/index.html`),
+          dest: dist(page.fields.url, 'index.html'),
           include: '*',
           extraContext: {
             ...page.fields,

@@ -7,7 +7,7 @@ Plugins are the core mechanism for extending the build system. They can fetch da
 A plugin is a function that returns an object with optional lifecycle methods:
 
 ```javascript
-function myPlugin(options) {
+function myPlugin(opts) {
   return {
     async run(ctx, builder) {
       // Runs before targets are rendered
