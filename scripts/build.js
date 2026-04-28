@@ -10,8 +10,10 @@ const build = async () => {
   // Import build config.
   const { default: config } = await import(pathToConfig);
 
-  // Build the project.
+  // Instantiate the builder.
   const builder = new Builder(config);
+
+  // Build the project.
   await builder.build();
 
   return builder;

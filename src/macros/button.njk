@@ -1,5 +1,5 @@
 {% macro button(href, variant = 'primary', size = 'medium', extraClasses = '') %}
-  <a class="button button-{{ variant }} button-{{ size }} {{ extraClasses }}" rel="nofollow noreferrer" target="_blank" href="https://airbnb.com/h/goetschwincklerhouse">
+  <a class="button button-{{ variant }} button-{{ size }} {{ extraClasses }}" rel="nofollow noreferrer" target="_blank" href="{{ href }}">
     {{ caller() }}
   </a>
 {% endmacro %}
