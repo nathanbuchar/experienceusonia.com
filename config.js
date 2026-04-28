@@ -22,7 +22,7 @@ const config = {
     clean(dist()),
     cache({
       key: 'contentful',
-      enabled: !cacheDisabled,
+      enabled: runtime.isDevelopment && !cacheDisabled,
       hydrate() {
         return Builder.runPlugins([
           contentful({
@@ -51,7 +51,7 @@ const config = {
     }),
     cache({
       key: 'tickets',
-      enabled: !cacheDisabled,
+      enabled: runtime.isDevelopment && !cacheDisabled,
       hydrate() {
         return Builder.runPlugins([
           tickets(),
