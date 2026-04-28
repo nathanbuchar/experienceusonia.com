@@ -1,12 +1,14 @@
+{% from "macros/button.njk" import button %}
+
 <div class="experience-usonia-module module">
   <div class="experience-usonia-module__text">
     {{ renderModule("bigText", { content: text }) }}
   </div>
   <div class="experience-usonia-module__cta">
     <div class="experience-usonia-module__buttons">
-      <a class="button button-secondary {{ 'button-large' if isWide }}" href="https://airbnb.com/h/goetschwincklerhouse" rel="nofollow noreferrer" target="__blank" title="Airbnb">
-        {% include "partials/airbnb.njk" %}
-      </a>
+      {% call button('https://airbnb.com/h/goetschwincklerhouse', 'secondary', 'large') -%}
+        {% include "static/svg/airbnb.svg" %}
+      {%- endcall %}
     </div>
     {% if isWide %}
       Experience Usonia.

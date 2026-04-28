@@ -34,8 +34,11 @@
                 })
               -}}
             </span>
-            <div class="tickets-module__event-description">
-              <p>{{ event.description | truncate('[\r\n]+', '… <a href="' + event.url + '" target="_blank">more</a>') | safe }}</p>
+            <div>
+              <div class="tickets-module__event-description">
+                {{ event.description | safe }}
+              </div>
+              <p><a href="{{ event.url }}" target="_blank">More info</a></p>
             </div>
             <div class="tickets-module__register">
               {% set ticketsRemaining = numSeats - numOrders %}

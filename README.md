@@ -55,7 +55,7 @@ npm run server
 This is a **static site generator** that:
 
 1. **Fetches content** from Contentful and Ticket Tailor via plugins
-2. **Caches data** during development to speed up builds and minimize unnecessary API requests to prevent rate limiting for free tiers
+2. **Caches data** during development to speed up development builds and minimize unnecessary API requests to prevent rate limiting for free tiers
 3. **Renders pages** using Nunjucks templates
   4. **Outputs static HTML** to the `dist/` directory (or whichever directory you specify in `config.js`)
 

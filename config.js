@@ -11,13 +11,15 @@ import copy from '#lib/plugins/copy.js';
 import tickets from '#lib/plugins/tickets.js';
 import watch from '#lib/plugins/watch.js';
 
+import { src, dist } from '#lib/utils/paths.js';
+
 const watchEnabled = process.argv.includes('--watch');
 const cacheDisabled = process.argv.includes('--no-cache');
 
 const config = {
   render,
   plugins: [
-    clean('dist'),
+    clean(dist()),
     cache({
       key: 'contentful',
       enabled: !cacheDisabled,
@@ -57,11 +59,11 @@ const config = {
       },
     }),
     copy({
-      from: 'src/static',
-      to: 'dist',
+      from: src('static'),
+      to: dist(),
     }),
     watch({
-      dir: 'src',
+      dir: src(),
       enabled: watchEnabled,
       async handler(ctx, builder) {
         await builder.build();
@@ -71,18 +73,18 @@ const config = {
   targets: [
     {
       template: '404.njk',
-      dest: 'dist/404.html',
+      dest: dist('404.html'),
       include: ['navLinks', 'banners', 'opengraph'],
     },
     {
       template: 'test.njk',
-      dest: 'dist/test/index.html',
+      dest: dist('test/index.html'),
       include: ['navLinks', 'banners', 'opengraph'],
       enabled: runtime.isDevelopment,
     },
     {
       template: 'debug.njk',
-      dest: 'dist/debug/index.html',
+      dest: dist('debug/index.html'),
       include: '*',
       enabled: runtime.isDevelopment,
     },
@@ -90,7 +92,7 @@ const config = {
       ...ctx.pages.map((page) => {
         return {
           template: 'page.njk',
-          dest: `dist/${page.fields.url}/index.html`,
+          dest: dist(`${page.fields.url}/index.html`),
           include: '*',
           extraContext: {
             ...page.fields,

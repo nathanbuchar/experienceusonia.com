@@ -112,12 +112,9 @@ sup {
 
 button.button,
 a.button {
-  border: 1px solid var(--link-color);
   background-color: var(--link-color);
   color: var(--primary-color);
-  padding: 13px 15px;
   display: flex;
-  height: 48px;
   font-size: 17px;
   line-height: 18px;
   text-decoration: none;
@@ -128,6 +125,13 @@ a.button.button-secondary {
   border: 1px solid var(--link-color);
   color: var(--link-color);
   background: transparent;
+}
+
+button.button.button-medium.button-medium,
+a.button.button-medium.button-medium {
+  border-width: 1px;
+  height: 48px;
+  padding: 13px 15px;
 }
 
 button.button.button-large.button-large,

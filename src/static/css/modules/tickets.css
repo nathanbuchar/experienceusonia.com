@@ -27,6 +27,20 @@
   margin: 0;
 }
 
+.tickets-module__event-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.tickets-module__event-description p + p {
+  margin-top: 16px;
+}
+
 .tickets-module__event-date,
 .tickets-module__register {
   font-size: 17px;
@@ -53,6 +67,6 @@
 
 @media (max-width: 1024px) {
   .tickets-module__events {
-    grid-column: span 12;
+    grid-column: span 10;
   }
 }

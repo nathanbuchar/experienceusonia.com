@@ -1,13 +1,15 @@
+{% from "macros/button.njk" import button %}
+
 <header class="header">
   <a class="header__logo" href="/" aria-title="Goetsch&ndash;Winckler house; Click to go to the homepage">
-    {% include "partials/wordmark.njk" %}
+    {% include "static/svg/wordmark.svg" %}
   </a>
   <div class="header__links">
-    <a class="button button-secondary" rel="nofollow noreferrer" target="_blank" href="https://airbnb.com/h/goetschwincklerhouse">
-      {% include "partials/airbnb.njk" %}
-    </a>
-    <a class="button button-secondary" rel="nofollow noreferrer" target="_blank" href="https://instagram.com/goetschwincklerhouse">
-      {% include "partials/instagram.njk" %}
-    </a>
+    {% call button('https://airbnb.com/h/goetschwincklerhouse', 'secondary') -%}
+      {% include "static/svg/airbnb.svg" %}
+    {%- endcall %}
+    {% call button('https://instagram.com/goetschwincklerhouse', 'secondary') -%}
+      {% include "static/svg/instagram.svg" %}
+    {%- endcall %}
   </div>
 </header>

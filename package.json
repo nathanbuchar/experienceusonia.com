@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "server": "node scripts/server.js"
+    "server": "node scripts/serve.js"
   },
   "imports": {
     "#lib/*.js": "./lib/*.js"
