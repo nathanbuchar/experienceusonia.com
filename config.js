@@ -11,15 +11,20 @@ import copy from '#lib/plugins/copy.js';
 import tickets from '#lib/plugins/tickets.js';
 import watch from '#lib/plugins/watch.js';
 
+import { hasFlag } from '#lib/utils/args.js';
 import { src, dist } from '#lib/utils/paths.js';
 
-const watchEnabled = process.argv.includes('--watch');
-const cacheDisabled = process.argv.includes('--no-cache');
+const watchEnabled = hasFlag('--watch');
+const cacheDisabled = hasFlag('--no-cache');
 
 const config = {
   render,
   plugins: [
     clean(dist()),
+    copy({
+      from: src('static'),
+      to: dist(),
+    }),
     cache({
       key: 'contentful',
       enabled: runtime.isDevelopment && !cacheDisabled,
@@ -57,10 +62,6 @@ const config = {
           tickets(),
         ]);
       },
-    }),
-    copy({
-      from: src('static'),
-      to: dist(),
     }),
     watch({
       dir: src(),

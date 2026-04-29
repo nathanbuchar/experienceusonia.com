@@ -3,9 +3,9 @@ import 'dotenv/config';
 import express from 'express';
 
 import { dist } from '#lib/utils/paths.js';
-import { siteDebug } from '#lib/utils/debug.js';
+import { createDebug } from '#lib/utils/debug.js';
 
-const debug = siteDebug.extend('server');
+const debug = createDebug('server');
 
 const serve = (port = 3000) => {
   const app = express();
