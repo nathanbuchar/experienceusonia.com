@@ -12,7 +12,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 24px;
-  grid-column: span 9;
+  grid-column: span 12;
   padding-top: 32px;
 }
 
