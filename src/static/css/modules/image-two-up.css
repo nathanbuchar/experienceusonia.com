@@ -41,4 +41,8 @@
   .image-two-up-module__content {
     grid-column: span 12;
   }
+
+  .image-one-up-module__caption {
+    margin-bottom: -10px;
+  }
 }
