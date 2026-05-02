@@ -1,6 +1,6 @@
 .paragraph-module.module {
   width: 100%;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .paragraph-module__content {
@@ -40,7 +40,7 @@
 
 @media (max-width: 768px) {
   .paragraph-module.module {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .paragraph-module__content {
