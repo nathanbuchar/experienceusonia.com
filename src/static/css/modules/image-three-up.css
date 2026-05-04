@@ -4,13 +4,17 @@
   grid-column: span 10;
 }
 
+.image-three-up-module.image-three-up-module--wide .image-three-up-module__content {
+  grid-column: span 12;
+}
+
 .image-three-up-module .image-one-up-module.module {
   margin-bottom: 12px;
 }
 
 .image-three-up-module .image-one-up-module__content,
 .image-three-up-module .image-two-up-module__content {
-  grid-column: span 10;
+  grid-column: span 12;
 }
 
 .image-three-up-module .image-three-up-module__images {
@@ -28,6 +32,10 @@
 
 .image-three-up-module__caption {
   margin-bottom: -16px;
+}
+
+.image-three-up-module .image-two-up-module {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
