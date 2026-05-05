@@ -49,7 +49,7 @@ const config = {
       ],
     }),
     contentfulImages({
-      dest: dist('img', 'content'),
+      dest: dist('img/content'),
       urlPrefix: '/img/content',
       enableCache: runtime.isDevelopment && !cacheDisabled,
     }),
