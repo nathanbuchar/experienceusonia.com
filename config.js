@@ -7,6 +7,7 @@ import runtime from '#lib/runtime.js';
 import cache from '#lib/plugins/cache.js';
 import clean from '#lib/plugins/clean.js';
 import contentful from '#lib/plugins/contentful.js';
+import contentfulImages from '#lib/plugins/contentfulImages.js';
 import copy from '#lib/plugins/copy.js';
 import tickets from '#lib/plugins/tickets.js';
 import watch from '#lib/plugins/watch.js';
@@ -25,43 +26,35 @@ const config = {
       from: src('static'),
       to: dist(),
     }),
-    cache({
-      key: 'contentful',
-      enabled: runtime.isDevelopment && !cacheDisabled,
-      hydrate() {
-        return Builder.runPlugins([
-          contentful({
-            client,
-            sources: [
-              {
-                key: 'pages',
-                contentType: 'page',
-              },
-              {
-                key: 'navLinks',
-                contentType: 'navLink',
-              },
-              {
-                key: 'banners',
-                contentType: 'banner',
-              },
-              {
-                key: 'opengraph',
-                contentType: 'opengraph',
-              },
-            ],
-          }),
-        ]);
-      },
+    contentful({
+      client,
+      enableCache: runtime.isDevelopment && !cacheDisabled,
+      sources: [
+        {
+          key: 'pages',
+          contentType: 'page',
+        },
+        {
+          key: 'navLinks',
+          contentType: 'navLink',
+        },
+        {
+          key: 'banners',
+          contentType: 'banner',
+        },
+        {
+          key: 'opengraph',
+          contentType: 'opengraph',
+        },
+      ],
     }),
-    cache({
-      key: 'tickets',
-      enabled: runtime.isDevelopment && !cacheDisabled,
-      hydrate() {
-        return Builder.runPlugins([
-          tickets(),
-        ]);
-      },
+    contentfulImages({
+      dest: dist('img', 'content'),
+      urlPrefix: '/img/content',
+      enableCache: runtime.isDevelopment && !cacheDisabled,
+    }),
+    tickets({
+      enableCache: runtime.isDevelopment && !cacheDisabled,
     }),
     watch({
       dir: src(),
